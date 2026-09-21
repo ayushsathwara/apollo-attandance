@@ -33,7 +33,7 @@ searchInput.addEventListener("input", function () {
    SIDEBAR MENU
 ================================ */
 
-const menuItems = document.querySelectorAll(".menu-item");
+/*const menuItems = document.querySelectorAll(".menu-item");
 
 menuItems.forEach(function (item) {
 
@@ -51,7 +51,7 @@ menuItems.forEach(function (item) {
 
     });
 
-});
+});*/
 
 
 /* ================================

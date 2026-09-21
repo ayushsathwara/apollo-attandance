@@ -1,9 +1,7 @@
-const loginForm = document.getElementById("loginForm");
+const loginForm = document.querySelector(".login-form");
 
-loginForm.addEventListener("submit", function(event) {
-
+loginForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    window.location.href = "student-dashboard.html";
-
+    window.location.href = "dashboard.html";
 });
