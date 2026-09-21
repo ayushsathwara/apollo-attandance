@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Time Table | Apollo BCA</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/timetable.css">
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- Header -->
+        <div class="page-header">
+            <div>
+                <h1>Time Table</h1>
+                <p>BCA 3rd Semester • Apollo Institute of Computer Application</p>
+            </div>
+
+            <a href="student-dashboard.html" class="back-btn">
+                ← Dashboard
+            </a>
+        </div>
+
+
+        <!-- Timetable -->
+        <div class="table-card">
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- 07:30 -->
+                        <tr>
+                            <td class="time">
+                                07:30 – 09:15
+                                <span>LAB</span>
+                            </td>
+
+                            <td>
+                                <strong>WDP</strong>
+                                <small class="pv">PV</small>
+                            </td>
+
+                            <td>
+                                <strong>CN</strong>
+                                <small class="vs">VS</small>
+                            </td>
+
+                            <td>
+                                <strong>VC</strong>
+                                <small class="vs">VS</small>
+                            </td>
+
+                            <td>
+                                <strong>OOP</strong>
+                                <small class="pv">PV</small>
+                            </td>
+
+                            <td>
+                                <strong>OS</strong>
+                                <small class="sk">SK</small>
+                            </td>
+                        </tr>
+
+
+                        <!-- Break -->
+                        <tr class="break-row">
+                            <td colspan="6">
+                                BREAK &nbsp; (09:15 – 09:30)
+                            </td>
+                        </tr>
+
+
+                        <!-- 09:30 -->
+                        <tr>
+                            <td class="time">09:30 – 10:30</td>
+
+                            <td>
+                                <strong>CN</strong>
+                                <small class="vs">VS</small>
+                            </td>
+
+                            <td>
+                                <strong>Maths-AI</strong>
+                                <small class="sk">SK</small>
+                            </td>
+
+                            <td>
+                                <strong>OOP</strong>
+                                <small class="pv">PV</small>
+                            </td>
+
+                            <td>
+                                <strong>CN</strong>
+                                <small class="vs">VS</small>
+                            </td>
+
+                            <td>
+                                <strong>OOP</strong>
+                                <small class="pv">PV</small>
+                            </td>
+                        </tr>
+
+
+                        <!-- 10:30 -->
+                        <tr>
+                            <td class="time">10:30 – 11:30</td>
+
+                            <td>
+                                <strong>OS</strong>
+                                <small class="sk">SK</small>
+                            </td>
+
+                            <td>
+                                <strong>CN</strong>
+                                <small class="vs">VS</small>
+                            </td>
+
+                            <td>
+                                <strong>Maths-AI</strong>
+                                <small class="sk">SK</small>
+                            </td>
+
+                            <td>
+                                <strong>OS</strong>
+                                <small class="sk">SK</small>
+                            </td>
+
+                            <td>
+                                <strong>Maths-AI</strong>
+                                <small class="sk">SK</small>
+                            </td>
+                        </tr>
+
+
+                        <!-- 11:30 -->
+                        <tr>
+                            <td class="time">11:30 – 12:30</td>
+
+                            <td>
+                                <strong>OOP</strong>
+                                <small class="pv">PV</small>
+                            </td>
+
+                            <td>
+                                <strong>OS</strong>
+                                <small class="sk">SK</small>
+                            </td>
+
+                            <td>
+                                <strong>DTI</strong>
+                                <small class="pv">PV</small>
+                            </td>
+
+                            <td>
+                                <strong>DTI</strong>
+                                <small class="pv">PV</small>
+                            </td>
+
+                            <td>
+                                <span class="empty">—</span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+
+        <!-- Faculty Legend -->
+        <div class="legend-card">
+
+            <h2>Faculty Legend & Subject</h2>
+
+            <div class="legend-grid">
+
+                <!-- PV -->
+                <div class="faculty">
+
+                    <h3>PAYAL VASOYA (PV)</h3>
+
+                    <p>• WDP – WEB DEVELOPMENT PROJECT</p>
+                    <span>(BC03001051)</span>
+
+                    <p>• OOP – OBJECT ORIENTED PROGRAMMING WITH JAVA</p>
+                    <span>(BC03001021)</span>
+
+                    <p>• DTI – DESIGN THINKING AND INNOVATION</p>
+                    <span>(BC03001071)</span>
+
+                </div>
+
+
+                <!-- SK -->
+                <div class="faculty">
+
+                    <h3>SILPAK (SK)</h3>
+
+                    <p>• OS – OPERATING SYSTEM</p>
+                    <span>(BC03001011)</span>
+
+                    <p>• MATHS-AI – MATHS WITH AI</p>
+                    <span>(BC03001041)</span>
+
+                </div>
+
+
+                <!-- VS -->
+                <div class="faculty">
+
+                    <h3>VANDANA SEN (VS)</h3>
+
+                    <p>• VC – VERSION CONTROLLING</p>
+                    <span>(BC03001061)</span>
+
+                    <p>• CN – COMPUTER NETWORKING</p>
+                    <span>(BC03001031)</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/timetable.js"></script>
+
+</body>
+
+</html>

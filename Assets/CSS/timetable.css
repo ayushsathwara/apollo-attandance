@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+.page-container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 30px auto;
+}
+
+
+/* ================= HEADER ================= */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.page-header p {
+    color: #777;
+    font-size: 14px;
+}
+
+.back-btn {
+    text-decoration: none;
+    background: #172554;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #2563eb;
+}
+
+
+/* ================= TABLE CARD ================= */
+
+.table-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+}
+
+th {
+    background: #111827;
+    color: white;
+    padding: 16px 10px;
+    font-size: 15px;
+}
+
+td {
+    text-align: center;
+    border: 1px solid #e2e5ea;
+    padding: 16px 8px;
+    height: 75px;
+    font-size: 14px;
+}
+
+td.time {
+    background: #f8fafc;
+    font-weight: bold;
+    color: #334155;
+}
+
+.time span {
+    display: block;
+    font-size: 11px;
+    color: #777;
+    margin-top: 4px;
+}
+
+td strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+td small {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* Faculty colors */
+
+.pv {
+    background: #eee0ff;
+    color: #7c3aed;
+}
+
+.sk {
+    background: #d8f8e8;
+    color: #087f5b;
+}
+
+.vs {
+    background: #dff4fa;
+    color: #16708b;
+}
+
+.empty {
+    color: #aaa;
+}
+
+
+/* ================= BREAK ================= */
+
+.break-row td {
+    height: 38px;
+    background: #fff3c4;
+    color: #805c00;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-size: 13px;
+}
+
+
+/* ================= LEGEND ================= */
+
+.legend-card {
+    margin-top: 25px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+}
+
+.legend-card h2 {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 22px;
+}
+
+.legend-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.faculty {
+    padding: 25px;
+    min-height: 250px;
+    border-right: 1px solid #e5e7eb;
+}
+
+.faculty:last-child {
+    border-right: none;
+}
+
+.faculty h3 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.faculty:nth-child(1) h3 {
+    color: #7c3aed;
+}
+
+.faculty:nth-child(2) h3 {
+    color: #087f5b;
+}
+
+.faculty:nth-child(3) h3 {
+    color: #16708b;
+}
+
+.faculty p {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 16px;
+    color: #333;
+}
+
+.faculty span {
+    display: block;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .legend-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faculty {
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .faculty:last-child {
+        border-bottom: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .page-container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .page-header p {
+        font-size: 12px;
+    }
+
+    .back-btn {
+        padding: 9px 12px;
+        white-space: nowrap;
+    }
+
+    .table-card {
+        padding: 10px;
+    }
+
+    .legend-card h2 {
+        font-size: 18px;
+    }
+
+    .faculty {
+        padding: 20px 15px;
+    }
+}

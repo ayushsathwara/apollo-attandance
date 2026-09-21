@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apollo BCA - Student Dashboard</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <img src="../Assets/Images/logo apollo.png" alt="Apollo Logo">
+
+                <div class="bca-title">
+                    <span></span>
+                    BCA
+                    <span></span>
+                </div>
+            </div>
+
+
+            <nav class="menu">
+
+                <a href="#" class="menu-item active">
+                    <span class="icon">⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="attendance.html" class="menu-item">
+                    <span class="icon">◔</span>
+                    Attendance
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="icon">▣</span>
+                    Assignments
+                </a>
+
+                <a href="timetable.html" class="menu-item">
+                    <span>📅</span>
+                    Timetable
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="icon">●</span>
+                    Notices
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span class="icon">●</span>
+                    Profile
+                </a>
+
+            </nav>
+
+
+            <button class="logout-btn" id="logoutBtn">
+                <span>↪</span>
+                Logout
+            </button>
+
+        </aside>
+
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main">
+
+
+            <!-- TOP BAR -->
+
+            <header class="topbar">
+
+                <div class="welcome">
+
+                    <h1>
+                        Good Morning, Ayush! 👋
+                    </h1>
+
+                    <p>
+                        Here's what's happening with your academics today.
+                    </p>
+
+                </div>
+
+
+                <div class="top-actions">
+
+                    <!-- Search -->
+
+                    <div class="search">
+
+                        <input type="text" id="searchInput" placeholder="Search...">
+
+                        <span>⌕</span>
+
+                    </div>
+
+
+                    <!-- Notification -->
+
+                    <button class="notification" id="notificationBtn">
+
+                        🔔
+
+                        <b>3</b>
+
+                    </button>
+
+
+                    <!-- Profile -->
+
+                    <div class="profile-mini">
+
+                        <div class="avatar">
+                            👨🏻‍💻
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Ayush Sathwara
+                            </strong>
+
+                            <small>
+                                BCA Sem 3
+                            </small>
+
+                        </div>
+
+                        <span>⌄</span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- ================= STATISTICS ================= -->
+
+            <section class="stats">
+
+
+                <!-- Attendance -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon green">
+                        📈
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Overall Attendance
+                        </p>
+
+                        <h2>
+                            85%
+                        </h2>
+
+                        <small>
+                            Good Job!
+                        </small>
+
+                    </div>
+
+                    <div class="progress">
+                        <span style="width:85%"></span>
+                    </div>
+
+                </article>
+
+
+
+                <!-- Assignments -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon blue">
+                        📋
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Pending Assignments
+                        </p>
+
+                        <h2>
+                            5
+                        </h2>
+
+                    </div>
+
+                    <a href="#">
+                        View all →
+                    </a>
+
+                </article>
+
+
+
+                <!-- Classes -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon purple">
+                        📅
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Today's Classes
+                        </p>
+
+                        <h2>
+                            3
+                        </h2>
+
+                    </div>
+
+                    <a href="#">
+                        View timetable →
+                    </a>
+
+                </article>
+
+
+
+                <!-- Notices -->
+
+                <article class="stat-card">
+
+                    <div class="stat-icon orange">
+                        🔔
+                    </div>
+
+                    <div>
+
+                        <p>
+                            New Notices
+                        </p>
+
+                        <h2>
+                            2
+                        </h2>
+
+                    </div>
+
+                    <a href="#">
+                        View all →
+                    </a>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- ================= CONTENT GRID ================= -->
+
+            <section class="content-grid">
+
+
+                <!-- LEFT CONTENT -->
+
+                <div>
+
+
+                    <!-- TODAY'S CLASSES -->
+
+                    <article class="panel classes-panel">
+
+                        <div class="panel-title">
+
+                            <h2>
+                                📅 &nbsp;Today's Classes
+                            </h2>
+
+                            <button>
+                                View Timetable
+                            </button>
+
+                        </div>
+
+
+                        <div class="table-wrap">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Time
+                                        </th>
+
+                                        <th>
+                                            Subject
+                                        </th>
+
+                                        <th>
+                                            Faculty
+                                        </th>
+
+                                        <th>
+                                            Room
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <td>
+                                            10:00 AM - 11:00 AM
+                                        </td>
+
+                                        <td>
+                                            Database Management
+                                            <br>
+                                            System
+                                        </td>
+
+                                        <td>
+                                            Prof. Hiren Shah
+                                        </td>
+
+                                        <td>
+                                            Lab - 2
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            11:00 AM - 12:00 PM
+                                        </td>
+
+                                        <td>
+                                            Web Development
+                                        </td>
+
+                                        <td>
+                                            Prof. Kinjal Patel
+                                        </td>
+
+                                        <td>
+                                            Lab - 3
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            01:00 PM - 02:00 PM
+                                        </td>
+
+                                        <td>
+                                            Data Structures
+                                        </td>
+
+                                        <td>
+                                            Prof. Nirav Mehta
+                                        </td>
+
+                                        <td>
+                                            Lab - 1
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- ATTENDANCE + ASSIGNMENT -->
+
+                    <div class="bottom-cards">
+
+
+                        <!-- Attendance -->
+
+                        <article class="panel overview">
+
+                            <h2>
+                                Attendance Overview
+                            </h2>
+
+
+                            <div class="overview-body">
+
+                                <div class="donut attendance-donut">
+
+                                    <span>
+
+                                        <b>
+                                            85%
+                                        </b>
+
+                                        Overall
+
+                                    </span>
+
+                                </div>
+
+
+                                <div class="legend">
+
+                                    <p>
+                                        <i class="dot green-dot"></i>
+                                        Present
+
+                                        <b>
+                                            102 Days
+                                        </b>
+
+                                        85%
+                                    </p>
+
+
+                                    <p>
+
+                                        <i class="dot blue-dot"></i>
+
+                                        Absent
+
+                                        <b>
+                                            18 Days
+                                        </b>
+
+                                        15%
+
+                                    </p>
+
+
+                                    <p>
+
+                                        Total Classes
+
+                                        <b>
+                                            120 Days
+                                        </b>
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <a href="#" class="panel-link">
+                                View Detailed Attendance →
+                            </a>
+
+                        </article>
+
+
+
+                        <!-- Assignment -->
+
+                        <article class="panel overview">
+
+                            <h2>
+                                Assignment Status
+                            </h2>
+
+
+                            <div class="overview-body">
+
+                                <div class="donut assignment-donut">
+
+                                    <span>
+
+                                        <b>
+                                            12
+                                        </b>
+
+                                        Total
+
+                                    </span>
+
+                                </div>
+
+
+                                <div class="legend">
+
+                                    <p>
+
+                                        <i class="dot green-dot"></i>
+
+                                        Submitted
+
+                                        <b>
+                                            7
+                                        </b>
+
+                                        58%
+
+                                    </p>
+
+
+                                    <p>
+
+                                        <i class="dot orange-dot"></i>
+
+                                        Pending
+
+                                        <b>
+                                            5
+                                        </b>
+
+                                        42%
+
+                                    </p>
+
+
+                                    <p>
+
+                                        <i class="dot red-dot"></i>
+
+                                        Overdue
+
+                                        <b>
+                                            0
+                                        </b>
+
+                                        0%
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <a href="#" class="panel-link">
+                                View All Assignments →
+                            </a>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RIGHT CONTENT -->
+
+                <div class="right-column">
+
+
+                    <!-- UPCOMING ASSIGNMENT -->
+
+                    <article class="panel assignment">
+
+                        <div class="panel-title">
+
+                            <h2>
+                                📝 &nbsp;Upcoming Assignment
+                            </h2>
+
+                        </div>
+
+
+                        <h3>
+                            Web Development Project
+                        </h3>
+
+
+                        <p>
+                            Due Date:
+                            <strong>
+                                25 Aug 2024
+                            </strong>
+                        </p>
+
+
+                        <button>
+                            View Assignment
+                        </button>
+
+
+                        <div class="paper">
+                            📄
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- ANNOUNCEMENTS -->
+
+                    <article class="panel announcements">
+
+                        <div class="panel-title">
+
+                            <h2>
+                                📢 &nbsp;Recent Announcements
+                            </h2>
+
+                            <a href="#">
+                                View All
+                            </a>
+
+                        </div>
+
+
+                        <div class="notice">
+
+                            <span>
+                                📅
+                            </span>
+
+                            <div>
+
+                                <b>
+                                    Internal Exam Schedule Released
+                                </b>
+
+                                <p>
+                                    Check the timetable for Sem 3
+                                </p>
+
+                                <small>
+                                    2 hours ago
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="notice">
+
+                            <span>
+                                ⓘ
+                            </span>
+
+                            <div>
+
+                                <b>
+                                    Holiday on 15th August
+                                </b>
+
+                                <p>
+                                    College will remain closed on
+                                    15th August.
+                                </p>
+
+                                <small>
+                                    1 day ago
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- HELP -->
+
+                    <article class="help">
+
+                        <div>
+
+                            <h2>
+                                Need Help?
+                            </h2>
+
+                            <p>
+                                Contact your faculty or visit
+                                the help center.
+                            </p>
+
+                            <button>
+                                Help Center
+                            </button>
+
+                        </div>
+
+
+                        <div class="helper">
+                            🎧
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <footer>
+
+                © 2024 Apollo Institute of Computer Application.
+                All rights reserved.
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
