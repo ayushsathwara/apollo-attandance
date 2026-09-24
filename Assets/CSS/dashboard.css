@@ -132,15 +132,18 @@ a {
     gap: 12px;
 }
 
-.bca-title span {
-
+.bca-title>span:not(#courseName) {
     width: 34px;
-
     height: 4px;
-
     background: var(--green);
-
     border-radius: 5px;
+}
+
+#courseName {
+    background: none !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
 }
 
 

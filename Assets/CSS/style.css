@@ -111,6 +111,7 @@ body {
 
 .input-group label {
     display: block;
+    margin-top: 15px;
     margin-bottom: 8px;
     font-size: 15px;
     font-weight: 600;
@@ -265,4 +266,85 @@ body {
     color: #0b5fae;
     text-decoration: none;
     font-weight: 600;
+}
+
+/* ================= COURSE DROPDOWN ================= */
+
+#course {
+    width: 100%;
+    height: 58px;
+    padding: 0 45px 0 16px;
+
+    border: 1px solid #cbdcf0;
+    border-radius: 11px;
+
+    background-color: #ffffff;
+    color: #333;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+    cursor: pointer;
+
+    /* Remove browser default arrow */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    transition: 0.3s ease;
+}
+
+
+/* Dropdown hover */
+
+#course:hover {
+    border-color: #1764a5;
+}
+
+
+/* Dropdown focus */
+
+#course:focus {
+    border-color: #1764a5;
+    box-shadow: 0 0 0 3px rgba(23, 100, 165, 0.10);
+}
+
+
+/* Placeholder */
+
+#course option[value=""] {
+    color: #8b9bb0;
+}
+
+
+/* Normal options */
+
+#course option {
+    background: #ffffff;
+    color: #333333;
+    font-size: 15px;
+}
+
+
+/* ================= DROPDOWN ARROW ================= */
+
+.input-wrapper:has(#course) {
+    position: relative;
+}
+
+.input-wrapper:has(#course)::after {
+    content: "⌄";
+
+    position: absolute;
+    right: 17px;
+    top: 50%;
+
+    transform: translateY(-55%);
+
+    color: #1764a5;
+    font-size: 20px;
+    font-weight: bold;
+
+    pointer-events: none;
 }

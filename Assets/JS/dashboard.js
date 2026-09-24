@@ -80,3 +80,15 @@ logoutBtn.addEventListener("click", function () {
     alert("Logout will be connected with PHP later.");
 
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const course = localStorage.getItem("studentCourse");
+
+    const courseName = document.getElementById("courseName");
+
+    if (course && courseName) {
+        courseName.textContent = course;
+    }
+
+});
