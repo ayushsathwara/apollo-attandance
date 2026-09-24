@@ -15,5 +15,5 @@ loginForm.addEventListener("submit", function (event) {
     localStorage.setItem("studentCourse", course);
 
     // Go to dashboard
-    window.location.href = "dashboard.html";
+    window.location.href = "Pages/dashboard.html";
 });
