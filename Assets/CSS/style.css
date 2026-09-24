@@ -17,7 +17,7 @@ body {
 .left-side {
     width: 50%;
     min-height: 100vh;
-    background-image: url("../images/login left.svg");
+    background-image: url("../Images/login left.svg");
     background-color: #EFF8FD;
     background-size: cover;
     background-position: center;
