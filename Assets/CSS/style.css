@@ -348,3 +348,282 @@ body {
 
     pointer-events: none;
 }
+
+/* =========================================================
+   RESPONSIVE LOGIN PAGE
+   ========================================================= */
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 1100px) {
+
+    .left-side {
+        width: 45%;
+    }
+
+    .right-side {
+        width: 55%;
+        padding: 30px;
+    }
+
+    .login-card {
+        max-width: 560px;
+        padding: 45px;
+    }
+
+    .logo img {
+        width: 180px;
+    }
+
+    .title h1 {
+        font-size: 65px;
+    }
+
+    .tagline {
+        font-size: 20px;
+    }
+}
+
+
+/* ---------- SMALL TABLET ---------- */
+
+@media (max-width: 900px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .left-side {
+        width: 100%;
+        min-height: 38vh;
+        height: 38vh;
+    }
+
+    .right-side {
+        width: 100%;
+        min-height: 62vh;
+        padding: 30px 20px;
+    }
+
+    .left-content {
+        transform: scale(0.9);
+    }
+
+    .login-card {
+        max-width: 600px;
+        padding: 40px;
+    }
+
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+
+    .container {
+        min-height: 100vh;
+    }
+
+    .left-side {
+        min-height: 30vh;
+        height: 30vh;
+    }
+
+    .right-side {
+        min-height: 70vh;
+        padding: 20px 15px;
+        align-items: flex-start;
+    }
+
+    .left-content {
+        transform: scale(0.75);
+    }
+
+    .logo img {
+        width: 160px;
+    }
+
+    .title {
+        gap: 12px;
+    }
+
+    .title h1 {
+        font-size: 50px;
+    }
+
+    .tagline {
+        font-size: 17px;
+    }
+
+    .login-card {
+        width: 100%;
+        padding: 30px 22px;
+        border-radius: 20px;
+    }
+
+    .login-heading h1 {
+        font-size: 32px;
+    }
+
+    .login-heading p {
+        font-size: 14px;
+    }
+
+    .heading-line {
+        margin: 18px auto 25px;
+    }
+
+    .input-group {
+        margin-bottom: 16px;
+    }
+
+    .input-group label {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .input-wrapper input,
+    #course {
+        height: 52px;
+        font-size: 15px;
+    }
+
+    .role-section {
+        margin-top: 22px;
+    }
+
+    .role-section h3 {
+        font-size: 15px;
+    }
+
+    .role-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .role-card {
+        min-height: 85px;
+        font-size: 13px;
+        gap: 5px;
+    }
+
+    .role-icon {
+        font-size: 22px;
+    }
+
+    .login-options {
+        margin: 18px 0;
+        gap: 10px;
+    }
+
+    .remember {
+        font-size: 13px;
+    }
+
+    .remember input {
+        width: 16px;
+        height: 16px;
+    }
+
+    .forgot-password {
+        font-size: 13px;
+    }
+
+    .login-btn {
+        height: 52px;
+        font-size: 16px;
+    }
+
+    .contact-text {
+        margin-top: 20px;
+        font-size: 13px;
+    }
+}
+
+
+/* ---------- SMALL MOBILE ---------- */
+
+@media (max-width: 400px) {
+
+    .left-side {
+        min-height: 26vh;
+        height: 26vh;
+    }
+
+    .right-side {
+        min-height: 74vh;
+        padding: 15px 10px;
+    }
+
+    .left-content {
+        transform: scale(0.65);
+    }
+
+    .login-card {
+        padding: 25px 18px;
+        border-radius: 17px;
+    }
+
+    .login-heading h1 {
+        font-size: 28px;
+    }
+
+    .login-heading p {
+        font-size: 13px;
+    }
+
+    .role-container {
+        gap: 6px;
+    }
+
+    .role-card {
+        min-height: 78px;
+        font-size: 12px;
+    }
+
+    .role-icon {
+        font-size: 20px;
+    }
+
+    .login-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+/* ---------- VERY SMALL MOBILE ---------- */
+
+@media (max-width: 350px) {
+
+    .left-side {
+        min-height: 24vh;
+        height: 24vh;
+    }
+
+    .right-side {
+        min-height: 76vh;
+    }
+
+    .login-card {
+        padding: 22px 15px;
+    }
+
+    .login-heading h1 {
+        font-size: 25px;
+    }
+
+    .role-container {
+        grid-template-columns: 1fr;
+    }
+
+    .role-card {
+        min-height: 55px;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 0 20px;
+    }
+
+}
