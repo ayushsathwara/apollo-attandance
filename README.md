@@ -32,7 +32,6 @@ A web-based **Attendance Management System** developed for **Apollo Institute of
 * **Jeet Pandya**
 * **Jay Patel**
 * **Maulik Prajapati**
-* **Rinkal Rathod**
 
 > All team members are collaborating on the development of the Apollo Attendance System.
 
