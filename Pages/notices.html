@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notices | Apollo</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/notices.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="top-header">
+
+        <div>
+            <h2>Notices</h2>
+            <p>Stay updated with the latest college announcements</p>
+        </div>
+
+        <div class="header-right">
+
+            <div class="notification">
+                🔔
+                <span class="notification-dot"></span>
+            </div>
+
+            <div class="user-mini">
+                <div class="mini-avatar" id="miniAvatar">
+                    S
+                </div>
+
+                <strong id="miniName">Student</strong>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="notices-container">
+
+        <!-- PAGE INTRO -->
+        <section class="notice-intro">
+
+            <div>
+                <span class="intro-label">COLLEGE UPDATES</span>
+
+                <h1>Latest Notices</h1>
+
+                <p>
+                    Important announcements, academic updates and
+                    upcoming activities from Apollo Institute.
+                </p>
+            </div>
+
+            <div class="notice-big-icon">
+                📢
+            </div>
+
+        </section>
+
+
+        <!-- FILTERS -->
+        <div class="notice-toolbar">
+
+            <div class="filter-buttons">
+
+                <button class="filter-btn active" data-filter="all">
+                    All
+                </button>
+
+                <button class="filter-btn" data-filter="academic">
+                    Academic
+                </button>
+
+                <button class="filter-btn" data-filter="exam">
+                    Exams
+                </button>
+
+                <button class="filter-btn" data-filter="event">
+                    Events
+                </button>
+
+            </div>
+
+            <div class="notice-count">
+                <span id="noticeCount">6</span> Notices
+            </div>
+
+        </div>
+
+
+        <!-- NOTICE LIST -->
+        <section class="notice-list" id="noticeList">
+
+
+            <!-- NOTICE 1 -->
+            <article class="notice-card" data-category="academic">
+
+                <div class="notice-icon blue">
+                    🎓
+                </div>
+
+                <div class="notice-content">
+
+                    <div class="notice-top">
+
+                        <span class="notice-category academic-tag">
+                            Academic
+                        </span>
+
+                        <span class="notice-date">
+                            04 Oct 2026
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        BCA Semester 3 Academic Updates
+                    </h2>
+
+                    <p>
+                        Students are requested to regularly check the
+                        student portal for subject-wise academic updates,
+                        assignments and practical information.
+                    </p>
+
+                    <div class="notice-footer">
+                        <span>🏫 Apollo Institute</span>
+                        <span>Important</span>
+                    </div>
+
+                </div>
+
+                <span class="new-badge">
+                    NEW
+                </span>
+
+            </article>
+
+
+            <!-- NOTICE 2 -->
+            <article class="notice-card" data-category="exam">
+
+                <div class="notice-icon red">
+                    📝
+                </div>
+
+                <div class="notice-content">
+
+                    <div class="notice-top">
+
+                        <span class="notice-category exam-tag">
+                            Examination
+                        </span>
+
+                        <span class="notice-date">
+                            02 Oct 2026
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Internal Examination Notice
+                    </h2>
+
+                    <p>
+                        Students are advised to keep checking the portal
+                        for internal examination schedules, room details
+                        and other examination-related announcements.
+                    </p>
+
+                    <div class="notice-footer">
+                        <span>📚 Examination Cell</span>
+                        <span>Important</span>
+                    </div>
+
+                </div>
+
+                <span class="new-badge">
+                    NEW
+                </span>
+
+            </article>
+
+
+            <!-- NOTICE 3 -->
+            <article class="notice-card" data-category="event">
+
+                <div class="notice-icon purple">
+                    🎉
+                </div>
+
+                <div class="notice-content">
+
+                    <div class="notice-top">
+
+                        <span class="notice-category event-tag">
+                            Event
+                        </span>
+
+                        <span class="notice-date">
+                            30 Sep 2026
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        College Activity & Event Updates
+                    </h2>
+
+                    <p>
+                        Students can find information about upcoming
+                        college events, activities and participation
+                        details through the student portal.
+                    </p>
+
+                    <div class="notice-footer">
+                        <span>🎯 Student Activities</span>
+                        <span>Event</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- NOTICE 4 -->
+            <article class="notice-card" data-category="academic">
+
+                <div class="notice-icon green">
+                    📚
+                </div>
+
+                <div class="notice-content">
+
+                    <div class="notice-top">
+
+                        <span class="notice-category academic-tag">
+                            Academic
+                        </span>
+
+                        <span class="notice-date">
+                            28 Sep 2026
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Assignment Submission Updates
+                    </h2>
+
+                    <p>
+                        Students should submit their subject assignments
+                        according to the instructions and deadlines
+                        provided by the respective faculty members.
+                    </p>
+
+                    <div class="notice-footer">
+                        <span>📖 Faculty</span>
+                        <span>Academic</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- NOTICE 5 -->
+            <article class="notice-card" data-category="exam">
+
+                <div class="notice-icon orange">
+                    📋
+                </div>
+
+                <div class="notice-content">
+
+                    <div class="notice-top">
+
+                        <span class="notice-category exam-tag">
+                            Examination
+                        </span>
+
+                        <span class="notice-date">
+                            25 Sep 2026
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Practical Examination Information
+                    </h2>
+
+                    <p>
+                        Practical examination details and schedules will
+                        be shared through the official student portal.
+                        Students should check their respective subjects.
+                    </p>
+
+                    <div class="notice-footer">
+                        <span>🧪 Practical Cell</span>
+                        <span>Exam</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- NOTICE 6 -->
+            <article class="notice-card" data-category="event">
+
+                <div class="notice-icon yellow">
+                    🏆
+                </div>
+
+                <div class="notice-content">
+
+                    <div class="notice-top">
+
+                        <span class="notice-category event-tag">
+                            Event
+                        </span>
+
+                        <span class="notice-date">
+                            20 Sep 2026
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Student Activities & Sports Updates
+                    </h2>
+
+                    <p>
+                        Students can check the portal for upcoming
+                        sports activities, student events and participation
+                        announcements.
+                    </p>
+
+                    <div class="notice-footer">
+                        <span>⚽ Student Council</span>
+                        <span>Activity</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+        <!-- EMPTY MESSAGE -->
+        <div class="empty-notices" id="emptyNotices">
+
+            <div>📭</div>
+
+            <h3>No notices found</h3>
+
+            <p>
+                There are no notices in this category.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script src="../Assets/JS/notices.js"></script>
+
+</body>
+
+</html>

@@ -72,23 +72,31 @@ notificationBtn.addEventListener("click", function () {
    LOGOUT
 ================================ */
 
-const logoutBtn =
-    document.getElementById("logoutBtn");
+const logoutBtn = document.getElementById("logoutBtn");
 
-logoutBtn.addEventListener("click", function () {
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", async function () {
 
-    alert("Logout will be connected with PHP later.");
+        try {
+            const response = await fetch(
+                "http://localhost/apollo-backend/auth/logout.php"
+            );
 
-});
+            const result = await response.text();
 
-document.addEventListener("DOMContentLoaded", function () {
+            console.log("Logout:", result);
 
-    const course = localStorage.getItem("studentCourse");
+            localStorage.removeItem("studentCourse");
 
-    const courseName = document.getElementById("courseName");
+            window.location.href =
+                "http://localhost/apollo-attandance/index.html";
 
-    if (course && courseName) {
-        courseName.textContent = course;
-    }
+        } catch (error) {
 
-});
+            console.error("Logout Error:", error);
+            alert("Unable to logout.");
+
+        }
+
+    });
+}
