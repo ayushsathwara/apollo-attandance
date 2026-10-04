@@ -18,23 +18,41 @@ loginForm.addEventListener("submit", async function (event) {
             "http://localhost/apollo-backend/auth/login.php",
             {
                 method: "POST",
+                credentials: "include",
                 body: new URLSearchParams({
                     email: email,
                     password: password,
-                    course: course
+                    course: course,
+                    role: selectedRole
                 })
             }
         );
 
         const result = await response.text();
 
-        if (result === "Login successful!") {
+        if (result.trim() === "Login successful!") {
 
-            // Save selected course
-            localStorage.setItem("studentCourse", course);
+            if (selectedRole === "student") {
 
-            // Go to dashboard
-            window.location.href = "http://localhost/apollo-attandance/Pages/dashboard.html";
+                localStorage.setItem("studentCourse", course);
+
+                window.location.href =
+                    "http://localhost/apollo-attandance/Pages/dashboard.html";
+
+            }
+
+            else if (selectedRole === "faculty") {
+
+                window.location.href =
+                    "http://localhost/apollo-attandance/Pages/faculty-dashboard.html";
+
+            }
+
+            else if (selectedRole === "parent") {
+
+                alert("Parent login will be added later.");
+
+            }
 
         } else {
             alert(result);
@@ -44,4 +62,26 @@ loginForm.addEventListener("submit", async function (event) {
         alert("Unable to connect to server.");
         console.error(error);
     }
+});
+let selectedRole = "student";
+
+const roleCards = document.querySelectorAll(".role-card");
+
+roleCards.forEach(function (card) {
+
+    card.addEventListener("click", function () {
+
+        roleCards.forEach(function (item) {
+            item.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        selectedRole =
+            this.getAttribute("data-role");
+
+        console.log("Selected Role:", selectedRole);
+
+    });
+
 });

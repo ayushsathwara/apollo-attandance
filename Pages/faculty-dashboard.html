@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Faculty Dashboard - Apollo</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/faculty-dashboard.css">
+</head>
+
+<body>
+
+    <div class="faculty-page">
+
+        <!-- HEADER -->
+        <header class="faculty-header">
+
+            <div>
+                <h1>Faculty Dashboard</h1>
+                <p>Welcome, <span id="facultyName">Faculty</span></p>
+            </div>
+
+            <button id="logoutBtn" class="logout-btn">
+                🚪 Logout
+            </button>
+
+        </header>
+
+
+        <!-- WELCOME CARD -->
+        <section class="welcome-card">
+
+            <div>
+                <h2>Welcome, <span id="welcomeName">Faculty</span> 👋</h2>
+
+                <p>
+                    Manage your classes, attendance and students
+                    from here.
+                </p>
+            </div>
+
+            <div class="faculty-avatar">
+                <span id="facultyInitial">F</span>
+            </div>
+
+        </section>
+
+
+        <!-- FACULTY INFORMATION -->
+        <section class="info-section">
+
+            <h2>Faculty Information</h2>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <span>👨‍🏫</span>
+                    <div>
+                        <p>Name</p>
+                        <h3 id="infoName">Loading...</h3>
+                    </div>
+                </div>
+
+
+                <div class="info-card">
+                    <span>🆔</span>
+                    <div>
+                        <p>Employee ID</p>
+                        <h3 id="infoEmployeeId">Loading...</h3>
+                    </div>
+                </div>
+
+
+                <div class="info-card">
+                    <span>📧</span>
+                    <div>
+                        <p>Email</p>
+                        <h3 id="infoEmail">Loading...</h3>
+                    </div>
+                </div>
+
+
+                <div class="info-card">
+                    <span>🏫</span>
+                    <div>
+                        <p>Department</p>
+                        <h3 id="infoDepartment">Loading...</h3>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTIONS -->
+        <section class="actions-section">
+
+            <h2>Faculty Actions</h2>
+
+            <div class="action-grid">
+
+                <a href="mark-attendance.html" class="action-card">
+
+                    <span class="action-icon">📝</span>
+
+                    <div>
+                        <h3>Mark Attendance</h3>
+                        <p>Mark attendance for your students</p>
+                    </div>
+
+                </a>
+
+                <a href="add-class.html" class="action-card">
+
+                    <div class="action-icon">
+                        🗓️
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Add Today's Class
+                        </h3>
+
+                        <p>
+                            Add today's class schedule
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <a href="students.html" class="action-card">
+
+                    <span class="action-icon">👥</span>
+
+                    <div>
+                        <h3>View Students</h3>
+                        <p>View students in your class</p>
+                    </div>
+
+                </a>
+
+                <a href="add-student.html" class="action-card">
+
+                    <div class="action-icon">
+                        ➕
+                    </div>
+
+                    <div>
+                        <h3>Add Student</h3>
+                        <p>Register a new student</p>
+                    </div>
+
+                </a>
+
+
+                <a href="attendance-report.html" class="action-card">
+
+                    <span class="action-icon">📊</span>
+
+                    <div>
+                        <h3>Attendance Report</h3>
+                        <p>View attendance reports</p>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="../Assets/JS/faculty-dashboard.js"></script>
+
+</body>
+
+</html>

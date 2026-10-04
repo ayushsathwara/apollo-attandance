@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance Report - Apollo</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/attendance-report.css">
+
+</head>
+
+<body>
+
+    <div class="report-page">
+
+        <!-- HEADER -->
+
+        <div class="page-header">
+
+            <div>
+                <h1>Attendance Report</h1>
+
+                <p>
+                    View student attendance records
+                </p>
+            </div>
+
+            <a href="faculty-dashboard.html">
+                ← Dashboard
+            </a>
+
+        </div>
+
+
+        <!-- FILTER -->
+
+        <div class="filters">
+
+            <div class="filter-group">
+
+                <label for="subject">
+                    Subject
+                </label>
+
+                <select id="subject">
+
+                    <option value="">
+                        Loading subjects...
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label for="attendanceDate">
+                    Date
+                </label>
+
+                <input type="date" id="attendanceDate">
+
+            </div>
+
+
+            <button type="button" id="loadReport">
+
+                Load Report
+
+            </button>
+
+        </div>
+
+
+        <!-- SUMMARY -->
+
+        <div class="summary-grid">
+
+            <div class="summary-card">
+
+                <span>👥</span>
+
+                <div>
+                    <p>Total Students</p>
+                    <h2 id="totalStudents">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>📚</span>
+
+                <div>
+                    <p>Total Records</p>
+                    <h2 id="totalRecords">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>✅</span>
+
+                <div>
+                    <p>Present</p>
+                    <h2 id="totalPresent">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>❌</span>
+
+                <div>
+                    <p>Absent</p>
+                    <h2 id="totalAbsent">0</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- REPORT TABLE -->
+
+        <div class="table-card">
+
+            <h2>Student Attendance</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Student</th>
+                            <th>Roll No</th>
+                            <th>Subject</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                            <th>Attendance</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="reportBody">
+
+                        <tr>
+
+                            <td colspan="6">
+                                Loading report...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="../Assets/JS/attendance-report.js">
+    </script>
+
+</body>
+
+</html>

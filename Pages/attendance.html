@@ -21,7 +21,7 @@
                 <p>Check your subject-wise attendance</p>
             </div>
 
-            <a href="student-dashboard.html">
+            <a href="dashboard.html">
                 ← Dashboard
             </a>
 
@@ -34,12 +34,16 @@
 
             <div>
                 <p>Overall Attendance</p>
-                <h2>85%</h2>
-                <span>Good Attendance</span>
+
+                <h2 id="overallPercentage">0%</h2>
+
+                <span id="attendanceMessage">
+                    Loading attendance...
+                </span>
             </div>
 
             <div class="circle">
-                <span>85%</span>
+                <span id="circlePercentage">0%</span>
             </div>
 
         </div>
@@ -51,63 +55,9 @@
 
             <h2>Subject Wise Attendance</h2>
 
+            <div id="subjectList">
 
-            <div class="subject-card">
-
-                <div>
-                    <h3>Web Development</h3>
-                    <p>Prof. Payal Vasoya</p>
-                </div>
-
-                <strong>92%</strong>
-
-            </div>
-
-
-            <div class="subject-card">
-
-                <div>
-                    <h3>Database Management System</h3>
-                    <p>Prof. Amit Thakkar</p>
-                </div>
-
-                <strong>88%</strong>
-
-            </div>
-
-
-            <div class="subject-card">
-
-                <div>
-                    <h3>Data Structures</h3>
-                    <p>Prof. Payal Vasoya</p>
-                </div>
-
-                <strong>82%</strong>
-
-            </div>
-
-
-            <div class="subject-card">
-
-                <div>
-                    <h3>Java Programming</h3>
-                    <p>Prof. Payal Vasoya</p>
-                </div>
-
-                <strong>78%</strong>
-
-            </div>
-
-
-            <div class="subject-card">
-
-                <div>
-                    <h3>Computer Networks</h3>
-                    <p>Prof. Vandana Sain</p>
-                </div>
-
-                <strong>85%</strong>
+                <p>Loading attendance...</p>
 
             </div>
 
@@ -116,7 +66,7 @@
     </div>
 
 
-    <script src="js/attendance.js"></script>
+    <script src="../Assets/JS/attendance.js"></script>
 
 </body>
 

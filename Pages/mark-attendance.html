@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mark Attendance - Apollo</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/mark-attendance.css">
+
+</head>
+
+<body>
+
+    <div class="attendance-page">
+
+        <!-- HEADER -->
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>Mark Attendance</h1>
+
+                <p>
+                    Mark attendance for your students
+                </p>
+
+            </div>
+
+            <a href="faculty-dashboard.html">
+                ← Dashboard
+            </a>
+
+        </div>
+
+
+        <!-- ATTENDANCE CONTROLS -->
+
+        <div class="attendance-card">
+
+            <h2>Attendance Details</h2>
+
+
+            <div class="form-grid">
+
+                <!-- SUBJECT -->
+
+                <div class="form-group">
+
+                    <label for="subject">
+                        Subject
+                    </label>
+
+                    <select id="subject">
+
+                        <option value="">
+                            Select Subject
+                        </option>
+
+                        <option value="Web Development Project">
+                            Web Development Project
+                        </option>
+
+                        <option value="Object Oriented Programming With Java">
+                            Object Oriented Programming With Java
+                        </option>
+
+                        <option value="Design Thinking And Innovation">
+                            Design Thinking And Innovation
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DATE -->
+
+                <div class="form-group">
+
+                    <label for="attendanceDate">
+                        Date
+                    </label>
+
+                    <input type="date" id="attendanceDate">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STUDENT LIST -->
+
+        <div class="student-card">
+
+            <div class="student-header">
+
+                <div>
+
+                    <h2>Students</h2>
+
+                    <p>
+                        Mark each student's attendance
+                    </p>
+
+                </div>
+
+                <span id="studentCount">
+                    0 Students
+                </span>
+
+            </div>
+
+
+            <div id="studentList">
+
+                <p class="empty-message">
+                    Select a subject and date first.
+                </p>
+
+            </div>
+
+
+            <!-- SAVE BUTTON -->
+
+            <button type="button" id="saveAttendance" class="save-btn">
+
+                💾 Save Attendance
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="../Assets/JS/mark-attendance.js">
+    </script>
+
+</body>
+
+</html>

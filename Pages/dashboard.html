@@ -139,7 +139,7 @@
 
                         </div>
 
-                        <span>⌄</span>
+                        <!--<span>⌄</span>-->
 
                     </div>
 
@@ -168,18 +168,18 @@
                             Overall Attendance
                         </p>
 
-                        <h2>
-                            85%
+                        <h2 id="dashboardAttendance">
+                            0%
                         </h2>
 
-                        <small>
-                            Good Job!
+                        <small id="attendanceMessage">
+                            Loading...
                         </small>
 
                     </div>
 
                     <div class="progress">
-                        <span style="width:85%"></span>
+                        <span id="attendanceProgress"></span>
                     </div>
 
                 </article>
@@ -292,7 +292,7 @@
                                 📅 &nbsp;Today's Classes
                             </h2>
 
-                            <button>
+                            <button type="button" onclick="window.location.href='timetable.html'">
                                 View Timetable
                             </button>
 
@@ -328,68 +328,12 @@
                                 </thead>
 
 
-                                <tbody>
+                                <tbody id="todayClassesBody">
 
                                     <tr>
 
-                                        <td>
-                                            10:00 AM - 11:00 AM
-                                        </td>
-
-                                        <td>
-                                            Database Management
-                                            <br>
-                                            System
-                                        </td>
-
-                                        <td>
-                                            Prof. Amit Thakkar
-                                        </td>
-
-                                        <td>
-                                            Lab - 2
-                                        </td>
-
-                                    </tr>
-
-
-                                    <tr>
-
-                                        <td>
-                                            11:00 AM - 12:00 PM
-                                        </td>
-
-                                        <td>
-                                            Web Development
-                                        </td>
-
-                                        <td>
-                                            Prof. Payal Vasoya
-                                        </td>
-
-                                        <td>
-                                            Lab - 3
-                                        </td>
-
-                                    </tr>
-
-
-                                    <tr>
-
-                                        <td>
-                                            01:00 PM - 02:00 PM
-                                        </td>
-
-                                        <td>
-                                            Data Structures
-                                        </td>
-
-                                        <td>
-                                            Prof. Payal Vasoya
-                                        </td>
-
-                                        <td>
-                                            Lab - 1
+                                        <td colspan="4">
+                                            Loading today's classes...
                                         </td>
 
                                     </tr>
@@ -417,69 +361,54 @@
                                 Attendance Overview
                             </h2>
 
-
                             <div class="overview-body">
 
-                                <div class="donut attendance-donut">
+                                <div class="donut attendance-donut" id="attendanceDonut">
 
                                     <span>
-
-                                        <b>
-                                            85%
-                                        </b>
-
+                                        <b id="overallPercentage">0%</b>
                                         Overall
-
                                     </span>
 
                                 </div>
-
 
                                 <div class="legend">
 
                                     <p>
                                         <i class="dot green-dot"></i>
+
                                         Present
 
                                         <b>
-                                            102 Days
+                                            <span id="presentCount">0</span>
+                                            Classes
                                         </b>
-
-                                        85%
                                     </p>
 
-
                                     <p>
-
                                         <i class="dot blue-dot"></i>
 
                                         Absent
 
                                         <b>
-                                            18 Days
+                                            <span id="absentCount">0</span>
+                                            Classes
                                         </b>
-
-                                        15%
-
                                     </p>
 
-
                                     <p>
-
                                         Total Classes
 
                                         <b>
-                                            120 Days
+                                            <span id="totalClasses">0</span>
                                         </b>
-
                                     </p>
 
                                 </div>
 
                             </div>
 
-
-                            <a href="#" class="panel-link">
+                            <a href="attendance.html" class="panel-link">
                                 View Detailed Attendance →
                             </a>
 

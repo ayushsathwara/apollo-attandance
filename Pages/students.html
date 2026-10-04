@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Students</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/students.css">
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header class="page-header">
+
+            <div>
+                <h1>Students</h1>
+                <p>View all registered students</p>
+            </div>
+
+            <a href="faculty-dashboard.html" class="back-btn">
+                ← Dashboard
+            </a>
+
+        </header>
+
+
+        <section class="students-card">
+
+            <div class="card-top">
+
+                <div>
+                    <h2>Student List</h2>
+                    <p id="studentCount">
+                        Loading students...
+                    </p>
+                </div>
+
+                <input type="text" id="searchStudent" placeholder="Search student...">
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Roll No</th>
+                            <th>Email</th>
+                            <th>Course</th>
+                            <th>Semester</th>
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="studentTable">
+
+                        <tr>
+
+                            <td colspan="7">
+                                Loading...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="../Assets/JS/students.js"></script>
+
+</body>
+
+</html>

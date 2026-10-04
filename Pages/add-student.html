@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Student</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/add-student.css">
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header class="page-header">
+
+            <div>
+                <h1>Add Student</h1>
+                <p>Register a new student</p>
+            </div>
+
+            <a href="faculty-dashboard.html" class="back-btn">
+                ← Dashboard
+            </a>
+
+        </header>
+
+
+        <section class="form-card">
+
+            <form id="studentForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Student Name
+                        </label>
+
+                        <input type="text" id="name" placeholder="Enter student name" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="rollNo">
+                            Roll Number
+                        </label>
+
+                        <input type="text" id="rollNo" placeholder="Enter roll number" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input type="email" id="email" placeholder="Enter student email" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input type="password" id="password" placeholder="Enter password" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="course">
+                            Course
+                        </label>
+
+                        <select id="course" required>
+
+                            <option value="">
+                                Select Course
+                            </option>
+
+                            <option value="BCA">
+                                BCA
+                            </option>
+
+                            <option value="BBA">
+                                BBA
+                            </option>
+
+                            <option value="MCA">
+                                MCA
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="semester">
+                            Semester
+                        </label>
+
+                        <select id="semester" required>
+
+                            <option value="">
+                                Select Semester
+                            </option>
+
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                            <option value="3">Semester 3</option>
+                            <option value="4">Semester 4</option>
+                            <option value="5">Semester 5</option>
+                            <option value="6">Semester 6</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="submit-btn" id="addStudentBtn">
+
+                    Add Student
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+    <script src="../Assets/JS/add-student.js"></script>
+
+</body>
+
+</html>
