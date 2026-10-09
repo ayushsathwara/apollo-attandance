@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignment Submissions</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/assignment-submissions.css">
+</head>
+
+<body>
+
+    <header class="page-header">
+
+        <div>
+
+            <h1>📋 Assignment Submissions</h1>
+
+            <p>
+                View student submissions and pending assignments
+            </p>
+
+        </div>
+
+        <button onclick="window.location.href='faculty-dashboard.html'">
+            ← Dashboard
+        </button>
+
+    </header>
+
+
+    <main class="submissions-container">
+
+        <!-- ASSIGNMENT SELECT -->
+
+        <section class="panel">
+
+            <div class="panel-title">
+
+                <h2>Select Assignment</h2>
+
+            </div>
+
+            <select id="assignmentSelect">
+
+                <option value="">
+                    Select Assignment
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <!-- SUMMARY -->
+
+        <section class="summary-grid" id="summarySection">
+
+            <div class="summary-card">
+
+                <span>👥</span>
+
+                <p>Total Students</p>
+
+                <h2 id="totalStudents">
+                    0
+                </h2>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>✅</span>
+
+                <p>Submitted</p>
+
+                <h2 id="submittedStudents">
+                    0
+                </h2>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>⏳</span>
+
+                <p>Pending</p>
+
+                <h2 id="pendingStudents">
+                    0
+                </h2>
+
+            </div>
+
+        </section>
+
+
+        <!-- STUDENT LIST -->
+
+        <section class="panel">
+
+            <div class="panel-title">
+
+                <h2>
+                    Student Submissions
+                </h2>
+
+            </div>
+
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+
+                            <th>Student</th>
+
+                            <th>Roll No</th>
+
+                            <th>Status</th>
+
+                            <th>Submitted At</th>
+
+                            <th>File</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="submissionsBody">
+
+                        <tr>
+
+                            <td colspan="6">
+                                Select an assignment
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../Assets/JS/assignment-submissions.js"></script>
+
+</body>
+
+</html>

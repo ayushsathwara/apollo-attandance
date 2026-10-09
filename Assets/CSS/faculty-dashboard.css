@@ -171,6 +171,16 @@ body {
     transition: 0.2s;
 }
 
+.action-card h3 {
+    margin: 0 0 6px 0;
+}
+
+.action-card p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
 .action-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);

@@ -41,9 +41,14 @@
                     Attendance
                 </a>
 
-                <a href="assignments.html" class="menu-item">
+                <a href="study-material.html" class="menu-item">
                     <span class="icon">▣</span>
-                    Assignments & Notes
+                    Study Material
+                </a>
+
+                <a href="student-assignments.html" class="menu-item">
+                    <span class="icon">▣</span>
+                    Assignments
                 </a>
 
                 <a href="timetable.html" class="menu-item">
@@ -200,8 +205,8 @@
                             Pending Assignments
                         </p>
 
-                        <h2>
-                            5
+                        <h2 id="pendingAssignments">
+                            0
                         </h2>
 
                     </div>
@@ -424,15 +429,14 @@
                                 Assignment Status
                             </h2>
 
-
                             <div class="overview-body">
 
-                                <div class="donut assignment-donut">
+                                <div class="donut assignment-donut" id="assignmentDonut">
 
                                     <span>
 
-                                        <b>
-                                            12
+                                        <b id="assignmentTotal">
+                                            0
                                         </b>
 
                                         Total
@@ -450,11 +454,13 @@
 
                                         Submitted
 
-                                        <b>
-                                            7
+                                        <b id="submittedAssignments">
+                                            0
                                         </b>
 
-                                        58%
+                                        <span id="submittedPercentage">
+                                            0%
+                                        </span>
 
                                     </p>
 
@@ -465,11 +471,13 @@
 
                                         Pending
 
-                                        <b>
-                                            5
+                                        <b id="pendingStatusAssignments">
+                                            0
                                         </b>
 
-                                        42%
+                                        <span id="pendingPercentage">
+                                            0%
+                                        </span>
 
                                     </p>
 
@@ -480,11 +488,13 @@
 
                                         Overdue
 
-                                        <b>
+                                        <b id="overdueAssignments">
                                             0
                                         </b>
 
-                                        0%
+                                        <span id="overduePercentage">
+                                            0%
+                                        </span>
 
                                     </p>
 
@@ -493,7 +503,7 @@
                             </div>
 
 
-                            <a href="#" class="panel-link">
+                            <a href="student-assignments.html" class="panel-link">
                                 View All Assignments →
                             </a>
 
@@ -523,20 +533,20 @@
                         </div>
 
 
-                        <h3>
-                            Web Development Project
+                        <h3 id="upcomingAssignmentTitle">
+                            Loading...
                         </h3>
 
 
                         <p>
                             Due Date:
-                            <strong>
-                                25 Aug 2024
+                            <strong id="upcomingAssignmentDueDate">
+                                Loading...
                             </strong>
                         </p>
 
 
-                        <button>
+                        <button id="upcomingAssignmentButton" type="button">
                             View Assignment
                         </button>
 

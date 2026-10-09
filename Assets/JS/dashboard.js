@@ -448,6 +448,519 @@ async function loadTodayClasses() {
 
 }
 
+/* ================================
+   PENDING ASSIGNMENTS
+================================ */
+
+async function loadPendingAssignments() {
+
+    const pendingElement =
+        document.getElementById("pendingAssignments");
+
+
+    if (!pendingElement) {
+        return;
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "http://localhost/apollo-backend/student/assignments.php",
+            {
+                credentials: "include"
+            }
+        );
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Assignments:",
+            data
+        );
+
+
+        if (data.status !== "success") {
+
+            console.error(
+                data.message || "Unable to load assignments."
+            );
+
+            return;
+        }
+
+
+        const assignments =
+            data.assignments || [];
+
+
+        /*
+            Count only Pending assignments
+        */
+
+        let pendingCount = 0;
+
+
+        assignments.forEach(function (assignment) {
+
+            if (assignment.status === "Pending") {
+
+                pendingCount++;
+
+            }
+
+        });
+
+
+        /*
+            Update dashboard
+        */
+
+        pendingElement.textContent =
+            pendingCount;
+
+    }
+    catch (error) {
+
+        console.error(
+            "Pending Assignments Error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* Load pending assignments */
+
+loadPendingAssignments();
+
+/* ================================
+   ASSIGNMENT STATUS
+================================ */
+
+async function loadAssignmentStatus() {
+
+    const totalElement =
+        document.getElementById("assignmentTotal");
+
+    const submittedElement =
+        document.getElementById("submittedAssignments");
+
+    const pendingElement =
+        document.getElementById("pendingStatusAssignments");
+
+    const overdueElement =
+        document.getElementById("overdueAssignments");
+
+    const submittedPercentageElement =
+        document.getElementById("submittedPercentage");
+
+    const pendingPercentageElement =
+        document.getElementById("pendingPercentage");
+
+    const overduePercentageElement =
+        document.getElementById("overduePercentage");
+
+    const donut =
+        document.getElementById("assignmentDonut");
+
+
+    /*
+        Check whether card exists
+    */
+
+    if (
+        !totalElement ||
+        !submittedElement ||
+        !pendingElement ||
+        !overdueElement
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "http://localhost/apollo-backend/student/assignments.php",
+            {
+                credentials: "include"
+            }
+        );
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Assignment Status:",
+            data
+        );
+
+
+        if (data.status !== "success") {
+
+            console.error(
+                data.message ||
+                "Unable to load assignment status."
+            );
+
+            return;
+
+        }
+
+
+        const assignments =
+            data.assignments || [];
+
+
+        /*
+            Count statuses
+        */
+
+        let submitted = 0;
+        let pending = 0;
+        let overdue = 0;
+
+
+        assignments.forEach(function (assignment) {
+
+            if (assignment.status === "Submitted") {
+
+                submitted++;
+
+            }
+            else if (assignment.status === "Pending") {
+
+                pending++;
+
+            }
+            else if (assignment.status === "Overdue") {
+
+                overdue++;
+
+            }
+
+        });
+
+
+        /*
+            Total
+        */
+
+        const total =
+            submitted + pending + overdue;
+
+
+        /*
+            Calculate percentages
+        */
+
+        let submittedPercentage = 0;
+        let pendingPercentage = 0;
+        let overduePercentage = 0;
+
+
+        if (total > 0) {
+
+            submittedPercentage =
+                Math.round(
+                    (submitted / total) * 100
+                );
+
+
+            pendingPercentage =
+                Math.round(
+                    (pending / total) * 100
+                );
+
+
+            overduePercentage =
+                Math.round(
+                    (overdue / total) * 100
+                );
+
+        }
+
+
+        /*
+            Update numbers
+        */
+
+        totalElement.textContent =
+            total;
+
+
+        submittedElement.textContent =
+            submitted;
+
+
+        pendingElement.textContent =
+            pending;
+
+
+        overdueElement.textContent =
+            overdue;
+
+
+        /*
+            Update percentages
+        */
+
+        submittedPercentageElement.textContent =
+            submittedPercentage + "%";
+
+
+        pendingPercentageElement.textContent =
+            pendingPercentage + "%";
+
+
+        overduePercentageElement.textContent =
+            overduePercentage + "%";
+
+
+        /*
+            Update donut
+        */
+
+        if (donut) {
+
+            const submittedEnd =
+                submittedPercentage;
+
+
+            const pendingEnd =
+                submittedPercentage +
+                pendingPercentage;
+
+
+            donut.style.background =
+                `conic-gradient(
+                    #49aa3f 0 ${submittedEnd}%,
+                    #f5a623 ${submittedEnd}% ${pendingEnd}%,
+                    #e74c3c ${pendingEnd}% 100%
+                )`;
+
+        }
+
+    }
+    catch (error) {
+
+        console.error(
+            "Assignment Status Error:",
+            error
+        );
+
+    }
+
+}
+
+/* ================================
+   UPCOMING ASSIGNMENT
+================================ */
+
+async function loadUpcomingAssignment() {
+
+    const titleElement =
+        document.getElementById(
+            "upcomingAssignmentTitle"
+        );
+
+    const dueDateElement =
+        document.getElementById(
+            "upcomingAssignmentDueDate"
+        );
+
+    const button =
+        document.getElementById(
+            "upcomingAssignmentButton"
+        );
+
+
+    if (
+        !titleElement ||
+        !dueDateElement ||
+        !button
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "http://localhost/apollo-backend/student/assignments.php",
+            {
+                credentials: "include"
+            }
+        );
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Upcoming Assignment:",
+            data
+        );
+
+
+        if (data.status !== "success") {
+
+            titleElement.textContent =
+                "Unable to load";
+
+            dueDateElement.textContent =
+                "-";
+
+            return;
+
+        }
+
+
+        const assignments =
+            data.assignments || [];
+
+
+        /*
+            Only Pending assignments
+        */
+
+        const upcomingAssignments =
+            assignments.filter(function (assignment) {
+
+                return assignment.status === "Pending";
+
+            });
+
+
+        /*
+            No upcoming assignment
+        */
+
+        if (upcomingAssignments.length === 0) {
+
+            titleElement.textContent =
+                "No Upcoming Assignment";
+
+            dueDateElement.textContent =
+                "-";
+
+            button.style.display =
+                "none";
+
+            return;
+
+        }
+
+
+        /*
+            assignments.php already sorts
+            by due date ASC
+
+            So first one is nearest.
+        */
+
+        const upcoming =
+            upcomingAssignments[0];
+
+
+        /*
+            Update title
+        */
+
+        titleElement.textContent =
+            upcoming.title;
+
+
+        /*
+            Update due date
+        */
+
+        dueDateElement.textContent =
+            formatAssignmentDate(
+                upcoming.due_date
+            );
+
+
+        /*
+            View Assignment button
+        */
+
+        button.style.display =
+            "inline-block";
+
+
+        button.onclick = function () {
+
+            window.location.href =
+                "student-assignments.html";
+
+        };
+
+    }
+    catch (error) {
+
+        console.error(
+            "Upcoming Assignment Error:",
+            error
+        );
+
+        titleElement.textContent =
+            "Unable to load";
+
+        dueDateElement.textContent =
+            "-";
+
+    }
+
+}
+
+
+/* ================================
+   FORMAT ASSIGNMENT DATE
+================================ */
+
+function formatAssignmentDate(dateString) {
+
+    const date =
+        new Date(
+            dateString + "T00:00:00"
+        );
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+/* Load upcoming assignment */
+
+loadUpcomingAssignment();
+
+
+/* Load assignment status */
+
+loadAssignmentStatus();
+
 
 /* ================================
    FORMAT TIME

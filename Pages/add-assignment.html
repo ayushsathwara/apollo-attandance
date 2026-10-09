@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Assignment</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/add-assignment.css">
+
+</head>
+
+<body>
+
+    <div class="assignment-container">
+
+        <div class="assignment-card">
+
+            <div class="page-header">
+
+                <div>
+                    <h1>➕ Add Assignment</h1>
+                    <p>Create a new assignment for your students</p>
+                </div>
+
+                <button type="button" onclick="window.location.href='faculty-dashboard.html'">
+                    ← Back
+                </button>
+
+            </div>
+
+
+            <form id="assignmentForm">
+
+                <div class="form-group">
+
+                    <label for="subject">
+                        Subject
+                    </label>
+
+                    <select id="subject" required>
+
+                        <option value="">
+                            Select Subject
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="title">
+                        Assignment Title
+                    </label>
+
+                    <input type="text" id="title" placeholder="Enter assignment title" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea id="description" rows="5" placeholder="Enter assignment details"></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="dueDate">
+                        Due Date
+                    </label>
+
+                    <input type="date" id="dueDate" required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="assignmentFile">
+                        Assignment File
+                    </label>
+
+                    <input type="file" id="assignmentFile" accept=".pdf,.doc,.docx,.zip" required>
+
+                    <small>
+                        Allowed files: PDF, DOC, DOCX, ZIP
+                    </small>
+
+                </div>
+
+
+                <button type="submit" class="save-btn">
+
+                    Save Assignment
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../Assets/JS/add-assignment.js"></script>
+
+</body>
+
+</html>
