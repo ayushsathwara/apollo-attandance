@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Notice - Apollo</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/faculty-dashboard.css">
+    <link rel="stylesheet" href="../Assets/CSS/add-notice.css">
+</head>
+
+<body>
+
+    <div class="notice-page">
+
+        <!-- HEADER -->
+        <header class="faculty-header">
+            <div>
+                <h1>Add Notice</h1>
+                <p>Faculty Dashboard / Notices</p>
+            </div>
+
+            <a href="faculty-dashboard.html" class="notice-back-btn">
+                ← Back
+            </a>
+        </header>
+
+        <!-- NOTICE FORM -->
+        <section class="notice-form-card">
+
+            <h2>Publish a Notice 📢</h2>
+
+            <p class="notice-description">
+                Share important announcements with students and parents.
+            </p>
+
+            <div id="noticeFormMessage" class="notice-form-message" role="status" aria-live="polite">
+            </div>
+
+            <form id="noticeForm">
+
+                <!-- Notice Title -->
+                <div class="notice-form-group">
+                    <label for="noticeTitle">Notice Title</label>
+
+                    <input type="text" id="noticeTitle" name="title" placeholder="Enter notice title" maxlength="200"
+                        required>
+                </div>
+
+                <!-- Notice Message -->
+                <div class="notice-form-group">
+                    <label for="noticeMessage">Notice Message</label>
+
+                    <textarea id="noticeMessage" name="message" placeholder="Write your announcement here..."
+                        required></textarea>
+                </div>
+
+                <!-- Audience -->
+                <div class="notice-form-group">
+                    <label for="targetRole">Show Notice To</label>
+
+                    <select id="targetRole" name="target_role" required>
+
+                        <option value="all">Everyone</option>
+                        <option value="student">Students Only</option>
+                        <option value="parent">Parents Only</option>
+                        <option value="faculty">Faculty Only</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="noticeCategory">Notice Category</label>
+                    <select id="noticeCategory" name="category" required>
+                        <option value="academic">Academic</option>
+                        <option value="exam">Exams</option>
+                        <option value="event">Events</option>
+                    </select>
+                </div>
+
+
+                <!-- Buttons -->
+                <div class="notice-form-actions">
+
+                    <button type="submit" class="notice-submit-btn">
+                        Publish Notice
+                    </button>
+
+                    <a href="faculty-dashboard.html" class="notice-cancel-btn">
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+    <script src="../Assets/JS/add-notice.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Apollo</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/admin-dashboard.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+
+            <div class="admin-brand">
+                <div class="admin-brand-logo">A</div>
+                <div>
+                    <h2>Apollo</h2>
+                    <small>Admin Panel</small>
+                </div>
+            </div>
+
+            <nav class="admin-nav">
+                <a href="admin-dashboard.html" class="active">Dashboard</a>
+                <a href="#" id="studentsLink">Student Management</a>
+                <a href="admin-faculty.html">Faculty Management</a>
+
+                <a href="admin-account-settings.html" class="sidebar-link">
+                    <i class="fas fa-user-cog"></i>
+                    <span>Account Settings</span>
+                </a>
+                <a href="admin-support.html">Support Requests</a>
+                <a href="admin-feedback.html">Student Feedback</a>
+                <a href="manage-notices.html">Manage Notices</a>
+            </nav>
+
+            <button class="admin-logout" id="logoutButton">
+                Logout
+            </button>
+
+        </aside>
+
+        <!-- Main Dashboard -->
+        <main class="admin-main">
+
+            <header class="admin-topbar">
+                <div>
+                    <h1>Dashboard Overview</h1>
+                    <p>Welcome to Apollo Attendance System</p>
+                </div>
+
+                <div class="admin-user">
+                    <div class="admin-avatar">A</div>
+                    <div>
+                        <strong id="adminName">Loading...</strong>
+                        <p id="adminEmail"></p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Statistics -->
+            <section class="admin-stats">
+
+                <div class="admin-stat-card">
+                    <h3>Total Students</h3>
+                    <h2 id="studentCount">—</h2>
+                    <p class="stat-note">Registered students</p>
+                </div>
+
+                <div class="admin-stat-card">
+                    <h3>Faculty Members</h3>
+                    <h2 id="facultyCount">—</h2>
+                    <p class="stat-note">Registered faculty</p>
+                </div>
+
+                <div class="admin-stat-card">
+                    <h3>Support Requests</h3>
+                    <h2 id="supportCount">—</h2>
+                    <p class="stat-note">Total requests received</p>
+                </div>
+
+                <div class="admin-stat-card">
+                    <h3>Open Requests</h3>
+                    <h2 id="openCount">—</h2>
+                    <p class="stat-note">Awaiting resolution</p>
+                </div>
+
+            </section>
+
+            <!-- Dashboard Content -->
+            <section class="admin-content-grid">
+
+                <div class="admin-panel">
+                    <h2>Quick Actions</h2>
+                    <p>Manage your attendance system.</p>
+
+                    <div class="admin-action">
+                        <div>
+                            <strong>Support Requests</strong>
+                            <p>Review student complaints and update status.</p>
+                        </div>
+                        <a href="admin-support.html" class="admin-button">
+                            Open
+                        </a>
+                    </div>
+
+                    <div class="admin-action">
+                        <div>
+                            <strong>Manage Notices</strong>
+                            <p>Create and manage college notices.</p>
+                        </div>
+                        <a href="manage-notices.html" class="admin-button">
+                            Open
+                        </a>
+                    </div>
+
+                    <div class="admin-action">
+                        <div>
+                            <strong>Student Management</strong>
+                            <p>Manage registered student records.</p>
+                        </div>
+                        <a href="admin-students.html" class="admin-button">
+                            Open
+                        </a>
+                    </div>
+
+                    <div class="admin-action">
+                        <div>
+                            <strong>Faculty Management</strong>
+                            <p>Manage faculty and their subjects.</p>
+                        </div>
+                        <a href="admin-faculty.html" class="admin-button">
+                            Open
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="admin-panel">
+                    <h2>System Information</h2>
+
+                    <div class="admin-action">
+                        <div>
+                            <strong>Admin Authentication</strong>
+                            <p>Admin session verification</p>
+                        </div>
+                        <span>Enabled</span>
+                    </div>
+
+                    <div class="admin-action">
+                        <div>
+                            <strong>Student Feedback</strong>
+                            <p>Review feedback submitted by students.</p>
+                        </div>
+                        <a href="admin-feedback.html" class="admin-button">
+                            Open
+                        </a>
+                    </div>
+
+                    <div class="admin-action">
+                        <div>
+                            <strong>Attendance System</strong>
+                            <p>Student and faculty modules</p>
+                        </div>
+                        <span>Available</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <p id="dashboardMessage"></p>
+
+        </main>
+
+    </div>
+
+    <script src="../Assets/JS/admin-dashboard.js"></script>
+
+</body>
+
+</html>

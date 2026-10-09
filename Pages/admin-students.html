@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management | Apollo Admin</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/admin-students.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <div class="admin-brand-logo">A</div>
+                <div>
+                    <h2>Apollo</h2>
+                    <small>Admin Panel</small>
+                </div>
+            </div>
+
+            <nav class="admin-nav">
+                <a href="admin-dashboard.html">Dashboard</a>
+                <a href="admin-students.html" class="active">Student Management</a>
+                <a href="#" id="facultyLink">Faculty Management</a>
+                <a href="admin-support.html">Support Requests</a>
+                <a href="#" id="feedbackLink">Student Feedback</a>
+                <a href="manage-notices.html">Manage Notices</a>
+            </nav>
+
+            <button class="admin-logout" id="logoutButton">Logout</button>
+        </aside>
+
+        <main class="admin-main">
+
+            <header class="admin-topbar">
+                <div>
+                    <h1>Student Management</h1>
+                    <p>View and manage registered BCA students.</p>
+                </div>
+
+                <div class="admin-user">
+                    <div class="admin-avatar">A</div>
+                    <div>
+                        <strong id="adminName">Loading...</strong>
+                        <p id="adminEmail"></p>
+                    </div>
+                </div>
+            </header>
+
+            <section class="student-toolbar">
+                <div>
+                    <h2>All Students</h2>
+                    <p>Total students: <strong id="studentCount">0</strong></p>
+                </div>
+
+                <div class="student-toolbar-actions">
+                    <input type="search" id="studentSearch" placeholder="Search name, email or roll number..."
+                        aria-label="Search students">
+
+                    <a href="admin-add-student.html" class="add-student-button">
+                        + Add Student
+                    </a>
+                </div>
+            </section>
+
+            <p id="pageMessage" role="status"></p>
+
+            <section class="student-table-section">
+                <div class="student-table-wrapper">
+                    <table class="student-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Student Name</th>
+                                <th>Email</th>
+                                <th>Roll Number</th>
+                                <th>Course</th>
+                                <th>Semester</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="studentTableBody">
+                            <tr>
+                                <td colspan="7">Loading students...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <a href="admin-dashboard.html" class="back-link">
+                ← Back to Dashboard
+            </a>
+
+        </main>
+
+    </div>
+
+    <script src="../Assets/JS/admin-students.js"></script>
+</body>
+
+</html>

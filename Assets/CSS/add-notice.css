@@ -1,0 +1,218 @@
+/* =================================
+   ADD NOTICE PAGE
+================================= */
+
+.notice-page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 35px auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+/* Page Header */
+
+.notice-page .faculty-header {
+    margin-bottom: 25px;
+}
+
+/* Form Card */
+
+.notice-form-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e5eaf2;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.notice-form-card h2 {
+    margin: 0 0 10px;
+    color: #172554;
+    font-size: 25px;
+}
+
+.notice-description {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Form Groups */
+
+.notice-form-group {
+    margin-bottom: 22px;
+}
+
+.notice-form-group label {
+    display: block;
+    margin-bottom: 9px;
+    color: #1e293b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Input, Textarea and Select */
+
+.notice-form-group input,
+.notice-form-group textarea,
+.notice-form-group select {
+    display: block;
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #1e293b;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.notice-form-group textarea {
+    min-height: 160px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.notice-form-group input:focus,
+.notice-form-group textarea:focus,
+.notice-form-group select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Buttons */
+
+.notice-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.notice-submit-btn,
+.notice-back-btn,
+.notice-cancel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Publish Button */
+
+.notice-submit-btn {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.notice-submit-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+/* Back and Cancel Buttons */
+
+.notice-back-btn,
+.notice-cancel-btn {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.notice-back-btn:hover,
+.notice-cancel-btn:hover {
+    background: #cbd5e1;
+}
+
+/* Form Message */
+
+.notice-form-message {
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+
+@media (max-width: 600px) {
+    .notice-page {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .notice-form-card {
+        padding: 20px;
+    }
+
+    .notice-form-card h2 {
+        font-size: 21px;
+    }
+
+    .notice-form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .notice-submit-btn,
+    .notice-cancel-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Notice Category Dropdown */
+#noticeCategory {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #1f2937;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+#noticeCategory:hover {
+    border-color: #93c5fd;
+}
+
+/* Focus Effect */
+#noticeCategory:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Dropdown Options */
+#noticeCategory option {
+    padding: 10px;
+    background-color: #ffffff;
+    color: #1f2937;
+}
+
+/* Category Label */
+label[for="noticeCategory"] {
+    display: block;
+    margin-bottom: 8px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+}

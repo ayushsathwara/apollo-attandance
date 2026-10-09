@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Feedback | Apollo</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/dashboard.css">
+    <link rel="stylesheet" href="../Assets/CSS/feedback.css">
+</head>
+
+<body>
+
+    <main class="feedback-page">
+        <a href="dashboard.html" class="back-link">
+            ← Back to Dashboard
+        </a>
+
+        <header class="feedback-page-header">
+            <span class="feedback-icon">💬</span>
+            <h1>App Feedback</h1>
+            <p>
+                Your feedback helps us improve the Apollo Attendance System.
+            </p>
+        </header>
+
+        <section class="feedback-card">
+            <h2>Share Your Experience</h2>
+            <p class="feedback-description">
+                Tell us what you think about the app.
+            </p>
+
+            <form id="feedbackForm">
+                <div class="feedback-field">
+                    <label for="feedbackRating">
+                        How would you rate our app?
+                    </label>
+
+                    <select id="feedbackRating" required>
+                        <option value="">Select your rating</option>
+                        <option value="5">⭐⭐⭐⭐⭐ — Excellent</option>
+                        <option value="4">⭐⭐⭐⭐ — Very Good</option>
+                        <option value="3">⭐⭐⭐ — Good</option>
+                        <option value="2">⭐⭐ — Needs Improvement</option>
+                        <option value="1">⭐ — Poor</option>
+                    </select>
+                </div>
+
+                <div class="feedback-field">
+                    <label for="feedbackMessage">
+                        Suggestions or Comments
+                    </label>
+
+                    <textarea id="feedbackMessage" rows="5" maxlength="2000"
+                        placeholder="What do you like? What should we improve?"></textarea>
+                </div>
+
+                <button type="submit" id="feedbackSubmit">
+                    Submit Feedback
+                </button>
+
+                <p id="feedbackFormMessage" role="status"></p>
+            </form>
+        </section>
+    </main>
+
+    <script src="../Assets/JS/feedback.js"></script>
+</body>
+
+</html>

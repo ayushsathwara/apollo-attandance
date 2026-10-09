@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings | Apollo</title>
+    <link rel="stylesheet" href="../Assets/CSS/admin-account-settings.css">
+</head>
+
+<body>
+
+    <div class="settings-container">
+        <h1>Account Settings</h1>
+        <p>Change the email or password of a student, parent, or faculty member.</p>
+
+        <form id="accountForm">
+            <label for="accountType">Account Type</label>
+            <select id="accountType" required>
+                <option value="">Select account type</option>
+                <option value="student">Student</option>
+                <option value="parent">Parent</option>
+                <option value="faculty">Faculty</option>
+            </select>
+
+
+            <label for="accountSearch">Search Account</label>
+            <input type="text" id="accountSearch" placeholder="Search by name or email">
+
+            <div id="accountResults"></div>
+
+            <label for="accountId">Account ID</label>
+            <input type="number" id="accountId" min="1" placeholder="Select an account from search" required>
+
+            <label for="email">New Email</label>
+            <input type="email" id="email" placeholder="Enter new email address" required>
+
+            <label for="password">New Password</label>
+            <input type="password" id="password" placeholder="Leave blank to keep current password" minlength="8"
+                autocomplete="new-password">
+
+            <button type="submit" id="updateBtn">Update Account</button>
+
+            <p id="message" role="status"></p>
+        </form>
+
+        <a href="admin-dashboard.html">← Back to Dashboard</a>
+    </div>
+
+    <script src="../Assets/JS/admin-account-settings.js"></script>
+</body>
+
+</html>

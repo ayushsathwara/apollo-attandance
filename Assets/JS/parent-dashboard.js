@@ -273,3 +273,100 @@ async function loadParentAssignments() {
 }
 
 loadParentAssignments();
+// ========================================
+// PARENT DASHBOARD - NOTICES & ANNOUNCEMENTS
+// ========================================
+
+async function loadParentNotices() {
+    const message = document.getElementById("noticesMessage");
+    const noticesList = document.getElementById("noticesList");
+
+    // Check whether notices section exists
+    if (!message || !noticesList) {
+        return;
+    }
+
+    message.textContent = "Loading notices...";
+    noticesList.innerHTML = "";
+
+    try {
+        // Fetch notices from backend API
+        const response = await fetch(
+            `${API_URL} /parent/notices.php`,
+            {
+                method: "GET",
+                credentials: "include"
+            }
+        );
+
+        const data = await response.json();
+
+        // Handle API errors
+        if (!response.ok || !data.success) {
+            throw new Error(
+                data.message || "Failed to load notices."
+            );
+        }
+
+        // Handle empty notices
+        if (!Array.isArray(data.notices) || data.notices.length === 0) {
+            message.textContent = "No notices available right now.";
+            return;
+        }
+
+        // Notices loaded successfully
+        message.textContent = "";
+
+        data.notices.forEach(function (notice) {
+            // Create notice card
+            const card = document.createElement("div");
+            card.className = "notice-card";
+
+            // Notice title
+            const title = document.createElement("h3");
+            title.textContent = notice.title || "Untitled Notice";
+
+            // Notice message
+            const content = document.createElement("p");
+            content.textContent = notice.message || "";
+
+            // Posted by
+            const postedBy = document.createElement("p");
+            postedBy.className = "notice-posted-by";
+            postedBy.textContent =
+                "Posted by: " + (notice.posted_by || "College");
+
+            // Notice date
+            const date = document.createElement("small");
+            date.className = "notice-date";
+
+            if (notice.created_at) {
+                const formattedDate = new Date(
+                    notice.created_at.replace(" ", "T")
+                );
+
+                date.textContent = !isNaN(formattedDate.getTime())
+                    ? "Date: " + formattedDate.toLocaleString("en-IN")
+                    : "Date: " + notice.created_at;
+            } else {
+                date.textContent = "";
+            }
+
+            // Add elements to card
+            card.appendChild(title);
+            card.appendChild(content);
+            card.appendChild(postedBy);
+            card.appendChild(date);
+
+            // Display card
+            noticesList.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("Parent Notices Error:", error);
+
+        message.textContent =
+            "Unable to load notices. Please try again later.";
+    }
+}
+loadParentNotices();

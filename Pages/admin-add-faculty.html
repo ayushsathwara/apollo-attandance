@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Faculty | Apollo Admin</title>
+    <link rel="stylesheet" href="../Assets/CSS/admin-add-faculty.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <h2>Apollo Admin</h2>
+
+        <nav>
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="admin-students.html">Student Management</a>
+            <a href="admin-faculty.html" class="active">Faculty Management</a>
+            <a href="admin-support.html">Support Requests</a>
+            <a href="admin-feedback.html">Student Feedback</a>
+            <a href="manage-notices.html">Manage Notices</a>
+        </nav>
+
+        <button id="logoutButton">Logout</button>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Add Faculty</h1>
+                <p>Register a new faculty member.</p>
+            </div>
+
+            <a href="admin-faculty.html" class="back-button">
+                ← Back to Faculty
+            </a>
+        </header>
+
+        <section class="form-card">
+            <h2>Faculty Details</h2>
+            <p class="form-description">
+                Enter the faculty member's information below.
+            </p>
+
+            <form id="addFacultyForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="employee_id">Employee ID</label>
+                    <input type="text" id="employee_id" name="employee_id" placeholder="Enter employee ID" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <input type="text" id="department" name="department" placeholder="e.g. BCA" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Temporary Password</label>
+                    <input type="password" id="password" name="password" placeholder="At least 8 characters"
+                        minlength="8" required>
+                </div>
+
+                <p id="formMessage" role="status"></p>
+
+                <button type="submit" id="submitButton">
+                    Add Faculty
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <script src="../Assets/JS/admin-add-faculty.js"></script>
+</body>
+
+</html>

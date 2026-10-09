@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --bg: #f5f7fb;
+    --text: #172033;
+    --muted: #64748b;
+    --border: #e2e8f0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 40px 24px;
+}
+
+.settings-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: transparent;
+}
+
+.settings-container h1 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    margin-bottom: 8px;
+}
+
+.settings-container>p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+#accountForm {
+    max-width: 760px;
+    background: #fff;
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+#accountForm label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 9px;
+}
+
+#accountForm input,
+#accountForm select {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    background: #fff;
+    outline: none;
+    margin-bottom: 22px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#accountForm input::placeholder {
+    color: #94a3b8;
+}
+
+#accountForm input:focus,
+#accountForm select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+#accountSearch {
+    margin-bottom: 10px;
+}
+
+#accountResults {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+#accountResults:empty {
+    display: none;
+}
+
+.account-result {
+    width: 100%;
+    text-align: left;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #f8fafc;
+    color: #334155;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.account-result:hover {
+    background: #eff6ff;
+    border-color: #93c5fd;
+}
+
+#accountResults p {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 8px 2px;
+}
+
+#updateBtn {
+    min-height: 46px;
+    padding: 12px 20px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#updateBtn:hover {
+    background: var(--primary-dark);
+}
+
+#updateBtn:active {
+    transform: scale(0.99);
+}
+
+#updateBtn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+#message {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.settings-container>a {
+    display: inline-block;
+    margin-top: 24px;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.settings-container>a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 24px 14px;
+    }
+
+    .settings-container h1 {
+        font-size: 25px;
+    }
+
+    #accountForm {
+        padding: 22px 18px;
+    }
+}

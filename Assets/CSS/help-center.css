@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f3f6fb;
+    color: #1e293b;
+    font-family: Arial, sans-serif;
+}
+
+.help-center {
+    width: min(100% - 32px, 1000px);
+    margin: 35px auto;
+}
+
+.help-header {
+    margin-bottom: 28px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #1264a3;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.help-header h1 {
+    margin: 0 0 10px;
+    color: #07518a;
+    font-size: 30px;
+}
+
+.help-header p,
+.help-welcome p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.help-welcome,
+.help-topic,
+.support-section {
+    padding: 24px;
+    background: white;
+    border: 1px solid #e1e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(15, 45, 75, 0.05);
+}
+
+.help-welcome {
+    margin-bottom: 22px;
+}
+
+.help-welcome h2 {
+    margin-top: 0;
+    color: #07518a;
+}
+
+.help-topics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.help-topic span {
+    font-size: 28px;
+}
+
+.help-topic h3 {
+    margin-bottom: 8px;
+    color: #07518a;
+}
+
+.help-topic p {
+    margin-bottom: 0;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.support-heading {
+    margin-bottom: 22px;
+}
+
+.support-heading h2 {
+    margin-top: 0;
+    color: #07518a;
+}
+
+.support-heading p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+#supportForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.support-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.support-field label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.support-field input,
+.support-field select,
+.support-field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d5dfeb;
+    border-radius: 8px;
+    font: inherit;
+    background: white;
+}
+
+.support-field textarea {
+    resize: vertical;
+}
+
+#supportSubmit {
+    align-self: flex-start;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 8px;
+    background: #1264a3;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#supportSubmit:hover {
+    background: #084b80;
+}
+
+@media (max-width: 600px) {
+    .help-center {
+        width: calc(100% - 24px);
+        margin: 20px auto;
+    }
+
+    .help-topics {
+        grid-template-columns: 1fr;
+    }
+
+    .help-welcome,
+    .help-topic,
+    .support-section {
+        padding: 18px;
+    }
+
+    #supportSubmit {
+        width: 100%;
+    }
+}

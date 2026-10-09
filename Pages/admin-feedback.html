@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback | Apollo Admin</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/admin-feedback.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <div class="admin-brand-logo">A</div>
+                <div>
+                    <h2>Apollo</h2>
+                    <small>Admin Panel</small>
+                </div>
+            </div>
+
+            <nav class="admin-nav">
+                <a href="admin-dashboard.html">Dashboard</a>
+                <a href="admin-students.html">Student Management</a>
+                <a href="#" id="facultyLink">Faculty Management</a>
+                <a href="admin-support.html">Support Requests</a>
+                <a href="admin-feedback.html" class="active">Student Feedback</a>
+                <a href="manage-notices.html">Manage Notices</a>
+            </nav>
+
+            <button class="admin-logout" id="logoutButton">Logout</button>
+        </aside>
+
+        <main class="admin-main">
+
+            <header class="admin-topbar">
+                <div>
+                    <h1>Student Feedback</h1>
+                    <p>Review ratings and comments submitted by students.</p>
+                </div>
+
+                <div class="admin-user">
+                    <div class="admin-avatar">A</div>
+                    <div>
+                        <strong id="adminName">Loading...</strong>
+                        <p id="adminEmail"></p>
+                    </div>
+                </div>
+            </header>
+
+            <section class="feedback-toolbar">
+                <div>
+                    <h2>All Feedback</h2>
+                    <p>Total submissions: <strong id="feedbackCount">0</strong></p>
+                </div>
+
+                <select id="ratingFilter" aria-label="Filter by rating">
+                    <option value="all">All ratings</option>
+                    <option value="5">5 stars</option>
+                    <option value="4">4 stars</option>
+                    <option value="3">3 stars</option>
+                    <option value="2">2 stars</option>
+                    <option value="1">1 star</option>
+                </select>
+            </section>
+
+            <p id="pageMessage" role="status"></p>
+
+            <section class="feedback-table-section">
+                <div class="feedback-table-wrapper">
+                    <table class="feedback-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Student</th>
+                                <th>Roll Number</th>
+                                <th>Rating</th>
+                                <th>Feedback</th>
+                                <th>Submitted At</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="feedbackTableBody">
+                            <tr>
+                                <td colspan="6">Loading feedback...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <a href="admin-dashboard.html" class="back-link">
+                ← Back to Dashboard
+            </a>
+
+        </main>
+
+    </div>
+
+    <script src="../Assets/JS/admin-feedback.js"></script>
+</body>
+
+</html>

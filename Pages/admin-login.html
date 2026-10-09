@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Apollo</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/admin-login.css">
+</head>
+
+<body>
+
+    <main class="login-container">
+        <section class="login-card">
+
+            <div class="login-logo">A</div>
+
+            <h1>Admin Portal</h1>
+            <p class="subtitle">Apollo Attendance System</p>
+
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminEmail">Admin Email</label>
+                    <input type="email" id="adminEmail" placeholder="Enter admin email" autocomplete="username"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" placeholder="Enter admin password"
+                        autocomplete="current-password" required>
+                </div>
+
+                <button type="submit" id="adminLoginButton">
+                    Sign In
+                </button>
+
+                <p id="adminLoginMessage" role="status"></p>
+            </form>
+
+            <a href="../index.html" class="back-link">
+                ← Back to Main Login
+            </a>
+
+        </section>
+    </main>
+
+    <script src="../Assets/JS/admin-login.js"></script>
+</body>
+
+</html>

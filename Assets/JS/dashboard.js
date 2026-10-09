@@ -997,3 +997,65 @@ function formatTime(time) {
 /* Load today's classes */
 
 loadTodayClasses();
+
+async function loadStudentNotices() {
+    const noticesList = document.getElementById("studentNoticesList");
+
+    if (!noticesList) return;
+
+    try {
+        const response = await fetch(
+            "http://localhost/apollo-backend/student/notices.php",
+            {
+                method: "GET",
+                credentials: "include"  
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Failed to load notices.");
+        }
+
+        noticesList.innerHTML = "";
+
+        if (!data.notices || data.notices.length === 0) {
+            noticesList.textContent = "No announcements available.";
+            return;
+        }
+
+        data.notices.forEach(notice => {
+            const card = document.createElement("div");
+            card.className = "notice";
+
+            const icon = document.createElement("span");
+            icon.textContent = "📢";
+
+            const content = document.createElement("div");
+
+            const title = document.createElement("b");
+            title.textContent = notice.title;
+
+            const message = document.createElement("p");
+            message.textContent = notice.message;
+
+            const date = document.createElement("small");
+            date.textContent = notice.created_at
+                ? new Date(
+                    notice.created_at.replace(" ", "T")
+                ).toLocaleString("en-IN")
+                : "";
+
+            content.append(title, message, date);
+            card.append(icon, content);
+            noticesList.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("Student Notices Error:", error);
+        noticesList.textContent = "Unable to load announcements.";
+    }
+}
+
+loadStudentNotices();

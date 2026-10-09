@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | Apollo</title>
+    <link rel="stylesheet" href="../Assets/CSS/dashboard.css">
+    <link rel="stylesheet" href="../Assets/CSS/help-center.css">
+</head>
+
+<body>
+
+    <main class="help-center">
+        <header class="help-header">
+            <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+            <h1>🛟 Help Center</h1>
+            <p>We're here to help you use the Apollo Attendance System.</p>
+        </header>
+
+        <section class="help-welcome">
+            <h2>How can we help you?</h2>
+            <p>Choose a topic below or submit a support request.</p>
+        </section>
+
+        <section class="help-topics">
+            <article class="help-topic">
+                <span>🔐</span>
+                <h3>Login Problems</h3>
+                <p>Having trouble signing in or accessing your account?</p>
+            </article>
+
+            <article class="help-topic">
+                <span>📊</span>
+                <h3>Attendance Issues</h3>
+                <p>Questions about attendance records or percentages?</p>
+            </article>
+
+            <article class="help-topic">
+                <span>📝</span>
+                <h3>Assignments</h3>
+                <p>Need help finding assignments or checking deadlines?</p>
+            </article>
+
+            <article class="help-topic">
+                <span>⚙️</span>
+                <h3>Technical Support</h3>
+                <p>Report a page that isn't loading or working properly.</p>
+            </article>
+        </section>
+
+        <section class="support-section" id="supportRequest">
+            <div class="support-heading">
+                <h2>Contact Support</h2>
+                <p>Describe your problem and submit a support request.</p>
+            </div>
+
+            <form id="supportForm">
+                <div class="support-field">
+                    <label for="supportCategory">Issue Category</label>
+                    <select id="supportCategory" required>
+                        <option value="">Select an issue</option>
+                        <option value="login">Login Problem</option>
+                        <option value="attendance">Attendance Issue</option>
+                        <option value="assignments">Assignment Problem</option>
+                        <option value="technical">Technical Issue</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="support-field">
+                    <label for="supportSubject">Subject</label>
+                    <input id="supportSubject" type="text" maxlength="200" required
+                        placeholder="Enter your issue title">
+                </div>
+
+                <div class="support-field">
+                    <label for="supportMessage">Describe Your Issue</label>
+                    <textarea id="supportMessage" rows="5" required
+                        placeholder="Explain the problem you're facing..."></textarea>
+                </div>
+
+                <button type="submit" id="supportSubmit">
+                    Submit Support Request
+                </button>
+                <p id="supportFormMessage" role="status"></p>
+            </form>
+        </section>
+    </main>
+
+    <script src="../Assets/JS/help-center.js"></script>
+</body>
+
+</html>

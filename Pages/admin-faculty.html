@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Management | Apollo Admin</title>
+    <link rel="stylesheet" href="../Assets/CSS/admin-faculty.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <h2>Apollo Admin</h2>
+
+        <nav>
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="admin-students.html">Student Management</a>
+            <a href="admin-faculty.html" class="active">Faculty Management</a>
+            <a href="admin-support.html">Support Requests</a>
+            <a href="admin-feedback.html">Student Feedback</a>
+            <a href="manage-notices.html">Manage Notices</a>
+        </nav>
+
+        <button id="logoutButton">Logout</button>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Faculty Management</h1>
+                <p>View and manage Apollo faculty members.</p>
+            </div>
+            <div class="admin-info">
+                <strong id="adminName">Admin</strong>
+                <span id="adminEmail"></span>
+            </div>
+        </header>
+
+        <section class="faculty-card">
+
+            <div class="card-heading">
+                <div>
+                    <h2>Faculty Members</h2>
+                    <p>Total faculty: <strong id="facultyCount">0</strong></p>
+                </div>
+
+                <div class="faculty-actions">
+                    <input type="search" id="searchFaculty" placeholder="Search faculty..." aria-label="Search faculty">
+
+                    <a href="admin-add-faculty.html" class="add-faculty-button">
+                        + Add Faculty
+                    </a>
+                </div>
+            </div>
+
+            <p id="pageMessage" role="status"></p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Employee ID</th>
+                            <th>Department</th>
+                            <th>Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody id="facultyTableBody">
+                        <tr>
+                            <td colspan="6">Loading faculty...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="../Assets/JS/admin-faculty.js"></script>
+</body>
+
+</html>
