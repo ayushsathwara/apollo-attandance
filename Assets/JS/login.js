@@ -50,7 +50,8 @@ loginForm.addEventListener("submit", async function (event) {
 
             else if (selectedRole === "parent") {
 
-                alert("Parent login will be added later.");
+                window.location.href =
+                    "http://localhost/apollo-attandance/Pages/parent-dashboard.html";
 
             }
 
