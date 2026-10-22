@@ -11,11 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "admin-students.html";
     });
 
-    document.getElementById("facultyLink").addEventListener("click", function (event) {
-        event.preventDefault();
-        alert("Faculty Management will be implemented next.");
-    });
-
     document.getElementById("studentActionButton").addEventListener("click", function () {
         window.location.href = "admin-students.html";
     });

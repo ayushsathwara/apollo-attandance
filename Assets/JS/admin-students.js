@@ -10,11 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.getElementById("logoutButton").addEventListener("click", logoutAdmin);
-
-    document.getElementById("facultyLink").addEventListener("click", function (event) {
-        event.preventDefault();
-        alert("Faculty Management will be implemented next.");
-    });
 });
 
 async function loadStudents() {

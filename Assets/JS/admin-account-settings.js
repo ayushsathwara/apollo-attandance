@@ -125,3 +125,72 @@ accountTypeSelect.addEventListener("change", () => {
     document.getElementById("email").value = "";
     accountResults.replaceChildren();
 });
+
+
+const myAdminForm = document.getElementById("myAdminForm");
+
+if (myAdminForm) {
+    myAdminForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const currentPassword =
+            document.getElementById("adminCurrentPassword").value;
+        const newEmail =
+            document.getElementById("adminNewEmail").value.trim();
+        const newPassword =
+            document.getElementById("adminNewPassword").value;
+        const confirmPassword =
+            document.getElementById("adminConfirmPassword").value;
+        const adminMessage =
+            document.getElementById("myAdminMessage");
+        const submitButton =
+            document.getElementById("myAdminUpdateBtn");
+
+        adminMessage.textContent = "";
+
+        if (newPassword !== confirmPassword) {
+            adminMessage.textContent = "New passwords do not match.";
+            adminMessage.style.color = "red";
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Updating...";
+
+        try {
+            const response = await fetch(
+                `${API_URL}/admin/update-my-account.php`,
+                {
+                    method: "POST",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        currentPassword,
+                        newEmail,
+                        newPassword
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
+                throw new Error(data.message || "Account update failed.");
+            }
+
+            adminMessage.textContent = data.message;
+            adminMessage.style.color = "green";
+            myAdminForm.reset();
+
+        } catch (error) {
+            adminMessage.textContent = error.message;
+            adminMessage.style.color = "red";
+            console.error("Admin account update error:", error);
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = "Update My Account";
+        }
+    });
+}

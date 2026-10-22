@@ -44,6 +44,34 @@
             <p id="message" role="status"></p>
         </form>
 
+        <section class="admin-self-settings">
+            <h2>My Admin Account</h2>
+            <p>Change your own admin email or password.</p>
+
+            <form id="myAdminForm">
+                <label for="adminCurrentPassword">Current Password</label>
+                <input type="password" id="adminCurrentPassword" autocomplete="current-password" required>
+
+                <label for="adminNewEmail">New Email</label>
+                <input type="email" id="adminNewEmail" placeholder="Enter new admin email" required>
+
+                <label for="adminNewPassword">New Password (optional)</label>
+                <input type="password" id="adminNewPassword" minlength="8" autocomplete="new-password"
+                    placeholder="Leave blank to keep current password">
+
+                <label for="adminConfirmPassword">Confirm New Password</label>
+                <input type="password" id="adminConfirmPassword" minlength="8" autocomplete="new-password"
+                    placeholder="Repeat new password">
+
+                <button type="submit" id="myAdminUpdateBtn">
+                    Update My Account
+                </button>
+
+                <p id="myAdminMessage" role="status"></p>
+            </form>
+        </section>
+
+
         <a href="admin-dashboard.html">← Back to Dashboard</a>
     </div>
 

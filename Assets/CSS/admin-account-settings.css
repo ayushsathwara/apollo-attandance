@@ -187,3 +187,218 @@ body {
         padding: 22px 18px;
     }
 }
+
+/* ===== My Admin Account Section ===== */
+
+.admin-self-settings {
+    width: 100%;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e5eaf2;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+    box-sizing: border-box;
+}
+
+.admin-self-settings hr {
+    border: 0;
+    border-top: 1px solid #e5eaf2;
+    margin: 0 0 25px;
+}
+
+.admin-self-settings h2 {
+    margin: 0 0 8px;
+    color: #172554;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.admin-self-settings>p {
+    margin: 0 0 22px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.admin-self-settings form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.admin-self-settings label {
+    margin-top: 10px;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.admin-self-settings input {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fff;
+    color: #0f172a;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.admin-self-settings input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.admin-self-settings input::placeholder {
+    color: #94a3b8;
+}
+
+.admin-self-settings button {
+    width: 100%;
+    min-height: 46px;
+    margin-top: 18px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.admin-self-settings button:hover {
+    background: #1d4ed8;
+}
+
+.admin-self-settings button:active {
+    transform: scale(0.99);
+}
+
+.admin-self-settings button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+#myAdminMessage {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ===== Mobile Responsive ===== */
+
+@media (max-width: 600px) {
+    .admin-self-settings {
+        margin: 20px auto;
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    .admin-self-settings h2 {
+        font-size: 22px;
+    }
+
+    .admin-self-settings input,
+    .admin-self-settings button {
+        min-height: 44px;
+    }
+}
+
+/* Keep both account sections aligned */
+.settings-container {
+    width: min(100% - 32px, 760px);
+    margin: 40px auto;
+}
+
+.settings-container>form,
+.settings-container>.admin-self-settings {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 24px;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid #e5eaf2;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* Admin section matches the existing form */
+.admin-self-settings h2 {
+    margin: 0 0 8px;
+    color: #172554;
+    font-size: 25px;
+}
+
+.admin-self-settings>p {
+    margin: 0 0 22px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.admin-self-settings form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-self-settings label {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.admin-self-settings input {
+    width: 100%;
+    min-height: 46px;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.admin-self-settings input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+}
+
+.admin-self-settings button {
+    width: 100%;
+    min-height: 46px;
+    margin-top: 12px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-self-settings button:hover {
+    background: #1d4ed8;
+}
+
+@media (max-width: 600px) {
+    .settings-container {
+        width: calc(100% - 24px);
+        margin: 20px auto;
+    }
+
+    .settings-container>form,
+    .settings-container>.admin-self-settings {
+        padding: 20px 16px;
+    }
+}
