@@ -1,5 +1,11 @@
 
-const API_URL = "http://localhost/apollo-backend";
+
+const API_URL =
+    window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1"
+        ? "http://localhost/apollo-backend"
+        : "http://localhost/apollo-backend";
+
 
 document.addEventListener("DOMContentLoaded", function () {
     loadAdminDashboard();
@@ -96,10 +102,11 @@ async function logoutAdmin() {
     }
 }
 
+
 async function loadDashboardStats() {
     try {
         const response = await fetch(
-            "http://localhost/apollo-backend/admin/dashboard-stats.php",
+            `${API_URL}/admin/dashboard-stats.php`,
             {
                 credentials: "include"
             }
@@ -112,14 +119,15 @@ async function loadDashboardStats() {
         }
 
         document.getElementById("studentCount").textContent =
-            data.total_students;
+            data.total_students ?? 0;
 
         document.getElementById("facultyCount").textContent =
-            data.total_faculty;
+            data.total_faculty ?? 0;
 
     } catch (error) {
         console.error("Dashboard stats error:", error);
     }
 }
+
 
 loadDashboardStats();

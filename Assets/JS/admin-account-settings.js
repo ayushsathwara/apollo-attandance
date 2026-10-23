@@ -1,5 +1,11 @@
 
-const API_URL = "http://localhost/apollo-backend";
+
+const API_URL =
+    window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1"
+        ? "http://localhost/apollo-backend"
+        : "http://localhost/apollo-backend";
+
 
 const accountForm = document.getElementById("accountForm");
 const message = document.getElementById("message");
