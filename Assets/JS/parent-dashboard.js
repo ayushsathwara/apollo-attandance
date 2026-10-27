@@ -64,7 +64,13 @@ document.getElementById("logoutBtn").addEventListener("click", async function ()
             `${API_URL}/auth/logout.php`,
             {
                 method: "POST",
-                credentials: "include"
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams({
+                    role: "parent"
+                })
             }
         );
 

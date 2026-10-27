@@ -271,47 +271,43 @@ loadAttendanceOverview();
    LOGOUT
 ================================ */
 
-const logoutBtn =
-    document.getElementById("logoutBtn");
+
+const logoutBtn = document.getElementById("logoutBtn");
 
 if (logoutBtn) {
-
     logoutBtn.addEventListener("click", async function () {
-
         try {
-
             const response = await fetch(
                 "http://localhost/apollo-backend/auth/logout.php",
                 {
-                    credentials: "include"
+                    method: "POST",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: new URLSearchParams({
+                        role: "student"
+                    })
                 }
             );
 
-            const result =
-                await response.text();
-
+            const result = await response.text();
             console.log("Logout:", result);
 
+            // Clear saved student course
             localStorage.removeItem("studentCourse");
 
+            // Redirect to login page
             window.location.href =
                 "http://localhost/apollo-attandance/index.html";
 
+        } catch (error) {
+            console.error("Logout Error:", error);
+            alert("Unable to logout. Please try again.");
         }
-        catch (error) {
-
-            console.error(
-                "Logout Error:",
-                error
-            );
-
-            alert("Unable to logout.");
-
-        }
-
     });
-
 }
+
 
 /* ================================
    TODAY'S CLASSES
@@ -1008,7 +1004,7 @@ async function loadStudentNotices() {
             "http://localhost/apollo-backend/student/notices.php",
             {
                 method: "GET",
-                credentials: "include"  
+                credentials: "include"
             }
         );
 

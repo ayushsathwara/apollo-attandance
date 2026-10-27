@@ -11,7 +11,10 @@ async function loadFacultyProfile() {
     try {
 
         const response = await fetch(
-            "http://localhost/apollo-backend/faculty/profile.php"
+            "http://localhost/apollo-backend/faculty/profile.php",
+            {
+                credentials: "include"
+            }
         );
 
         const data = await response.json();
@@ -91,7 +94,17 @@ function setupLogout() {
         try {
 
             const response = await fetch(
-                "http://localhost/apollo-backend/auth/logout.php"
+                "http://localhost/apollo-backend/auth/logout.php",
+                {
+                    method: "POST",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: new URLSearchParams({
+                        role: "faculty"
+                    })
+                }
             );
 
             const result = await response.text();
