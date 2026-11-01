@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Attendance - Apollo BCA</title>
 
     <link rel="stylesheet" href="../Assets/CSS/attendance.css">
+
 </head>
 
 <body>
-
     <div class="attendance-page">
 
         <div class="attendance-header">
@@ -48,6 +47,27 @@
 
         </div>
 
+        <!-- Attendance Statistics -->
+        <div class="attendance-stats">
+            <div class="stat-card">
+                <h3>Overall Summary</h3>
+                <div class="stat-values">
+                    <p>Total Lectures: <strong id="totalLectures">0</strong></p>
+                    <p>Present: <strong id="totalPresent">0</strong></p>
+                    <p>Absent: <strong id="totalAbsent">0</strong></p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <h3>Today's Summary</h3>
+                <div class="stat-values">
+                    <p>Total Lectures: <strong id="todayLectures">0</strong></p>
+                    <p>Present: <strong id="todayPresent">0</strong></p>
+                    <p>Absent: <strong id="todayAbsent">0</strong></p>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Subject Attendance -->
 
@@ -55,12 +75,116 @@
 
             <h2>Subject Wise Attendance</h2>
 
+            <div class="attendance-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="below75">Below 75%</button>
+                <button class="filter-btn" data-filter="75to85">75–85%</button>
+                <button class="filter-btn" data-filter="85to95">85–95%</button>
+                <button class="filter-btn" data-filter="above95">Above 95%</button>
+            </div>
+
             <div id="subjectList">
 
                 <p>Loading attendance...</p>
 
             </div>
 
+            <!-- Subject-wise Attendance Calendar -->
+            <div id="lectureHistory" class="lecture-history" style="display: none;">
+
+                <div class="history-header">
+                    <h2 id="historySubject">Subject Attendance</h2>
+                    <button type="button" id="backToSubjects">
+                        ← Back to Subjects
+                    </button>
+                </div>
+
+                <div class="calendar-navigation">
+                    <button type="button" id="subjectPrevMonth">←</button>
+                    <h3 id="subjectCurrentMonth">Month Year</h3>
+                    <button type="button" id="subjectNextMonth">→</button>
+                </div>
+
+                <div class="calendar-legend">
+                    <span><i class="legend-present"></i> Present</span>
+                    <span><i class="legend-absent"></i> Absent</span>
+                    <span><i class="legend-mixed"></i> Mixed</span>
+                    <span><i class="legend-na"></i> N/A</span>
+                </div>
+
+                <div class="calendar-grid" id="subjectCalendarGrid"></div>
+
+            </div>
+
+        </div>
+
+        <!-- Monthly Attendance Calendar -->
+        <div class="calendar-card">
+            <div class="calendar-header">
+                <h2>Monthly Attendance</h2>
+
+                <div class="calendar-navigation">
+                    <button type="button" id="prevMonth">←</button>
+                    <h3 id="currentMonth">Month Year</h3>
+                    <button type="button" id="nextMonth">→</button>
+                </div>
+            </div>
+
+            <div class="calendar-legend">
+                <span><i class="legend-present"></i> Present</span>
+                <span><i class="legend-absent"></i> Absent</span>
+                <span><i class="legend-mixed"></i> Mixed</span>
+            </div>
+
+            <div class="calendar-grid" id="calendarGrid">
+            </div>
+        </div>
+
+        <!-- Attendance Target Calculator -->
+        <div class="target-card">
+            <h2>Attendance Target Calculator</h2>
+            <p class="target-description">
+                Find out how many consecutive lectures you need to attend
+                to reach 75% attendance.
+            </p>
+
+            <div class="target-details">
+                <div>
+                    <span>Current Attendance</span>
+                    <h3 id="targetCurrentPercentage">0%</h3>
+                </div>
+
+                <div>
+                    <span>Target Attendance</span>
+                    <h3>75%</h3>
+                </div>
+            </div>
+
+            <div class="target-result" id="targetResult">
+                Calculating your attendance target...
+            </div>
+        </div>
+
+        <!-- Attendance Trend Chart -->
+        <div class="trend-card">
+            <h2>Attendance Trend</h2>
+            <p class="trend-description">Your month-wise attendance performance</p>
+
+            <div id="attendanceTrend" class="trend-chart">
+                <p>Loading attendance trend...</p>
+            </div>
+        </div>
+
+        <!-- Low Attendance Warnings -->
+        <div class="warning-card">
+            <h2>Low Attendance Warnings</h2>
+            <p class="warning-description">
+                Subjects that need your attention.
+            </p>
+
+            <div id="attendanceWarnings">
+                <p>Checking attendance...</p>
+            </div>
         </div>
 
     </div>
