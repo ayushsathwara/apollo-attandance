@@ -37,42 +37,47 @@
 
 
         <!-- FILTER -->
-
         <div class="filters">
 
-            <div class="filter-group">
+            <!-- FIRST ROW -->
+            <div class="filter-row">
 
-                <label for="subject">
-                    Subject
-                </label>
+                <div class="filter-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject">
+                        <option value="">Loading subjects...</option>
+                    </select>
+                </div>
 
-                <select id="subject">
+                <div class="filter-group">
+                    <label for="attendanceDate">Date</label>
+                    <input type="date" id="attendanceDate">
+                </div>
 
-                    <option value="">
-                        Loading subjects...
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="filter-group">
-
-                <label for="attendanceDate">
-                    Date
-                </label>
-
-                <input type="date" id="attendanceDate">
+                <button type="button" id="loadReport">Load Report</button>
 
             </div>
 
+            <!-- SECOND ROW -->
+            <div class="filter-row second-row">
 
-            <button type="button" id="loadReport">
+                <button type="button" id="dailyReportBtn">
+                    📄 Daily Report
+                </button>
 
-                Load Report
+                <button type="button" id="monthlyReportBtn">
+                    📊 Monthly Report
+                </button>
 
-            </button>
+                <div class="filter-group">
+                    <label for="studentSearch">Search Student</label>
+                    <input type="text" id="studentSearch" placeholder="Name or roll number">
+                </div>
+
+            </div>
+
+            <input type="date" id="dailyDownloadDate" class="download-picker">
+            <input type="month" id="monthlyDownloadMonth" class="download-picker">
 
         </div>
 

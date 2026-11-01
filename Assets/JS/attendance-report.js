@@ -1,255 +1,273 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    loadSubjects();
+    // STUDENT SEARCH
+    document.getElementById("studentSearch").addEventListener("input", function () {
+        filterStudentRows(this.value);
+    });
 
+    loadSubjects();
     loadReport();
 
-    const loadButton =
-        document.getElementById("loadReport");
-
-    loadButton.addEventListener(
-        "click",
-        function () {
-            loadReport();
-        }
-    );
-
-});
-
-async function loadReport() {
-
-    const subject =
-        document.getElementById(
-            "subject"
-        ).value;
-
-    const attendanceDate =
-        document.getElementById(
-            "attendanceDate"
-        ).value;
+    // LOAD REPORT BUTTON
+    document.getElementById("loadReport").addEventListener("click", function () {
+        loadReport();
+    });
 
 
-    let url =
-        "http://localhost/apollo-backend/faculty/attendance_report.php";
+    // DAILY REPORT BUTTON
+    const dailyButton = document.getElementById("dailyReportBtn");
+    const dailyDate = document.getElementById("dailyDownloadDate");
 
+    dailyButton.addEventListener("click", function () {
 
-    const params =
-        new URLSearchParams();
+        const subject = document.getElementById("subject").value;
 
-
-    if (subject !== "") {
-
-        params.append(
-            "subject",
-            subject
-        );
-
-    }
-
-
-    if (attendanceDate !== "") {
-
-        params.append(
-            "date",
-            attendanceDate
-        );
-
-    }
-
-
-    if (params.toString() !== "") {
-
-        url +=
-            "?" +
-            params.toString();
-
-    }
-
-
-    try {
-
-        const response =
-            await fetch(
-                url,
-                {
-                    credentials: "include"
-                }
-            );
-
-
-        const data =
-            await response.json();
-
-
-        console.log(
-            "Attendance Report:",
-            data
-        );
-
-
-        if (data.status !== "success") {
-
-            alert(
-                data.message ||
-                "Unable to load report."
-            );
-
+        if (subject === "") {
+            alert("Please select a subject first.");
             return;
         }
 
+        dailyDate.value = "";
 
-        updateSummary(
-            data.summary
+        try {
+            dailyDate.showPicker();
+        } catch (error) {
+            dailyDate.click();
+        }
+
+    });
+
+    dailyDate.addEventListener("change", function () {
+
+        if (this.value === "") return;
+
+        downloadAttendanceReport(
+            "daily",
+            document.getElementById("subject").value,
+            this.value
         );
 
+    });
 
-        showReport(
-            data.report
+
+    // MONTHLY REPORT BUTTON
+    const monthlyButton = document.getElementById("monthlyReportBtn");
+    const monthlyDate = document.getElementById("monthlyDownloadMonth");
+
+    monthlyButton.addEventListener("click", function () {
+
+        const subject = document.getElementById("subject").value;
+
+        if (subject === "") {
+            alert("Please select a subject first.");
+            return;
+        }
+
+        monthlyDate.value = "";
+
+        try {
+            monthlyDate.showPicker();
+        } catch (error) {
+            monthlyDate.click();
+        }
+
+    });
+
+    monthlyDate.addEventListener("change", function () {
+
+        if (this.value === "") return;
+
+        downloadAttendanceReport(
+            "monthly",
+            document.getElementById("subject").value,
+            this.value
         );
+
+    });
+
+});
+
+function filterStudentRows(searchValue) {
+
+    searchValue = searchValue.toLowerCase().trim();
+
+    const rows = document.querySelectorAll("#reportBody tr");
+
+    rows.forEach(function (row) {
+
+        // Skip empty/no-record message rows
+        if (row.cells.length < 6) return;
+
+        const name = row.cells[0].textContent.toLowerCase();
+        const rollNo = row.cells[1].textContent.toLowerCase();
+
+        if (
+            name.includes(searchValue) ||
+            rollNo.includes(searchValue)
+        ) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+
+    });
+}
+
+
+// DOWNLOAD REPORT
+function downloadAttendanceReport(type, subject, selectedDate) {
+
+    const params = new URLSearchParams();
+
+    params.append("subject", subject);
+
+    let url = "";
+
+    if (type === "daily") {
+
+        params.append("date", selectedDate);
+
+        url = "http://localhost/apollo-backend/faculty/daily_attendance_report.php";
+
+    } else if (type === "monthly") {
+
+        params.append("month", selectedDate);
+
+        url = "http://localhost/apollo-backend/faculty/monthly_attendance_report.php";
 
     }
 
-    catch (error) {
+    window.location.href = url + "?" + params.toString();
 
-        console.error(
-            "Report Error:",
-            error
-        );
+}
 
-        alert(
-            "Unable to connect to server."
-        );
+
+// LOAD ATTENDANCE REPORT
+async function loadReport() {
+
+    const subject = document.getElementById("subject").value;
+
+    const attendanceDate = document.getElementById("attendanceDate").value;
+
+    let url = "http://localhost/apollo-backend/faculty/attendance_report.php";
+
+    const params = new URLSearchParams();
+
+    if (subject !== "") {
+        params.append("subject", subject);
+    }
+
+    if (attendanceDate !== "") {
+        params.append("date", attendanceDate);
+    }
+
+    if (params.toString() !== "") {
+        url += "?" + params.toString();
+    }
+
+    try {
+
+        const response = await fetch(url, {
+            credentials: "include"
+        });
+
+        const data = await response.json();
+
+        console.log("Attendance Report:", data);
+
+        if (data.status !== "success") {
+            alert(data.message || "Unable to load report.");
+            return;
+        }
+
+        updateSummary(data.summary);
+        showReport(data.report);
+
+    } catch (error) {
+
+        console.error("Report Error:", error);
+        alert("Unable to connect to server.");
 
     }
 
 }
 
 
-/* SUMMARY */
-
+// SUMMARY
 function updateSummary(summary) {
 
-    document.getElementById(
-        "totalStudents"
-    ).textContent =
+    document.getElementById("totalStudents").textContent =
         summary.total_students;
 
-
-    document.getElementById(
-        "totalRecords"
-    ).textContent =
+    document.getElementById("totalRecords").textContent =
         summary.total_records;
 
-
-    document.getElementById(
-        "totalPresent"
-    ).textContent =
+    document.getElementById("totalPresent").textContent =
         summary.total_present;
 
-
-    document.getElementById(
-        "totalAbsent"
-    ).textContent =
+    document.getElementById("totalAbsent").textContent =
         summary.total_absent;
 
 }
 
 
-/* TABLE */
-
+// TABLE
 function showReport(report) {
 
-    const reportBody =
-        document.getElementById(
-            "reportBody"
-        );
-
+    const reportBody = document.getElementById("reportBody");
 
     if (report.length === 0) {
 
         reportBody.innerHTML = `
-
             <tr>
-
                 <td colspan="6">
-
                     No attendance records found.
-
                 </td>
-
             </tr>
-
         `;
 
         return;
     }
 
-
     reportBody.innerHTML = "";
-
 
     report.forEach(function (student) {
 
-        const row =
-            document.createElement("tr");
+        const row = document.createElement("tr");
 
+        const percentage = Number(student.percentage);
 
-        const percentage =
-            Number(
-                student.percentage
-            );
-
-
-        let percentageClass =
-            "attendance-good";
-
+        let percentageClass = "attendance-good";
 
         if (percentage < 75) {
-
-            percentageClass =
-                "attendance-low";
-
+            percentageClass = "attendance-low";
         }
 
-
         row.innerHTML = `
-
-            <td>
-                ${student.name}
-            </td>
-
-            <td>
-                ${student.roll_no}
-            </td>
-
-            <td>
-                ${student.subject}
-            </td>
-
-            <td>
-                ${student.present}
-            </td>
-
-            <td>
-                ${student.absent}
-            </td>
-
-            <td class="${percentageClass}">
-                ${percentage}%
-            </td>
-
+            <td>${student.name}</td>
+            <td>${student.roll_no}</td>
+            <td>${student.subject}</td>
+            <td>${student.present}</td>
+            <td>${student.absent}</td>
+            <td class="${percentageClass}">${percentage}%</td>
         `;
-
 
         reportBody.appendChild(row);
 
     });
 
+    // Apply search after loading report
+    const searchValue = document.getElementById("studentSearch").value;
+    filterStudentRows(searchValue);
+
 }
+
+
+// LOAD SUBJECTS
 async function loadSubjects() {
 
-    const subjectSelect =
-        document.getElementById("subject");
+    const subjectSelect = document.getElementById("subject");
 
     try {
 
@@ -268,15 +286,12 @@ async function loadSubjects() {
         }
 
         subjectSelect.innerHTML = `
-            <option value="">
-                All My Subjects
-            </option>
+            <option value="">All My Subjects</option>
         `;
 
         data.subjects.forEach(function (subject) {
 
-            const option =
-                document.createElement("option");
+            const option = document.createElement("option");
 
             option.value = subject;
             option.textContent = subject;
@@ -288,7 +303,6 @@ async function loadSubjects() {
     } catch (error) {
 
         console.error("Subjects Error:", error);
-
         alert("Unable to load subjects.");
 
     }
