@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Student Profile | Apollo</title>
+    <title>My Profile | Apollo</title>
 
     <link rel="stylesheet" href="../Assets/CSS/profile.css">
 </head>
@@ -15,357 +15,177 @@
     <!-- TOP HEADER -->
     <header class="top-header">
 
-        <div class="welcome">
-            <h2>
-                Welcome Back, <span id="headerName">Student</span> 👋
-            </h2>
+        <div class="header-left">
+            <a href="dashboard.html" class="back-dashboard">
+                <span>←</span> Back to Dashboard
+            </a>
 
-            <p>Student Portal</p>
+            <p>Welcome back, <span id="headerName">Student</span></p>
+            <small>Here's your student profile</small>
         </div>
 
         <div class="header-right">
+            <div class="mini-user">
+                <div class="mini-avatar" id="miniAvatar">S</div>
 
-            <div class="notification">
-                🔔
-                <span></span>
-            </div>
-
-            <div class="user-mini">
-                <div class="mini-avatar" id="miniAvatar">
-                    S
+                <div class="mini-user-info">
+                    <span id="miniName">Student</span>
+                    <small>Student</small>
                 </div>
-
-                <strong id="miniName">Student</strong>
-
-                <!--  <span class="arrow">⌄</span>-->
             </div>
-
         </div>
 
     </header>
 
 
+    <!-- MAIN PROFILE -->
     <main class="profile-container">
 
         <!-- PROFILE HERO -->
         <section class="profile-hero">
 
-            <div class="profile-left">
+            <div class="profile-photo-wrapper">
 
-                <div class="profile-avatar">
-                    <div id="profileInitial">
-                        S
-                    </div>
-                </div>
+                <img src="" alt="Student Profile Photo" id="profilePhoto" class="profile-photo" hidden>
 
-                <div class="profile-main-info">
-
-                    <h1 id="profileName">
-                        Loading...
-                    </h1>
-
-                    <p class="roll-course">
-                        Roll No: <strong id="profileRoll">—</strong>
-
-                        <span>|</span>
-
-                        <strong id="profileCourse">—</strong>
-                    </p>
-
-                    <div class="active-badge">
-                        <span></span>
-                        Active Student
-                    </div>
-
-                    <div class="contact-row">
-
-                        <span>
-                            ✉
-                            <span id="profileEmail">
-                                Loading...
-                            </span>
-                        </span>
-
-                        <span>
-                            🎓
-                            BCA Student
-                        </span>
-
-                    </div>
-
+                <div class="profile-initial" id="profileInitial">
+                    S
                 </div>
 
             </div>
 
+            <div class="profile-hero-info">
 
-            <button class="edit-btn" onclick="editProfile()">
-                ✎ &nbsp; Edit Profile
-            </button>
+                <span class="profile-label">STUDENT PROFILE</span>
+
+                <h1 id="profileName">Loading...</h1>
+
+                <div class="profile-meta">
+                    <span>
+                        <i class="meta-dot"></i>
+                        Enrollment No: <strong id="profileRoll">—</strong>
+                    </span>
+
+                    <span>
+                        <i class="meta-dot"></i>
+                        <strong id="profileCourse">—</strong>
+                    </span>
+                </div>
+
+                <div class="profile-email" id="profileEmail">
+                    —
+                </div>
+
+            </div>
+
+            <div class="student-status">
+                <span class="status-dot"></span>
+                Active Student
+            </div>
 
         </section>
 
 
-        <!-- TWO COLUMN CONTENT -->
-        <div class="content-grid">
+        <!-- PROFILE CONTENT -->
+        <div class="profile-content">
 
-            <!-- LEFT COLUMN -->
-            <div class="left-column">
+            <!-- PERSONAL INFORMATION -->
+            <section class="profile-card">
 
-                <!-- PERSONAL INFORMATION -->
-                <section class="info-card">
+                <div class="card-heading">
+                    <div class="heading-icon personal-icon">
+                        <i class="icon-person"></i>
+                    </div>
 
-                    <div class="card-title">
-                        <div class="title-icon">👤</div>
+                    <div>
                         <h2>Personal Information</h2>
+                        <p>Your registered student details</p>
+                    </div>
+                </div>
+
+                <div class="information-list">
+
+                    <div class="info-item">
+                        <span class="info-label">Full Name</span>
+                        <span class="info-value" id="personalName">—</span>
                     </div>
 
-                    <div class="info-list">
-
-                        <div class="info-row">
-                            <span class="label">Full Name</span>
-                            <span class="colon">:</span>
-                            <span class="value" id="personalName">—</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Roll Number</span>
-                            <span class="colon">:</span>
-                            <span class="value" id="personalRoll">—</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Email</span>
-                            <span class="colon">:</span>
-                            <span class="value" id="personalEmail">—</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Date of Birth</span>
-                            <span class="colon">:</span>
-                            <span class="value muted">Not added</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Gender</span>
-                            <span class="colon">:</span>
-                            <span class="value muted">Not added</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Course</span>
-                            <span class="colon">:</span>
-                            <span class="value" id="personalCourse">—</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Semester</span>
-                            <span class="colon">:</span>
-                            <span class="value" id="personalSemester">—</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Academic Year</span>
-                            <span class="colon">:</span>
-                            <span class="value">2026 - 2027</span>
-                        </div>
-
+                    <div class="info-item">
+                        <span class="info-label">Student ID</span>
+                        <span class="info-value" id="personalId">—</span>
                     </div>
 
-                </section>
-
-
-                <!-- PARENT / GUARDIAN -->
-                <section class="info-card">
-
-                    <div class="card-title">
-                        <div class="title-icon">👥</div>
-                        <h2>Parent / Guardian Details</h2>
+                    <div class="info-item">
+                        <span class="info-label">Enrollment Number</span>
+                        <span class="info-value" id="personalRoll">—</span>
                     </div>
 
-                    <div class="info-list">
-
-                        <div class="info-row">
-                            <span class="label">Father's Name</span>
-                            <span class="colon">:</span>
-                            <span class="value muted">Not added</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Mother's Name</span>
-                            <span class="colon">:</span>
-                            <span class="value muted">Not added</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Phone Number</span>
-                            <span class="colon">:</span>
-                            <span class="value muted">Not added</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Email</span>
-                            <span class="colon">:</span>
-                            <span class="value muted">Not added</span>
-                        </div>
-
+                    <div class="info-item">
+                        <span class="info-label">Email Address</span>
+                        <span class="info-value" id="personalEmail">—</span>
                     </div>
 
-                </section>
+                </div>
+
+            </section>
 
 
-                <!-- ADDRESS -->
-                <section class="info-card">
+            <!-- ACADEMIC INFORMATION -->
+            <section class="profile-card">
 
-                    <div class="card-title">
-                        <div class="title-icon">📍</div>
-                        <h2>Address</h2>
+                <div class="card-heading">
+                    <div class="heading-icon academic-icon">
+                        <i class="icon-academic"></i>
                     </div>
 
-                    <p class="empty-message">
-                        Address information has not been added yet.
-                    </p>
-
-                </section>
-
-            </div>
-
-
-            <!-- RIGHT COLUMN -->
-            <div class="right-column">
-
-                <!-- ACADEMIC DETAILS -->
-                <section class="info-card">
-
-                    <div class="card-title">
-                        <div class="title-icon">🎓</div>
+                    <div>
                         <h2>Academic Details</h2>
+                        <p>Your current academic information</p>
+                    </div>
+                </div>
+
+                <div class="information-list">
+
+                    <div class="info-item">
+                        <span class="info-label">Course</span>
+                        <span class="info-value" id="academicCourse">—</span>
                     </div>
 
-                    <div class="info-list">
-
-                        <div class="info-row">
-                            <span class="label">Course</span>
-                            <span class="colon">:</span>
-                            <span class="value" id="academicCourse">—</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Branch</span>
-                            <span class="colon">:</span>
-                            <span class="value">Computer Application</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Semester</span>
-                            <span class="colon">:</span>
-                            <span class="value" id="academicSemester">—</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span class="label">Current Year</span>
-                            <span class="colon">:</span>
-                            <span class="value" id="currentYear">2nd Year</span>
-                        </div>
-
+                    <div class="info-item">
+                        <span class="info-label">Department</span>
+                        <span class="info-value">Computer Application</span>
                     </div>
 
-                </section>
-
-
-                <!-- QUICK STATS -->
-                <section class="info-card">
-
-                    <div class="card-title">
-                        <div class="title-icon">📊</div>
-                        <h2>Quick Stats</h2>
+                    <div class="info-item">
+                        <span class="info-label">Current Semester</span>
+                        <span class="info-value" id="academicSemester">—</span>
                     </div>
 
-                    <div class="stats-grid">
-
-                        <div class="stat-box green">
-                            <div class="stat-icon">📅</div>
-                            <p>Attendance</p>
-                            <h3>--%</h3>
-                            <small>Coming soon</small>
-                        </div>
-
-                        <div class="stat-box blue">
-                            <div class="stat-icon">📄</div>
-                            <p>Assignments</p>
-                            <h3>--</h3>
-                            <small>Available soon</small>
-                        </div>
-
-                        <div class="stat-box purple">
-                            <div class="stat-icon">📖</div>
-                            <p>Notes</p>
-                            <h3>--</h3>
-                            <small>Available soon</small>
-                        </div>
-
-                        <div class="stat-box yellow">
-                            <div class="stat-icon">🧪</div>
-                            <p>Practicals</p>
-                            <h3>--</h3>
-                            <small>Available soon</small>
-                        </div>
-
+                    <div class="info-item">
+                        <span class="info-label">Academic Year</span>
+                        <span class="info-value" id="academicYear">—</span>
                     </div>
 
-                </section>
-
-
-                <!-- RECENT ACTIVITY -->
-                <section class="info-card">
-
-                    <div class="card-title">
-                        <div class="title-icon">◷</div>
-                        <h2>Recent Activity</h2>
+                    <div class="info-item">
+                        <span class="info-label">Current Year</span>
+                        <span class="info-value year-value" id="currentYear">—</span>
                     </div>
 
-                    <div class="activity-list">
+                </div>
 
-                        <div class="activity-item">
-                            <span class="activity-dot blue-dot"></span>
+            </section>
 
-                            <div>
-                                <strong>Profile created</strong>
-                                <p>Your student profile is active.</p>
-                            </div>
-
-                            <small>Today</small>
-                        </div>
+        </div>
 
 
-                        <div class="activity-item">
-                            <span class="activity-dot green-dot"></span>
+        <!-- PROFILE NOTE -->
+        <div class="profile-note">
+            <div class="note-icon">i</div>
 
-                            <div>
-                                <strong>Login successful</strong>
-                                <p>Student portal accessed.</p>
-                            </div>
-
-                            <small>Today</small>
-                        </div>
-
-
-                        <div class="activity-item">
-                            <span class="activity-dot purple-dot"></span>
-
-                            <div>
-                                <strong>Academic details</strong>
-                                <p>Your course information is available.</p>
-                            </div>
-
-                            <small>Today</small>
-                        </div>
-
-                    </div>
-
-                </section>
-
-            </div>
-
+            <p>
+                Your profile information is managed by the college administration.
+                If any information needs to be corrected, please contact the college admin.
+            </p>
         </div>
 
     </main>

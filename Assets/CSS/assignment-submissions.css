@@ -10,7 +10,6 @@ body {
     color: #222;
 }
 
-
 /* ================================
    HEADER
 ================================ */
@@ -18,9 +17,7 @@ body {
 .page-header {
     background: #1764a5;
     color: white;
-
     padding: 25px 40px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,15 +35,11 @@ body {
     border: none;
     background: white;
     color: #1764a5;
-
     padding: 10px 18px;
-
     border-radius: 8px;
-
     cursor: pointer;
     font-weight: 600;
 }
-
 
 /* ================================
    CONTAINER
@@ -58,22 +51,16 @@ body {
     padding: 0 20px;
 }
 
-
 /* ================================
    PANEL
 ================================ */
 
 .panel {
     background: white;
-
     border-radius: 12px;
-
     padding: 25px;
-
     margin-bottom: 25px;
-
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
 
 .panel-title {
@@ -84,25 +71,35 @@ body {
     font-size: 20px;
 }
 
-
 /* ================================
-   SELECT
+   SUBJECT AND ASSIGNMENT SELECT
 ================================ */
 
+#subjectSelect,
 #assignmentSelect {
     width: 100%;
-
     padding: 13px;
-
     border: 1px solid #d8dee8;
-
     border-radius: 8px;
-
     font-size: 15px;
-
     outline: none;
+    background: white;
+    color: #222;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
+#subjectSelect:focus,
+#assignmentSelect:focus {
+    border-color: #1764a5;
+    box-shadow: 0 0 0 3px rgba(23, 100, 165, 0.1);
+}
+
+#assignmentSelect:disabled {
+    background: #f1f3f6;
+    color: #999;
+    cursor: not-allowed;
+}
 
 /* ================================
    SUMMARY
@@ -110,24 +107,22 @@ body {
 
 .summary-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-
     margin-bottom: 25px;
 }
 
 .summary-card {
     background: white;
-
     border-radius: 12px;
-
     padding: 22px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #1764a5;
+    transition: transform 0.2s;
+}
 
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.08);
+.summary-card:hover {
+    transform: translateY(-3px);
 }
 
 .summary-card span {
@@ -144,6 +139,42 @@ body {
     font-size: 30px;
 }
 
+/* ================================
+   SEARCH AND FILTER
+================================ */
+
+.submission-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#studentSearch,
+#statusFilter {
+    padding: 12px 14px;
+    border: 1px solid #d8dee8;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    color: #333;
+}
+
+#studentSearch {
+    flex: 1;
+    min-width: 0;
+}
+
+#statusFilter {
+    width: 190px;
+    cursor: pointer;
+}
+
+#studentSearch:focus,
+#statusFilter:focus {
+    border-color: #1764a5;
+    box-shadow: 0 0 0 3px rgba(23, 100, 165, 0.1);
+}
 
 /* ================================
    TABLE
@@ -155,34 +186,42 @@ body {
 
 table {
     width: 100%;
-
     border-collapse: collapse;
+    min-width: 650px;
 }
 
 th,
 td {
     padding: 14px 12px;
-
     text-align: left;
-
     border-bottom: 1px solid #e8ebef;
 }
 
 th {
     background: #f7f9fc;
     color: #555;
+    font-size: 14px;
 }
+
+td {
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background: #f8faff;
+}
+
+/* ================================
+   STATUS BADGES
+================================ */
 
 .status {
     display: inline-block;
-
     padding: 5px 10px;
-
     border-radius: 20px;
-
     font-size: 13px;
-
     font-weight: 600;
+    white-space: nowrap;
 }
 
 .status.submitted {
@@ -190,11 +229,20 @@ th {
     color: #2e8b25;
 }
 
+.status.submitted-late {
+    background: #e8e7ff;
+    color: #5145b5;
+}
+
 .status.pending {
     background: #fff3d6;
     color: #b87900;
 }
 
+.status.overdue {
+    background: #ffe5e5;
+    color: #d32f2f;
+}
 
 /* ================================
    DOWNLOAD
@@ -202,34 +250,71 @@ th {
 
 .download-btn {
     display: inline-block;
-
     padding: 7px 12px;
-
     border-radius: 6px;
-
     background: #1764a5;
-
     color: white;
-
     text-decoration: none;
-
     font-size: 13px;
+    transition: 0.2s;
 }
 
+.download-btn:hover {
+    background: #104d80;
+}
 
 /* ================================
    RESPONSIVE
 ================================ */
+
+@media (max-width: 992px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
 
 @media (max-width: 768px) {
 
     .page-header {
         padding: 20px;
         gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .submissions-container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    .submission-filters {
+        flex-direction: column;
+    }
+
+    #statusFilter {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .page-header h1 {
+        font-size: 21px;
     }
 
     .summary-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .summary-card {
+        padding: 18px;
     }
 
 }

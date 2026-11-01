@@ -7,6 +7,7 @@
 
     <title>Apollo BCA - Student Dashboard</title>
 
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../Assets/CSS/dashboard.css">
 </head>
 
@@ -31,43 +32,43 @@
 
             <nav class="menu">
 
-                <a href="#" class="menu-item active">
-                    <span class="icon">⌂</span>
+                <a href="dashboard.html" class="menu-item active">
+                    <i data-lucide="layout-dashboard"></i>
                     Dashboard
                 </a>
 
                 <a href="attendance.html" class="menu-item">
-                    <span class="icon">◔</span>
+                    <i data-lucide="clipboard-check"></i>
                     Attendance
                 </a>
 
                 <a href="study-material.html" class="menu-item">
-                    <span class="icon">▣</span>
+                    <i data-lucide="book-open"></i>
                     Study Material
                 </a>
 
                 <a href="student-assignments.html" class="menu-item">
-                    <span class="icon">▣</span>
+                    <i data-lucide="book-open-check"></i>
                     Assignments
                 </a>
 
                 <a href="timetable.html" class="menu-item">
-                    <span>📅</span>
+                    <i data-lucide="calendar-days"></i>
                     Timetable
                 </a>
 
                 <a href="notices.html" class="menu-item">
-                    <span class="icon">📢</span>
+                    <i data-lucide="bell"></i>
                     Notices
                 </a>
 
                 <a href="feedback.html" class="menu-item">
-                    <span class="icon">💬</span>
+                    <i data-lucide="message-square"></i>
                     Feedback
                 </a>
 
                 <a href="profile.html" class="menu-item">
-                    <span class="icon">👤</span>
+                    <i data-lucide="user"></i>
                     Profile
                 </a>
 
@@ -95,12 +96,8 @@
                 <div class="welcome">
 
                     <h1>
-                        Welcome, Ayush! 👋
+                        Welcome, <span id="dashboardStudentName">Student</span>! 👋
                     </h1>
-
-                    <p>
-                        Here's what's happening with your academics today.
-                    </p>
 
                 </div>
 
@@ -129,27 +126,21 @@
                     </button> -->
 
 
-                    <!-- Profile -->
-
                     <div class="profile-mini">
 
-                        <div class="avatar">
-                            👨🏻‍💻
+                        <div class="avatar" id="dashboardAvatar">
+                            <span id="dashboardInitial">S</span>
                         </div>
 
                         <div>
-
-                            <strong>
-                                Ayush Sathwara
+                            <strong id="dashboardProfileName">
+                                Student
                             </strong>
 
-                            <small>
+                            <small id="dashboardCourse">
                                 BCA Sem 3
                             </small>
-
                         </div>
-
-                        <!--<span>⌄</span>-->
 
                     </div>
 
@@ -216,7 +207,7 @@
 
                     </div>
 
-                    <a href="#">
+                    <a href="student-assignments.html">
                         View all →
                     </a>
 
@@ -244,7 +235,7 @@
 
                     </div>
 
-                    <a href="#">
+                    <a href="timetable.html">
                         View timetable →
                     </a>
 
@@ -272,7 +263,7 @@
 
                     </div>
 
-                    <a href="#">
+                    <a href="notices.html">
                         View all →
                     </a>
 
@@ -574,7 +565,7 @@
                                 📢 &nbsp;Recent Announcements
                             </h2>
 
-                            <a href="#">
+                            <a href="notices.html">
                                 View All
                             </a>
 
@@ -624,6 +615,9 @@
 
 
     <script src="../Assets/JS/dashboard.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 
 </body>
 

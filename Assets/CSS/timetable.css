@@ -44,6 +44,14 @@ body {
     border-radius: 8px;
     font-size: 14px;
     transition: 0.3s;
+
+    .back-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        cursor: pointer;
+    }
 }
 
 .back-btn:hover {

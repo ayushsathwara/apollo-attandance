@@ -1055,3 +1055,105 @@ async function loadStudentNotices() {
 }
 
 loadStudentNotices();
+
+/* ================================
+   STUDENT PROFILE PHOTO & NAME
+================================ */
+
+async function loadDashboardProfile() {
+
+    const welcomeName =
+        document.getElementById("dashboardStudentName");
+
+    const profileName =
+        document.getElementById("dashboardProfileName");
+
+    const courseElement =
+        document.getElementById("dashboardCourse");
+
+    const avatar =
+        document.getElementById("dashboardAvatar");
+
+    const initial =
+        document.getElementById("dashboardInitial");
+
+    try {
+
+        const response = await fetch(
+            "http://localhost/apollo-backend/student/profile.php",
+            {
+                method: "GET",
+                credentials: "include"
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Dashboard Student Profile:", data);
+
+        if (!response.ok || data.status !== "success") {
+            throw new Error(data.message || "Unable to load profile.");
+        }
+
+        const student = data.student;
+
+        if (!student) {
+            throw new Error("Student information not found.");
+        }
+
+        // Update student name
+        const name = student.name || "Student";
+
+        if (welcomeName) {
+            welcomeName.textContent = name;
+        }
+
+        if (profileName) {
+            profileName.textContent = name;
+        }
+
+        // Update course and semester
+        if (courseElement) {
+            courseElement.textContent =
+                `${student.course || "BCA"} Sem ${student.semester || ""}`;
+        }
+
+        // Show first letter initially
+        if (initial) {
+            initial.textContent = name.charAt(0).toUpperCase();
+        }
+
+        // Load profile photo
+        if (student.profile_photo && avatar) {
+
+            const photoPath = student.profile_photo;
+
+            const photoUrl = /^https?:\/\//i.test(photoPath)
+                ? photoPath
+                : "http://localhost/apollo-backend/" +
+                photoPath.replace(/^\/+/, "");
+
+            const img = document.createElement("img");
+
+            img.src = photoUrl;
+            img.alt = name + " Profile Photo";
+
+            img.onload = function () {
+                avatar.replaceChildren(img);
+            };
+
+            img.onerror = function () {
+                console.error("Unable to load student profile photo.");
+            };
+        }
+
+    }
+    catch (error) {
+
+        console.error("Dashboard Profile Error:", error);
+
+    }
+
+}
+
+loadDashboardProfile();

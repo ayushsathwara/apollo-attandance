@@ -1,146 +1,175 @@
+
 document.addEventListener("DOMContentLoaded", async function () {
+
+    const API_URL = "http://localhost/apollo-backend/student/profile.php";
+
+    // Get element safely
+    function setText(id, value) {
+        const element = document.getElementById(id);
+
+        if (element) {
+            element.textContent = value ?? "—";
+        }
+    }
 
     try {
 
-        const response = await fetch(
-            "http://localhost/apollo-backend/student/profile.php"
-        );
+        const response = await fetch(API_URL, {
+            credentials: "include"
+        });
 
         const data = await response.json();
 
         console.log("Profile Data:", data);
 
-        if (data.status !== "success") {
-
-            alert(data.message || "Unable to load profile.");
-
-            return;
+        if (!response.ok || data.status !== "success") {
+            throw new Error(data.message || "Unable to load profile.");
         }
-
 
         const student = data.student;
 
-
         // =========================
-        // BASIC STUDENT DATA
+        // STUDENT BASIC INFORMATION
         // =========================
 
         const name = student.name || "Student";
         const roll = student.roll_no || "—";
         const email = student.email || "—";
         const course = student.course || "—";
-        const semester = student.semester || "—";
+        const semester = Number(student.semester);
+        const studentId = student.id || "—";
 
+        const firstLetter = name.trim().charAt(0).toUpperCase() || "S";
 
         // =========================
         // HEADER
         // =========================
 
-        document.getElementById("headerName").textContent =
-            name.split(" ")[0];
-
-        document.getElementById("miniName").textContent =
-            name;
-
+        setText("headerName", name.split(" ")[0]);
+        setText("miniName", name);
 
         // =========================
-        // AVATAR
+        // PROFILE AVATAR
         // =========================
 
-        const firstLetter =
-            name.charAt(0).toUpperCase();
+        setText("profileInitial", firstLetter);
+        setText("miniAvatar", firstLetter);
 
-        document.getElementById("profileInitial").textContent =
-            firstLetter;
+        // =========================
+        // PROFILE PHOTO
+        // =========================
 
-        document.getElementById("miniAvatar").textContent =
-            firstLetter;
+        const profilePhoto = document.getElementById("profilePhoto");
+        const profileInitial = document.getElementById("profileInitial");
 
+        if (student.profile_photo && profilePhoto) {
+
+            const photoPath = student.profile_photo;
+
+            // Use the stored relative upload path.
+            const photoURL = photoPath.startsWith("http")
+                ? photoPath
+                : "http://localhost/apollo-backend/" + photoPath.replace(/^\/+/, "");
+
+            profilePhoto.onload = function () {
+                profilePhoto.hidden = false;
+                profileInitial.style.display = "none";
+            };
+
+            profilePhoto.onerror = function () {
+                profilePhoto.hidden = true;
+                profileInitial.style.display = "flex";
+            };
+
+            profilePhoto.src = photoURL;
+
+        } else if (profilePhoto) {
+
+            profilePhoto.hidden = true;
+            profileInitial.style.display = "flex";
+
+        }
 
         // =========================
         // PROFILE HERO
         // =========================
 
-        document.getElementById("profileName").textContent =
-            name;
-
-        document.getElementById("profileRoll").textContent =
-            roll;
-
-        document.getElementById("profileCourse").textContent =
-            course;
-
-        document.getElementById("profileEmail").textContent =
-            email;
-
+        setText("profileName", name);
+        setText("profileRoll", roll);
+        setText("profileCourse", course);
+        setText("profileEmail", email);
 
         // =========================
         // PERSONAL INFORMATION
         // =========================
 
-        document.getElementById("personalName").textContent =
-            name;
-
-        document.getElementById("personalRoll").textContent =
-            roll;
-
-        document.getElementById("personalEmail").textContent =
-            email;
-
-        document.getElementById("personalCourse").textContent =
-            course;
-
-        document.getElementById("personalSemester").textContent =
-            semester;
-
+        setText("personalName", name);
+        setText("personalId", studentId);
+        setText("personalRoll", roll);
+        setText("personalEmail", email);
 
         // =========================
         // ACADEMIC DETAILS
         // =========================
 
-        document.getElementById("academicCourse").textContent =
-            course;
+        setText("academicCourse", course);
 
-        document.getElementById("academicSemester").textContent =
-            semester;
+        if (Number.isFinite(semester) && semester > 0) {
 
+            setText("academicSemester", "Semester " + semester);
 
-        // =========================
-        // CURRENT YEAR
-        // =========================
+            let currentYear = "";
+            let yearNumber = 0;
 
-        if (Number(semester) <= 2) {
+            if (semester <= 2) {
+                currentYear = "1st Year";
+                yearNumber = 1;
+            } else if (semester <= 4) {
+                currentYear = "2nd Year";
+                yearNumber = 2;
+            } else if (semester <= 6) {
+                currentYear = "3rd Year";
+                yearNumber = 3;
+            } else {
+                currentYear = "Semester " + semester;
+            }
 
-            document.getElementById("currentYear").textContent =
-                "1st Year";
+            setText("currentYear", currentYear);
 
-        } else if (Number(semester) <= 4) {
+            // Academic year is calculated from the current calendar year.
+            const today = new Date();
+            const month = today.getMonth(); // January = 0
 
-            document.getElementById("currentYear").textContent =
-                "2nd Year";
+            // Assumption: academic year starts in June.
+            const startYear = month >= 5
+                ? today.getFullYear()
+                : today.getFullYear() - 1;
+
+            const academicStart = startYear + (yearNumber - 1);
+            const academicEnd = academicStart + 1;
+
+            setText(
+                "academicYear",
+                yearNumber > 0
+                    ? academicStart + " - " + academicEnd
+                    : "—"
+            );
 
         } else {
 
-            document.getElementById("currentYear").textContent =
-                "3rd Year";
-        }
+            setText("academicSemester", "—");
+            setText("currentYear", "—");
+            setText("academicYear", "—");
 
+        }
 
     } catch (error) {
 
         console.error("Profile Error:", error);
 
-        alert("Unable to connect to server.");
+        alert(error.message || "Unable to load student profile.");
 
     }
 
 });
 
-
-function editProfile() {
-
-    alert(
-        "Edit Profile will be available after we add the profile update system."
-    );
-
-}

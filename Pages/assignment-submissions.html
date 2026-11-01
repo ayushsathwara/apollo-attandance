@@ -43,6 +43,10 @@
 
             </div>
 
+            <select id="subjectSelect">
+                <option value="">Select Subject</option>
+            </select>
+
             <select id="assignmentSelect">
 
                 <option value="">
@@ -96,7 +100,33 @@
 
             </div>
 
+            <div class="summary-card">
+
+                <span>⚠️</span>
+
+                <p>Overdue</p>
+
+                <h2 id="overdueStudents">
+                    0
+                </h2>
+
+            </div>
+
         </section>
+
+        <div class="submission-filters">
+
+            <input type="text" id="studentSearch" placeholder="Search by student name or roll number...">
+
+            <select id="statusFilter">
+                <option value="All">All Status</option>
+                <option value="Submitted">Submitted</option>
+                <option value="Submitted Late">Submitted Late</option>
+                <option value="Pending">Pending</option>
+                <option value="Overdue">Overdue</option>
+            </select>
+
+        </div>
 
 
         <!-- STUDENT LIST -->

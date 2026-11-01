@@ -126,11 +126,9 @@ body {
 ========================= */
 
 .notice-intro {
-    background: linear-gradient(
-        135deg,
-        #173f75,
-        #245a9e
-    );
+    background: linear-gradient(135deg,
+            #173f75,
+            #245a9e);
 
     min-height: 190px;
 
@@ -604,4 +602,30 @@ body {
 
         gap: 5px;
     }
+}
+
+/* BACK TO DASHBOARD BUTTON */
+
+.back-dashboard {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 9px;
+
+    color: #1764a5;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.back-dashboard:hover {
+    color: #124d82;
+    transform: translateX(-3px);
+}
+
+.back-dashboard span {
+    font-size: 17px;
 }
