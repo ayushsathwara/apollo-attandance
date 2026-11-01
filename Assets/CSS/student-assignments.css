@@ -247,3 +247,202 @@ body {
     }
 
 }
+
+
+/* =====================================
+   ASSIGNMENT DASHBOARD SUMMARY
+===================================== */
+
+.assignment-dashboard {
+    width: 100%;
+}
+
+.assignment-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.summary-card {
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid #1764a5;
+}
+
+.summary-card span {
+    display: block;
+    color: #667085;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.summary-card strong {
+    display: block;
+    color: #1764a5;
+    font-size: 27px;
+}
+
+
+/* =====================================
+   SEARCH AND FILTERS
+===================================== */
+
+.assignment-filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.assignment-filters input,
+.assignment-filters select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1d2939;
+    font-size: 14px;
+    outline: none;
+}
+
+.assignment-filters input:focus,
+.assignment-filters select:focus {
+    border-color: #1764a5;
+    box-shadow: 0 0 0 3px rgba(23, 100, 165, 0.1);
+}
+
+
+/* =====================================
+   DEADLINE WARNING
+===================================== */
+
+.deadline-warning {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 9px 13px;
+    background: #fff4e5;
+    color: #b54708;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =====================================
+   SUBMISSION DETAILS
+===================================== */
+
+.submission-details {
+    width: 100%;
+    padding: 15px;
+    background: #f5f8fc;
+    border-radius: 8px;
+}
+
+.submission-details p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #344054;
+    overflow-wrap: anywhere;
+}
+
+.submission-details strong {
+    color: #1d2939;
+}
+
+
+/* =====================================
+   OVERDUE MESSAGE
+===================================== */
+
+.overdue-message {
+    width: 100%;
+    padding: 14px;
+    background: #fff1f0;
+    color: #b42318;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =====================================
+   ASSIGNMENT ACTIONS
+===================================== */
+
+.assignment-action {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.assignment-action .submission-box {
+    width: 100%;
+}
+
+.assignment-action .submit-btn {
+    cursor: pointer;
+}
+
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 992px) {
+
+    .assignment-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .assignment-filters {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .assignment-filters input {
+        grid-column: 1 / -1;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .assignment-summary {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .summary-card {
+        padding: 16px;
+    }
+
+    .summary-card strong {
+        font-size: 23px;
+    }
+
+    .assignment-filters {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .assignment-filters input {
+        grid-column: auto;
+    }
+
+    .assignment-action {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .assignment-action .submit-btn {
+        width: 100%;
+    }
+
+}
