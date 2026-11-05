@@ -3,8 +3,7 @@ const API_URL = "http://localhost/apollo-backend";
 async function loadParentProfile() {
     try {
         const response = await fetch(
-            `${API_URL}/parent/profile.php`,
-            {
+            `${API_URL}/parent/profile.php`, {
                 method: "GET",
                 credentials: "include"
             }
@@ -58,11 +57,10 @@ async function loadParentProfile() {
     }
 }
 
-document.getElementById("logoutBtn").addEventListener("click", async function () {
+document.getElementById("logoutBtn").addEventListener("click", async function() {
     try {
         const response = await fetch(
-            `${API_URL}/auth/logout.php`,
-            {
+            `${API_URL}/auth/logout.php`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -96,8 +94,7 @@ async function loadAttendanceOverview() {
 
     try {
         const response = await fetch(
-            `${API_URL}/parent/attendance-overview.php`,
-            {
+            `${API_URL}/parent/attendance-overview.php`, {
                 method: "GET",
                 credentials: "include"
             }
@@ -111,8 +108,25 @@ async function loadAttendanceOverview() {
 
         const summary = data.summary;
 
+        const percentage = Math.max(0, Math.min(100, Number(summary.percentage) || 0));
+
         document.getElementById("overallPercentage").textContent =
-            `${summary.percentage}%`;
+            `${percentage}%`;
+
+        const progressBar = document.getElementById("overallProgressBar");
+        const attendanceLabel = document.getElementById("overallAttendanceLabel");
+
+        progressBar.style.width = `${percentage}%`;
+
+        if (percentage >= 75) {
+            progressBar.style.background = "#16a36a";
+            attendanceLabel.textContent = "Good attendance";
+            attendanceLabel.style.color = "#16834f";
+        } else {
+            progressBar.style.background = "#dc5353";
+            attendanceLabel.textContent = "Below 75% — Needs improvement";
+            attendanceLabel.style.color = "#c0392b";
+        }
 
         document.getElementById("totalClasses").textContent =
             summary.total_classes;
@@ -123,8 +137,8 @@ async function loadAttendanceOverview() {
         document.getElementById("absentClasses").textContent =
             summary.absent;
 
-        document.getElementById("attendanceWarning").hidden =
-            !summary.warning;
+        document.getElementById("attendanceWarning").hidden = !summary.warning;
+
 
         // Subject-wise attendance
         const subjectBody =
@@ -137,23 +151,68 @@ async function loadAttendanceOverview() {
                 '<tr><td colspan="5">No attendance records yet.</td></tr>';
         } else {
             data.subjects.forEach(subject => {
+
                 const row = document.createElement("tr");
 
-                [
-                    subject.subject,
-                    subject.total_classes,
-                    subject.present,
-                    subject.absent,
-                    `${subject.percentage}%`
-                ].forEach(value => {
-                    const cell = document.createElement("td");
-                    cell.textContent = value;
-                    row.appendChild(cell);
-                });
+                const percentage = Math.max(
+                    0,
+                    Math.min(100, Number(subject.percentage) || 0)
+                );
+
+                // Subject name
+                const subjectCell = document.createElement("td");
+                subjectCell.textContent = subject.subject;
+
+                // Total classes
+                const totalCell = document.createElement("td");
+                totalCell.textContent = subject.total_classes;
+
+                // Present classes
+                const presentCell = document.createElement("td");
+                presentCell.textContent = subject.present;
+
+                // Absent classes
+                const absentCell = document.createElement("td");
+                absentCell.textContent = subject.absent;
+
+                // Percentage and progress bar
+                const percentageCell = document.createElement("td");
+
+                const percentageText = document.createElement("strong");
+                percentageText.textContent = `${percentage}%`;
+
+                percentageText.style.color =
+                    percentage >= 75 ? "#16834f" : "#c0392b";
+
+                const progressTrack = document.createElement("div");
+                progressTrack.className = "subject-progress-track";
+
+                const progressFill = document.createElement("div");
+                progressFill.className = "subject-progress-fill";
+
+                progressFill.style.width = `${percentage}%`;
+                progressFill.style.background =
+                    percentage >= 75 ? "#16a36a" : "#dc5353";
+
+                progressTrack.appendChild(progressFill);
+
+                percentageCell.append(
+                    percentageText,
+                    progressTrack
+                );
+
+                row.append(
+                    subjectCell,
+                    totalCell,
+                    presentCell,
+                    absentCell,
+                    percentageCell
+                );
 
                 subjectBody.appendChild(row);
             });
         }
+
 
         // Recent attendance history
         const historyBody =
@@ -198,8 +257,7 @@ async function loadParentAssignments() {
 
     try {
         const response = await fetch(
-            `${API_URL}/parent/assignments.php`,
-            {
+            `${API_URL}/parent/assignments.php`, {
                 method: "GET",
                 credentials: "include"
             }
@@ -283,23 +341,19 @@ loadParentAssignments();
 // PARENT DASHBOARD - NOTICES & ANNOUNCEMENTS
 // ========================================
 
+
 async function loadParentNotices() {
     const message = document.getElementById("noticesMessage");
     const noticesList = document.getElementById("noticesList");
 
-    // Check whether notices section exists
-    if (!message || !noticesList) {
-        return;
-    }
+    if (!message || !noticesList) return;
 
     message.textContent = "Loading notices...";
-    noticesList.innerHTML = "";
+    noticesList.replaceChildren();
 
     try {
-        // Fetch notices from backend API
         const response = await fetch(
-            `${API_URL} /parent/notices.php`,
-            {
+            `${API_URL}/parent/notices.php`, {
                 method: "GET",
                 credentials: "include"
             }
@@ -307,42 +361,49 @@ async function loadParentNotices() {
 
         const data = await response.json();
 
-        // Handle API errors
         if (!response.ok || !data.success) {
-            throw new Error(
-                data.message || "Failed to load notices."
-            );
+            throw new Error(data.message || "Failed to load notices.");
         }
 
-        // Handle empty notices
         if (!Array.isArray(data.notices) || data.notices.length === 0) {
             message.textContent = "No notices available right now.";
             return;
         }
 
-        // Notices loaded successfully
         message.textContent = "";
 
-        data.notices.forEach(function (notice) {
-            // Create notice card
-            const card = document.createElement("div");
+        data.notices.forEach(function(notice) {
+
+            const card = document.createElement("article");
             card.className = "notice-card";
 
-            // Notice title
+            // Notice header
+            const header = document.createElement("div");
+            header.className = "notice-card-header";
+
             const title = document.createElement("h3");
             title.textContent = notice.title || "Untitled Notice";
 
+            const badge = document.createElement("span");
+            badge.className = "notice-badge";
+            badge.textContent = "Announcement";
+
+            header.append(title, badge);
+
             // Notice message
             const content = document.createElement("p");
-            content.textContent = notice.message || "";
+            content.className = "notice-content";
+            content.textContent = notice.message || "No description available.";
 
-            // Posted by
-            const postedBy = document.createElement("p");
+            // Notice footer
+            const footer = document.createElement("div");
+            footer.className = "notice-footer";
+
+            const postedBy = document.createElement("span");
             postedBy.className = "notice-posted-by";
             postedBy.textContent =
                 "Posted by: " + (notice.posted_by || "College");
 
-            // Notice date
             const date = document.createElement("small");
             date.className = "notice-date";
 
@@ -351,28 +412,33 @@ async function loadParentNotices() {
                     notice.created_at.replace(" ", "T")
                 );
 
-                date.textContent = !isNaN(formattedDate.getTime())
-                    ? "Date: " + formattedDate.toLocaleString("en-IN")
-                    : "Date: " + notice.created_at;
+                date.textContent = !isNaN(formattedDate.getTime()) ?
+                    formattedDate.toLocaleString("en-IN", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit"
+                    }) :
+                    notice.created_at;
             } else {
-                date.textContent = "";
+                date.textContent = "Date unavailable";
             }
 
-            // Add elements to card
-            card.appendChild(title);
-            card.appendChild(content);
-            card.appendChild(postedBy);
-            card.appendChild(date);
+            footer.append(postedBy, date);
 
-            // Display card
+            card.append(header, content, footer);
+
             noticesList.appendChild(card);
         });
 
     } catch (error) {
         console.error("Parent Notices Error:", error);
-
         message.textContent =
             "Unable to load notices. Please try again later.";
     }
 }
+
+loadParentNotices();
+
 loadParentNotices();

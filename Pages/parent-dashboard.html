@@ -7,6 +7,7 @@
 
     <title>Parent Dashboard | Apollo</title>
 
+    <link rel="stylesheet" href="../Assets/CSS/parent-common.css">
     <link rel="stylesheet" href="../Assets/CSS/parent-dashboard.css">
 </head>
 
@@ -28,6 +29,7 @@
                 <a href="#student">🎓 My Child</a>
                 <a href="#attendance">📊 Attendance</a>
                 <a href="#assignments">📝 Assignments</a>
+                <a href="#noticesOverview">📢 Notices</a>
             </nav>
 
             <button id="logoutBtn" class="logout-btn">
@@ -50,8 +52,7 @@
                 <div>
                     <h2 id="welcomeName">Welcome, Parent!</h2>
                     <p>
-                        Track your child's academic progress
-                        and attendance.
+                        Track your child's academic progress and attendance.
                     </p>
                 </div>
                 <div class="welcome-icon">🎓</div>
@@ -79,9 +80,15 @@
                 <p id="attendanceMessage">Loading attendance data...</p>
 
                 <div class="attendance-stats">
-                    <div class="attendance-stat-card">
+                    <div class="attendance-stat-card overall-attendance-card">
                         <h3>Overall Attendance</h3>
                         <p id="overallPercentage">--%</p>
+
+                        <div class="attendance-progress-track">
+                            <div id="overallProgressBar" class="attendance-progress-fill"></div>
+                        </div>
+
+                        <small id="overallAttendanceLabel">Attendance status</small>
                     </div>
 
                     <div class="attendance-stat-card">
@@ -150,8 +157,7 @@
                     <div>
                         <h3>My Child'sAssignment Updates</h3>
                         <p>
-                            Your child's assignment status
-                            will appear here.
+                            Your child's assignment status will appear here.
                         </p>
                     </div>
                 </div>
