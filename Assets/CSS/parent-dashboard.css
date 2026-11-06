@@ -187,7 +187,7 @@ body {
 .welcome-card {
     position: relative;
     overflow: hidden;
-    background: linear-gradient( 115deg, #143c78 0%, #2456a6 58%, #3979d8 100%);
+    background: linear-gradient(115deg, #143c78 0%, #2456a6 58%, #3979d8 100%);
     color: white;
     padding: 30px 34px;
     border-radius: 19px;
@@ -605,9 +605,11 @@ body {
     .main-content {
         padding: 27px 24px;
     }
+
     .sidebar {
         width: 230px;
     }
+
     .attendance-stats,
     .assignment-summary {
         gap: 12px;
@@ -619,9 +621,11 @@ body {
         width: 205px;
         padding: 22px 13px;
     }
+
     .main-content {
         padding: 23px 19px;
     }
+
     .attendance-stats,
     .assignment-summary {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -632,6 +636,7 @@ body {
     .dashboard {
         flex-direction: column;
     }
+
     .sidebar {
         position: relative;
         top: auto;
@@ -640,6 +645,7 @@ body {
         min-height: auto;
         padding: 14px;
     }
+
     .brand {
         display: flex;
         align-items: center;
@@ -647,88 +653,110 @@ body {
         gap: 12px;
         margin-bottom: 14px;
     }
+
     .brand img {
         width: 48px;
         height: 48px;
         margin: 0;
     }
+
     .brand h2 {
         font-size: 20px;
         text-align: left;
     }
+
     .brand span {
         font-size: 12px;
     }
+
     .sidebar nav {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 7px;
     }
+
     .sidebar nav a {
         padding: 10px;
         font-size: 13px;
         justify-content: center;
     }
+
     .logout-btn {
         margin-top: 10px;
         padding: 10px;
     }
+
     .main-content {
         padding: 19px 14px 28px;
     }
+
     .topbar {
         margin-bottom: 18px;
     }
+
     .topbar h1 {
         font-size: 22px;
     }
+
     .topbar p {
         font-size: 12px;
     }
+
     .parent-avatar {
         width: 45px;
         height: 45px;
         flex-basis: 45px;
     }
+
     .welcome-card {
         padding: 22px 20px;
         border-radius: 15px;
         margin-bottom: 27px;
     }
+
     .welcome-card h2 {
         font-size: 20px;
     }
+
     .welcome-icon {
         font-size: 34px;
     }
+
     .section>h2,
     #noticesOverview .section-heading h2 {
         font-size: 19px;
     }
+
     .student-card {
         padding: 18px;
         gap: 13px;
     }
+
     .student-avatar {
         width: 50px;
         height: 50px;
         flex-basis: 50px;
         font-size: 23px;
     }
+
     .student-details h3 {
         font-size: 16px;
     }
+
     .student-details p {
         font-size: 12px;
     }
+
     .attendance-stat-card,
     .assignment-summary-card {
         padding: 16px;
     }
+
     .attendance-stat-card p,
     .assignment-summary-card p {
         font-size: 24px;
     }
+
     .assignments-list {
         grid-template-columns: 1fr;
     }
@@ -739,22 +767,27 @@ body {
         padding-left: 11px;
         padding-right: 11px;
     }
+
     .attendance-stats,
     .assignment-summary {
         gap: 9px;
     }
+
     .attendance-stat-card,
     .assignment-summary-card {
         padding: 13px;
     }
+
     .attendance-stat-card h3,
     .assignment-summary-card h3 {
         font-size: 12px;
     }
+
     .attendance-stat-card p,
     .assignment-summary-card p {
         font-size: 21px;
     }
+
     .welcome-icon {
         display: none;
     }
@@ -899,43 +932,55 @@ body {
     .topbar h1 {
         font-size: 25px;
     }
+
     .topbar p {
         font-size: 14px;
     }
+
     .welcome-card h2 {
         font-size: 23px;
     }
+
     .welcome-card p {
         font-size: 15px;
     }
+
     .section>h2,
     #noticesOverview .section-heading h2 {
         font-size: 21px;
     }
+
     .student-details h3 {
         font-size: 18px;
     }
+
     .student-details p {
         font-size: 14px;
     }
+
     .attendance-stat-card h3,
     .assignment-summary-card h3 {
         font-size: 14px;
     }
+
     .attendance-stat-card p,
     .assignment-summary-card p {
         font-size: 26px;
     }
+
     .assignment-card h3 {
         font-size: 18px;
     }
+
     .assignment-card p,
     .notice-card p {
         font-size: 14px;
     }
+
     .notice-card h3 {
         font-size: 17px;
     }
+
     .sidebar nav a {
         font-size: 14px;
     }
@@ -1072,18 +1117,23 @@ body {
     #assignments>h2 {
         font-size: 21px;
     }
+
     .assignment-summary-card {
         padding: 17px;
     }
+
     .assignment-summary-card p {
         font-size: 27px;
     }
+
     .assignment-card {
         padding: 19px;
     }
+
     .assignment-card h3 {
         font-size: 19px;
     }
+
     .assignment-card p {
         font-size: 14px;
     }
@@ -1124,6 +1174,7 @@ body {
     .subject-progress-track {
         width: 125px;
     }
+
     #subjectAttendanceBody td:last-child {
         min-width: 150px;
     }
@@ -1243,9 +1294,11 @@ body {
     .notices-list {
         grid-template-columns: 1fr;
     }
+
     .notice-card {
         padding: 19px;
     }
+
     .notice-card-header h3 {
         font-size: 18px;
     }
@@ -1255,6 +1308,7 @@ body {
     .notice-card-header {
         flex-direction: column;
     }
+
     .notice-footer {
         align-items: flex-start;
         flex-direction: column;
@@ -1348,19 +1402,93 @@ body {
         align-items: flex-start;
         gap: 18px;
     }
+
     .student-avatar {
         width: 75px;
         height: 75px;
         min-width: 75px;
         font-size: 34px;
     }
+
     .student-details h3 {
         font-size: 21px;
     }
+
     .student-details p {
         display: flex;
         width: fit-content;
         font-size: 14px;
         margin: 7px 0;
+    }
+}
+
+/* =====================================
+   PARENT DASHBOARD - SUMMARY SECTIONS
+===================================== */
+
+.dashboard-summary-section,
+.dashboard-child-section {
+    margin-bottom: 30px;
+}
+
+.dashboard-summary-section .section-heading,
+.dashboard-child-section .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.dashboard-summary-section .section-heading h2,
+.dashboard-child-section .section-heading h2 {
+    color: var(--navy);
+    font-size: 23px;
+    margin-bottom: 4px;
+}
+
+.dashboard-summary-section .section-heading p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.dashboard-summary-section .section-heading a,
+.dashboard-child-section .section-heading a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.dashboard-summary-section .section-heading a:hover,
+.dashboard-child-section .section-heading a:hover {
+    text-decoration: underline;
+}
+
+.dashboard-summary-section .attendance-stats,
+.dashboard-summary-section .assignment-summary {
+    margin-top: 15px;
+}
+
+.dashboard-summary-section .notices-list {
+    display: grid;
+    gap: 15px;
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-summary-section .section-heading,
+    .dashboard-child-section .section-heading {
+        align-items: flex-start;
+    }
+
+    .dashboard-summary-section .section-heading h2,
+    .dashboard-child-section .section-heading h2 {
+        font-size: 20px;
+    }
+
+    .dashboard-summary-section .section-heading a,
+    .dashboard-child-section .section-heading a {
+        font-size: 13px;
     }
 }

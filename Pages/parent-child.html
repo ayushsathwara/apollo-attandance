@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Child | Apollo Parent Portal</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/parent-common.css">
+    <link rel="stylesheet" href="../Assets/CSS/parent-dashboard.css">
+    <link rel="stylesheet" href="../Assets/CSS/parent-child.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <img src="../Assets/Images/logo apollo.png" alt="Apollo Logo">
+                <h2>Apollo <span>Parent Portal</span></h2>
+            </div>
+
+            <nav>
+                <a href="parent-dashboard.html">🏠 Dashboard</a>
+                <a class="active" href="parent-child.html">🎓 My Child</a>
+                <a href="parent-attendance.html">📊 Attendance</a>
+                <a href="parent-assignments.html">📝 Assignments</a>
+                <a href="parent-notices.html">📢 Notices</a>
+            </nav>
+
+            <button id="logoutBtn" class="logout-btn">
+                ↪ Logout
+            </button>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h1>My Child</h1>
+                    <p>View your child's academic profile.</p>
+                </div>
+
+                <div class="parent-avatar">P</div>
+            </header>
+
+            <!-- Profile Heading -->
+            <section class="child-welcome-card">
+                <div>
+                    <span class="child-welcome-label">STUDENT PROFILE</span>
+                    <h2>Your Child's Academic Information</h2>
+                    <p>
+                        View your child's personal and academic details
+                        registered with Apollo BCA.
+                    </p>
+                </div>
+
+                <div class="child-welcome-icon">🎓</div>
+            </section>
+
+            <!-- Student Profile -->
+            <!-- STUDENT PROFILE -->
+            <section class="section child-profile-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Student Profile</h2>
+                        <p>Personal and academic information</p>
+                    </div>
+                    <span class="profile-status">Active Student</span>
+                </div>
+
+                <div class="student-card">
+                    <div class="student-avatar">🎓</div>
+
+                    <div class="student-details">
+                        <h3 id="studentName">Loading...</h3>
+
+                        <div class="student-info-grid">
+                            <div class="info-item">
+                                <span>Roll Number</span>
+                                <strong id="rollNo">—</strong>
+                            </div>
+
+                            <div class="info-item">
+                                <span>Course</span>
+                                <strong id="course">—</strong>
+                            </div>
+
+                            <div class="info-item">
+                                <span>Current Semester</span>
+                                <strong id="semester">—</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ACADEMIC SUMMARY -->
+            <section class="section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Academic Summary</h2>
+                        <p>Overview of your child's academic progress</p>
+                    </div>
+                </div>
+
+                <div class="child-summary-grid">
+
+                    <div class="child-summary-card">
+                        <div class="summary-icon">📊</div>
+                        <div>
+                            <span>Overall Attendance</span>
+                            <h3 id="childAttendance">--%</h3>
+                        </div>
+                    </div>
+
+                    <div class="child-summary-card">
+                        <div class="summary-icon">📝</div>
+                        <div>
+                            <span>Total Assignments</span>
+                            <h3 id="childAssignments">0</h3>
+                        </div>
+                    </div>
+
+                    <div class="child-summary-card">
+                        <div class="summary-icon">✅</div>
+                        <div>
+                            <span>Present Classes</span>
+                            <h3 id="childPresent">0</h3>
+                        </div>
+                    </div>
+
+                    <div class="child-summary-card">
+                        <div class="summary-icon">❌</div>
+                        <div>
+                            <span>Absent Classes</span>
+                            <h3 id="childAbsent">0</h3>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PARENT INFORMATION -->
+            <section class="section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Parent Information</h2>
+                        <p>Registered parent account details</p>
+                    </div>
+                </div>
+
+                <div class="parent-information-card">
+
+                    <div class="parent-info-item">
+                        <span>Parent Name</span>
+                        <strong id="parentName">Loading...</strong>
+                    </div>
+
+                    <div class="parent-info-item">
+                        <span>Email Address</span>
+                        <strong id="parentEmail">Loading...</strong>
+                    </div>
+
+                    <div class="parent-info-item">
+                        <span>Contact Number</span>
+                        <strong id="parentPhone">Loading...</strong>
+                    </div>
+
+                </div>
+
+                <p id="profileMessage"></p>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="../Assets/JS/parent-child.js"></script>
+
+</body>
+
+</html>

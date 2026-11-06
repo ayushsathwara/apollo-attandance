@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notices - Apollo Parent Portal</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/parent-common.css">
+    <link rel="stylesheet" href="../Assets/CSS/parent-dashboard.css">
+    <link rel="stylesheet" href="../Assets/CSS/parent-notices.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <img src="../Assets/Images/logo apollo.png" alt="Apollo Logo">
+                <h2>Apollo <span>Parent Portal</span></h2>
+            </div>
+
+            <nav>
+                <a href="parent-dashboard.html">🏠 Dashboard</a>
+                <a href="parent-child.html">🎓 My Child</a>
+                <a href="parent-attendance.html">📊 Attendance</a>
+                <a href="parent-assignments.html">📝 Assignments</a>
+                <a class="active" href="parent-notices.html">📢 Notices</a>
+            </nav>
+
+            <button id="logoutBtn" class="logout-btn">
+                ↪ Logout
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <div>
+                    <h1>Notices & Announcements</h1>
+                    <p>Stay updated with the latest college announcements</p>
+                </div>
+
+                <div class="parent-avatar" id="parentAvatar">P</div>
+            </header>
+
+
+            <!-- WELCOME BANNER -->
+            <section class="notice-welcome">
+
+                <div class="notice-welcome-content">
+                    <span class="notice-label">PARENT INFORMATION CENTER</span>
+
+                    <h2>Stay Connected with Apollo</h2>
+
+                    <p>
+                        Find important updates, academic announcements
+                        and information shared by the college.
+                    </p>
+                </div>
+
+                <div class="notice-welcome-icon">📢</div>
+
+            </section>
+
+
+            <!-- NOTICE SUMMARY -->
+            <section class="notice-summary">
+
+                <div class="notice-summary-card">
+                    <div class="notice-summary-icon">📣</div>
+
+                    <div>
+                        <p>Total Announcements</p>
+                        <h2 id="noticeTotal">--</h2>
+                    </div>
+                </div>
+
+                <div class="notice-summary-card">
+                    <div class="notice-summary-icon">🗓️</div>
+
+                    <div>
+                        <p>Latest Update</p>
+                        <h2 id="latestNoticeDate">--</h2>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- NOTICES LIST -->
+            <section class="notices-section">
+
+                <div class="notices-heading">
+                    <div>
+                        <h2>All Announcements</h2>
+                        <p>Important information from your college</p>
+                    </div>
+                </div>
+
+                <p id="noticesMessage" class="notices-message">
+                    Loading notices...
+                </p>
+
+                <div id="noticesList" class="notices-list">
+                    <!-- Notices will load here -->
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="../Assets/JS/parent-notices.js"></script>
+
+</body>
+
+</html>

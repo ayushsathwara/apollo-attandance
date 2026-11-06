@@ -1,0 +1,251 @@
+.child-welcome-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 32px;
+    margin-bottom: 35px;
+    border-radius: 18px;
+    color: white;
+    background: linear-gradient(115deg, #143c78, #2456a6, #3979d8);
+    box-shadow: 0 12px 26px rgba(36, 86, 166, .15);
+}
+
+.child-welcome-label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #dbeafe;
+    margin-bottom: 10px;
+}
+
+.child-welcome-card h2 {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.child-welcome-card p {
+    color: #e5efff;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.child-welcome-icon {
+    font-size: 55px;
+}
+
+.child-profile-section {
+    margin-top: 25px;
+}
+
+.child-section-heading {
+    margin-bottom: 20px;
+}
+
+.child-section-heading h2 {
+    color: var(--navy);
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.child-section-heading p {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* Profile card */
+
+.child-profile-section .student-card {
+    min-height: 190px;
+}
+
+.profile-message {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+
+    .child-welcome-card {
+        padding: 23px 20px;
+    }
+
+    .child-welcome-card h2 {
+        font-size: 21px;
+    }
+
+    .child-welcome-card p {
+        font-size: 14px;
+    }
+
+    .child-welcome-icon {
+        font-size: 38px;
+    }
+
+    .child-section-heading h2 {
+        font-size: 21px;
+    }
+
+    .child-profile-section .student-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 375px) {
+
+    .child-welcome-icon {
+        display: none;
+    }
+}
+
+/* =========================================
+   MY CHILD - ADDITIONAL PROFILE SECTIONS
+========================================= */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: 23px;
+    color: var(--navy);
+    margin-bottom: 6px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.profile-status {
+    background: #e8f8ef;
+    color: #16834a;
+    padding: 9px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.student-info-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.info-item {
+    background: var(--page);
+    padding: 12px 16px;
+    border-radius: 10px;
+    min-width: 140px;
+}
+
+.info-item span,
+.parent-info-item span {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.info-item strong,
+.parent-info-item strong {
+    color: var(--navy);
+    font-size: 15px;
+}
+
+
+/* Academic Summary */
+
+.child-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.child-summary-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    box-shadow: var(--shadow);
+}
+
+.summary-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--blue-light);
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.child-summary-card span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.child-summary-card h3 {
+    font-size: 25px;
+    color: var(--navy);
+    margin-top: 5px;
+}
+
+
+/* Parent Information */
+
+.parent-information-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    box-shadow: var(--shadow);
+}
+
+.parent-info-item {
+    padding: 12px;
+    background: var(--page);
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+}
+
+#profileMessage {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .child-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .parent-information-card {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 20px;
+    }
+
+}

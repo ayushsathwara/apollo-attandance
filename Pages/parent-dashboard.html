@@ -15,28 +15,29 @@
 
     <div class="dashboard">
 
+        <!-- Fixed Sidebar -->
         <aside class="sidebar">
+
             <div class="brand">
                 <img src="../Assets/Images/logo apollo.png" alt="Apollo Logo">
                 <h2>Apollo <span>Parent Portal</span></h2>
             </div>
 
             <nav>
-                <a class="active" href="parent-dashboard.html">
-                    🏠 Dashboard
-                </a>
-
-                <a href="#student">🎓 My Child</a>
-                <a href="#attendance">📊 Attendance</a>
-                <a href="#assignments">📝 Assignments</a>
-                <a href="#noticesOverview">📢 Notices</a>
+                <a class="active" href="parent-dashboard.html">🏠 Dashboard</a>
+                <a href="parent-child.html">🎓 My Child</a>
+                <a href="parent-attendance.html">📊 Attendance</a>
+                <a href="parent-assignments.html">📝 Assignments</a>
+                <a href="parent-notices.html">📢 Notices</a>
             </nav>
 
             <button id="logoutBtn" class="logout-btn">
                 ↪ Logout
             </button>
+
         </aside>
 
+        <!-- Dashboard Content -->
         <main class="main-content">
 
             <header class="topbar">
@@ -48,47 +49,70 @@
                 <div class="parent-avatar">P</div>
             </header>
 
+            <!-- Welcome -->
             <section class="welcome-card">
                 <div>
                     <h2 id="welcomeName">Welcome, Parent!</h2>
                     <p>
-                        Track your child's academic progress and attendance.
+                        Stay updated with your child's academic progress.
                     </p>
                 </div>
+
                 <div class="welcome-icon">🎓</div>
             </section>
 
-            <section id="student" class="section">
-                <h2>My Child</h2>
+            <!-- Child Summary -->
+            <section class="section dashboard-child-section">
+
+                <div class="section-heading">
+                    <h2>My Child</h2>
+                    <a href="parent-child.html">View Profile →</a>
+                </div>
 
                 <div class="student-card">
+
                     <div class="student-avatar">🎓</div>
 
                     <div class="student-details">
-                        <h3 id="studentName">Child Name</h3>
+                        <h3 id="studentName">Loading...</h3>
                         <p>Roll Number: <span id="rollNo">—</span></p>
                         <p>Course: <span id="course">—</span></p>
                         <p>Semester: <span id="semester">—</span></p>
                     </div>
+
                 </div>
+
             </section>
 
+            <!-- Attendance Summary -->
+            <section class="section dashboard-summary-section">
 
-            <!-- Attendance Overview -->
-            <section id="attendance" class="section">
-                <h2>Attendance Overview</h2>
-                <p id="attendanceMessage">Loading attendance data...</p>
+                <div class="section-heading">
+                    <div>
+                        <h2>Attendance Overview</h2>
+                        <p>Check your child's overall attendance.</p>
+                    </div>
+
+                    <a href="parent-attendance.html">View Details →</a>
+                </div>
+
+                <p id="attendanceMessage">Loading attendance...</p>
 
                 <div class="attendance-stats">
+
                     <div class="attendance-stat-card overall-attendance-card">
                         <h3>Overall Attendance</h3>
+
                         <p id="overallPercentage">--%</p>
 
                         <div class="attendance-progress-track">
-                            <div id="overallProgressBar" class="attendance-progress-fill"></div>
+                            <div id="overallProgressBar" class="attendance-progress-fill">
+                            </div>
                         </div>
 
-                        <small id="overallAttendanceLabel">Attendance status</small>
+                        <small id="overallAttendanceLabel">
+                            Attendance status
+                        </small>
                     </div>
 
                     <div class="attendance-stat-card">
@@ -97,74 +121,39 @@
                     </div>
 
                     <div class="attendance-stat-card">
-                        <h3>Present ✅</h3>
+                        <h3>Present</h3>
                         <p id="presentClasses">0</p>
                     </div>
 
                     <div class="attendance-stat-card">
-                        <h3>Absent ❌</h3>
+                        <h3>Absent</h3>
                         <p id="absentClasses">0</p>
                     </div>
+
                 </div>
 
                 <div id="attendanceWarning" class="attendance-warning" hidden>
                     Warning: Attendance is below 75%!
                 </div>
 
-                <h3>Subject-wise Attendance</h3>
-                <div class="table-wrapper">
-                    <table class="attendance-table">
-                        <thead>
-                            <tr>
-                                <th>Subject</th>
-                                <th>Total Classes</th>
-                                <th>Present</th>
-                                <th>Absent</th>
-                                <th>Attendance</th>
-                            </tr>
-                        </thead>
-                        <tbody id="subjectAttendanceBody">
-                            <tr>
-                                <td colspan="5">Loading subjects...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3>Recent Attendance History</h3>
-                <div class="table-wrapper">
-                    <table class="attendance-table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Subject</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="attendanceHistoryBody">
-                            <tr>
-                                <td colspan="3">Loading history...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </section>
 
-            <!-- Assignments Overview -->
-            <section id="assignments" class="section">
-                <div class="placeholder-card">
-                    <span>📝</span>
+            <!-- Assignment Summary -->
+            <section class="section dashboard-summary-section">
+
+                <div class="section-heading">
                     <div>
-                        <h3>My Child'sAssignment Updates</h3>
-                        <p>
-                            Your child's assignment status will appear here.
-                        </p>
+                        <h2>Assignments</h2>
+                        <p>Track your child's assignment progress.</p>
                     </div>
+
+                    <a href="parent-assignments.html">View All →</a>
                 </div>
-                <br>
+
                 <p id="assignmentsMessage">Loading assignments...</p>
 
                 <div class="assignment-summary">
+
                     <div class="assignment-summary-card">
                         <h3>Total</h3>
                         <p id="assignmentTotal">0</p>
@@ -184,29 +173,31 @@
                         <h3>Overdue</h3>
                         <p id="assignmentOverdue">0</p>
                     </div>
+
                 </div>
 
-                <div id="assignmentsList" class="assignments-list">
-                    <p>Loading assignments...</p>
-                </div>
             </section>
 
+            <!-- Latest Notices -->
+            <section class="section dashboard-summary-section">
 
-            <!-- Notices & Announcements -->
-            <section class="dashboard-section" id="noticesOverview">
                 <div class="section-heading">
-                    <h2>Notices & Announcements</h2>
-                    <p>Stay updated with college announcements.</p>
+                    <div>
+                        <h2>Latest Notices</h2>
+                        <p>Stay informed about college announcements.</p>
+                    </div>
+
+                    <a href="parent-notices.html">View All →</a>
                 </div>
 
-                <div id="noticesMessage">
-                    Loading notices...
-                </div>
+                <div id="noticesMessage">Loading notices...</div>
 
                 <div id="noticesList" class="notices-list"></div>
+
             </section>
 
         </main>
+
     </div>
 
     <script src="../Assets/JS/parent-dashboard.js"></script>

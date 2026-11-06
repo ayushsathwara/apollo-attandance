@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments - Apollo Parent Portal</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/parent-common.css">
+    <link rel="stylesheet" href="../Assets/CSS/parent-dashboard.css">
+    <link rel="stylesheet" href="../Assets/CSS/parent-assignments.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <img src="../Assets/Images/logo apollo.png" alt="Apollo Logo">
+                <h2>Apollo <span>Parent Portal</span></h2>
+            </div>
+
+            <nav>
+                <a href="parent-dashboard.html">🏠 Dashboard</a>
+                <a href="parent-child.html">🎓 My Child</a>
+                <a href="parent-attendance.html">📊 Attendance</a>
+                <a class="active" href="parent-assignments.html">📝 Assignments</a>
+                <a href="parent-notices.html">📢 Notices</a>
+            </nav>
+
+            <button id="logoutBtn" class="logout-btn">
+                ↪ Logout
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h1>Assignments</h1>
+                    <p>Track your child's academic assignments</p>
+                </div>
+
+                <div class="parent-avatar" id="parentAvatar">P</div>
+            </header>
+
+
+            <!-- WELCOME SECTION -->
+            <section class="assignment-welcome">
+                <div>
+                    <span class="welcome-label">PARENT PORTAL</span>
+                    <h2>Assignment Overview</h2>
+                    <p>
+                        Stay updated with your child's assignments,
+                        submission status and upcoming deadlines.
+                    </p>
+                </div>
+
+                <div class="assignment-welcome-icon">📚</div>
+            </section>
+
+
+            <!-- SUMMARY CARDS -->
+            <section class="assignment-summary">
+
+                <div class="assignment-summary-card total-card">
+                    <div class="summary-icon">📋</div>
+                    <p>Total Assignments</p>
+                    <h2 id="assignmentTotal">--</h2>
+                </div>
+
+                <div class="assignment-summary-card pending-card">
+                    <div class="summary-icon">⏳</div>
+                    <p>Pending</p>
+                    <h2 id="assignmentPending">--</h2>
+                </div>
+
+                <div class="assignment-summary-card submitted-card">
+                    <div class="summary-icon">✓</div>
+                    <p>Submitted</p>
+                    <h2 id="assignmentSubmitted">--</h2>
+                </div>
+
+                <div class="assignment-summary-card overdue-card">
+                    <div class="summary-icon">!</div>
+                    <p>Overdue</p>
+                    <h2 id="assignmentOverdue">--</h2>
+                </div>
+
+            </section>
+
+
+            <!-- ASSIGNMENT LIST -->
+            <section class="assignment-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>All Assignments</h2>
+                        <p>View assignment details and submission status</p>
+                    </div>
+                </div>
+
+                <!-- ASSIGNMENT FILTERS -->
+                <div class="assignment-filters">
+
+                    <button class="filter-btn active" data-filter="all">
+                        All
+                    </button>
+
+                    <button class="filter-btn" data-filter="pending">
+                        Pending
+                    </button>
+
+                    <button class="filter-btn" data-filter="submitted">
+                        Submitted
+                    </button>
+
+                    <button class="filter-btn" data-filter="overdue">
+                        Overdue
+                    </button>
+
+                </div>
+
+                <p id="assignmentsMessage" class="assignment-message">
+                    Loading assignments...
+                </p>
+
+                <div id="assignmentsList" class="assignments-list">
+                </div>
+                <!-- Assignments will load here -->
+    </div>
+
+    </section>
+
+    </main>
+
+    </div>
+
+    <script src="../Assets/JS/parent-assignments.js"></script>
+
+</body>
+
+</html>
