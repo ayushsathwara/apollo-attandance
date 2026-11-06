@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Internal Results - Apollo</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/faculty-internal-results.css">
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!-- HEADER -->
+
+        <header class="page-header">
+
+            <div>
+                <h1>Internal Results</h1>
+                <p>Manage student internal examination marks</p>
+            </div>
+
+            <a href="faculty-dashboard.html" class="back-btn">
+                ← Dashboard
+            </a>
+
+        </header>
+
+
+        <!-- RESULT FORM -->
+
+        <section class="result-card">
+
+            <div class="card-heading">
+
+                <h2 id="formTitle">Add Internal Marks</h2>
+
+                <p>
+                    Enter internal examination marks for your assigned subjects.
+                </p>
+
+            </div>
+
+
+            <form id="internalResultForm">
+
+                <input type="hidden" id="resultId">
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="semester">Semester</label>
+
+                        <select id="semester" required>
+
+                            <option value="">Select Semester</option>
+
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                            <option value="3">Semester 3</option>
+                            <option value="4">Semester 4</option>
+                            <option value="5">Semester 5</option>
+                            <option value="6">Semester 6</option>
+                            <option value="7">Semester 7</option>
+                            <option value="8">Semester 8</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="student">Student</label>
+
+                        <select id="student" required>
+
+                            <option value="">Select Student</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="subject">Subject</label>
+
+                        <select id="subject" required>
+
+                            <option value="">Select Subject</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="examType">Exam Type</label>
+
+                        <select id="examType" required>
+
+                            <option value="">Select Exam Type</option>
+
+                            <option value="Internal Test 1">Internal Test 1</option>
+                            <option value="Internal Test 2">Internal Test 2</option>
+                            <option value="Assignment">Assignment</option>
+                            <option value="Practical">Practical</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="marksObtained">Marks Obtained</label>
+
+                        <input type="number" id="marksObtained" min="0" step="0.01" placeholder="Enter obtained marks"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="totalMarks">Total Marks</label>
+
+                        <input type="number" id="totalMarks" min="0.01" step="0.01" placeholder="Enter total marks"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="academicYear">Academic Year</label>
+
+                        <input type="text" id="academicYear" placeholder="Example: 2026-27" required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button type="submit" id="saveBtn">
+                        Save Internal Marks
+                    </button>
+
+                    <button type="button" id="cancelEditBtn" hidden>
+                        Cancel Edit
+                    </button>
+
+                </div>
+
+
+                <p id="formMessage"></p>
+
+            </form>
+
+        </section>
+
+
+        <!-- RESULTS TABLE -->
+
+        <section class="result-card">
+
+            <div class="card-top">
+
+                <div>
+                    <h2>Internal Results</h2>
+                    <p id="resultCount">Loading results...</p>
+                </div>
+
+                <select id="filterSemester">
+
+                    <option value="">All Semesters</option>
+
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                    <option value="8">Semester 8</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+                            <th>Student</th>
+                            <th>Roll No</th>
+                            <th>Semester</th>
+                            <th>Subject</th>
+                            <th>Exam Type</th>
+                            <th>Marks</th>
+                            <th>Academic Year</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="resultTable">
+
+                        <tr>
+                            <td colspan="10">Loading...</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="../Assets/JS/faculty-internal-results.js"></script>
+
+</body>
+
+</html>

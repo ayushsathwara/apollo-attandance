@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Management | Apollo</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/admin-results.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+
+            <div class="admin-brand">
+                <div class="admin-brand-logo">A</div>
+                <div>
+                    <h2>Apollo</h2>
+                    <small>Admin Panel</small>
+                </div>
+            </div>
+
+            <nav class="admin-nav">
+                <a href="admin-dashboard.html">Dashboard</a>
+                <a href="admin-students.html">Student Management</a>
+                <a href="admin-faculty.html">Faculty Management</a>
+                <a href="admin-results.html" class="active">Results Management</a>
+                <a href="admin-account-settings.html">Account Settings</a>
+                <a href="admin-support.html">Support Requests</a>
+                <a href="admin-feedback.html">Student Feedback</a>
+                <a href="manage-notices.html">Manage Notices</a>
+            </nav>
+
+            <button class="admin-logout" id="logoutButton">
+                Logout
+            </button>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+
+            <header class="admin-topbar">
+                <div>
+                    <h1>Results Management</h1>
+                    <p>Upload and manage student examination results.</p>
+                </div>
+
+                <div class="admin-user">
+                    <div class="admin-avatar">A</div>
+                    <div>
+                        <strong id="adminName">Loading...</strong>
+                        <p id="adminEmail"></p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Result Type Tabs -->
+            <section class="result-tabs">
+                <button class="result-tab active" id="externalTab">
+                    External Results
+                </button>
+
+                <button class="result-tab" id="internalTab">
+                    Internal Results
+                </button>
+            </section>
+
+            <!-- External Results -->
+            <section id="externalSection">
+
+                <div class="result-heading">
+                    <div>
+                        <h2>GTU External Results</h2>
+                        <p>Upload official GTU result PDFs for students.</p>
+                    </div>
+                </div>
+
+                <!-- Upload Form -->
+                <div class="result-panel">
+
+                    <h3>Upload External Result</h3>
+                    <p class="panel-description">
+                        Select a student and upload their GTU marksheet PDF.
+                    </p>
+
+                    <form id="externalResultForm" enctype="multipart/form-data">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="studentId">Select Student</label>
+                                <select id="studentId" name="student_id" required>
+                                    <option value="">Loading students...</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="semester">Semester</label>
+                                <select id="semester" name="semester" required>
+                                    <option value="">Select Semester</option>
+                                    <option value="1">Semester 1</option>
+                                    <option value="2">Semester 2</option>
+                                    <option value="3">Semester 3</option>
+                                    <option value="4">Semester 4</option>
+                                    <option value="5">Semester 5</option>
+                                    <option value="6">Semester 6</option>
+                                    <option value="7">Semester 7</option>
+                                    <option value="8">Semester 8</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="academicYear">Academic Year</label>
+                                <input type="text" id="academicYear" name="academic_year" placeholder="2025-2026"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="resultFile">GTU Result PDF</label>
+                                <input type="file" id="resultFile" name="result_file" accept=".pdf,application/pdf"
+                                    required>
+                                <small>Maximum file size: 5 MB</small>
+                            </div>
+
+                        </div>
+
+                        <button type="submit" class="primary-button" id="uploadButton">
+                            Upload Result
+                        </button>
+
+                        <p id="uploadMessage" class="form-message"></p>
+
+                    </form>
+
+                </div>
+
+                <!-- Uploaded Results -->
+                <div class="result-panel">
+
+                    <div class="table-heading">
+                        <div>
+                            <h3>Uploaded External Results</h3>
+                            <p class="panel-description">
+                                Manage uploaded student marksheets.
+                            </p>
+                        </div>
+
+                        <select id="filterSemester">
+                            <option value="">All Semesters</option>
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                            <option value="3">Semester 3</option>
+                            <option value="4">Semester 4</option>
+                            <option value="5">Semester 5</option>
+                            <option value="6">Semester 6</option>
+                            <option value="7">Semester 7</option>
+                            <option value="8">Semester 8</option>
+                        </select>
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Roll No.</th>
+                                    <th>Semester</th>
+                                    <th>Academic Year</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="externalResultsTable">
+                                <tr>
+                                    <td colspan="6">Loading results...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <p id="resultsMessage" class="form-message"></p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Internal Results -->
+            <section id="internalSection" hidden>
+
+                <div class="result-heading">
+                    <div>
+                        <h2>Internal Results Management</h2>
+                        <p>Enter and manage students' internal examination marks.</p>
+                    </div>
+                </div>
+
+                <!-- Marks Entry Form -->
+                <div class="result-panel">
+
+                    <h3>Enter Internal Marks</h3>
+
+                    <p class="panel-description">
+                        Select a student, semester, subject and examination details.
+                    </p>
+
+                    <form id="internalResultForm">
+
+                        <input type="hidden" id="internalResultId" name="result_id">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="internalStudentId">Select Student</label>
+                                <select id="internalStudentId" name="student_id" required>
+                                    <option value="">Select Student</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="internalSemester">Semester</label>
+                                <select id="internalSemester" name="semester" required>
+                                    <option value="">Select Semester</option>
+                                    <option value="1">Semester 1</option>
+                                    <option value="2">Semester 2</option>
+                                    <option value="3">Semester 3</option>
+                                    <option value="4">Semester 4</option>
+                                    <option value="5">Semester 5</option>
+                                    <option value="6">Semester 6</option>
+                                    <option value="7">Semester 7</option>
+                                    <option value="8">Semester 8</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="internalSubject">Select Subject</label>
+                                <select id="internalSubject" name="subject_name" required>
+                                    <option value="">Select Semester First</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="examType">Examination Type</label>
+                                <select id="examType" name="exam_type" required>
+                                    <option value="">Select Exam Type</option>
+                                    <option value="Internal Test 1">Internal Test 1</option>
+                                    <option value="Internal Test 2">Internal Test 2</option>
+                                    <option value="Practical">Practical</option>
+                                    <option value="Assignment">Assignment</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="marksObtained">Marks Obtained</label>
+                                <input type="number" id="marksObtained" name="marks_obtained" min="0" step="0.01"
+                                    placeholder="Enter obtained marks" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="totalMarks">Total Marks</label>
+                                <input type="number" id="totalMarks" name="total_marks" min="0.01" step="0.01"
+                                    placeholder="Enter total marks" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="internalAcademicYear">Academic Year</label>
+                                <input type="text" id="internalAcademicYear" name="academic_year"
+                                    placeholder="2026-2027" required>
+                            </div>
+
+                        </div>
+
+                        <button type="submit" class="primary-button" id="saveInternalButton">
+                            Save Internal Marks
+                        </button>
+
+                        <p id="internalMessage" class="form-message"></p>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Saved Internal Results -->
+                <div class="result-panel">
+
+                    <div class="table-heading">
+                        <div>
+                            <h3>Saved Internal Results</h3>
+                            <p class="panel-description">
+                                View and manage all entered internal examination marks.
+                            </p>
+                        </div>
+
+                        <select id="internalFilterSemester">
+                            <option value="">All Semesters</option>
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                            <option value="3">Semester 3</option>
+                        </select>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Roll No.</th>
+                                    <th>Semester</th>
+                                    <th>Subject</th>
+                                    <th>Exam Type</th>
+                                    <th>Marks</th>
+                                    <th>Academic Year</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="internalResultsTable">
+                                <tr>
+                                    <td colspan="9">Loading internal results...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p id="internalResultsMessage" class="form-message"></p>
+
+                </div>
+
+
+            </section>
+
+
+            <p id="dashboardMessage"></p>
+
+        </main>
+
+    </div>
+
+    <script src="../Assets/JS/admin-results.js"></script>
+
+</body>
+
+</html>

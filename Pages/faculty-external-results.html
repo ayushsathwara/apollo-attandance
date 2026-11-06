@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>External Results - Apollo</title>
+
+    <link rel="stylesheet" href="../Assets/CSS/faculty-internal-results.css">
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!-- HEADER -->
+
+        <header class="page-header">
+
+            <div>
+                <h1>External Results</h1>
+                <p>Upload and manage student external examination results</p>
+            </div>
+
+            <a href="faculty-dashboard.html" class="back-btn">
+                ← Dashboard
+            </a>
+
+        </header>
+
+
+        <!-- UPLOAD FORM -->
+
+        <section class="result-card">
+
+            <div class="card-heading">
+
+                <h2 id="formTitle">Upload External Result</h2>
+
+                <p>
+                    Upload external examination result PDFs for your students.
+                    You can replace or publish your uploaded results.
+                </p>
+
+            </div>
+
+
+            <form id="externalResultForm" enctype="multipart/form-data">
+
+                <input type="hidden" id="resultId" name="result_id">
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="semester">Semester</label>
+
+                        <select id="semester" name="semester" required>
+
+                            <option value="">Select Semester</option>
+
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                            <option value="3">Semester 3</option>
+                            <option value="4">Semester 4</option>
+                            <option value="5">Semester 5</option>
+                            <option value="6">Semester 6</option>
+                            <option value="7">Semester 7</option>
+                            <option value="8">Semester 8</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="student">Student</label>
+
+                        <select id="student" name="student_id" required>
+
+                            <option value="">Select Student</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="academicYear">Academic Year</label>
+
+                        <input type="text" id="academicYear" name="academic_year" placeholder="Example: 2026-27"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="resultFile">External Result PDF</label>
+
+                        <input type="file" id="resultFile" name="result_file" accept=".pdf,application/pdf">
+
+                        <small>PDF only. Maximum file size: 5 MB.</small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button type="submit" id="uploadBtn">
+                        Upload External Result
+                    </button>
+
+                    <button type="button" id="cancelEditBtn" hidden>
+                        Cancel Replace
+                    </button>
+
+                </div>
+
+
+                <p id="formMessage"></p>
+
+            </form>
+
+        </section>
+
+
+        <!-- EXTERNAL RESULTS TABLE -->
+
+        <section class="result-card">
+
+            <div class="card-top">
+
+                <div>
+                    <h2>External Results</h2>
+                    <p id="resultCount">Loading results...</p>
+                </div>
+
+                <select id="filterSemester">
+
+                    <option value="">All Semesters</option>
+
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                    <option value="8">Semester 8</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+                            <th>Student</th>
+                            <th>Roll No</th>
+                            <th>Semester</th>
+                            <th>Academic Year</th>
+                            <th>PDF File</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="resultTable">
+
+                        <tr>
+                            <td colspan="8">Loading...</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="../Assets/JS/faculty-external-results.js"></script>
+
+</body>
+
+</html>
