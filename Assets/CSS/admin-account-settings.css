@@ -17,15 +17,15 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
-    min-height: 100vh;
-    padding: 40px 24px;
 }
+
+/* Settings Container */
 
 .settings-container {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    background: transparent;
+    padding: 35px 24px;
 }
 
 .settings-container h1 {
@@ -42,7 +42,10 @@ body {
     margin-bottom: 28px;
 }
 
+/* Account Form */
+
 #accountForm {
+    width: 100%;
     max-width: 760px;
     background: #fff;
     padding: 32px;
@@ -87,8 +90,10 @@ body {
 }
 
 #accountSearch {
-    margin-bottom: 10px;
+    margin-bottom: 10px !important;
 }
+
+/* Account Search Results */
 
 #accountResults {
     display: flex;
@@ -127,7 +132,20 @@ body {
     padding: 8px 2px;
 }
 
+/* Parent Phone Field */
+
+#parentPhoneGroup {
+    width: 100%;
+}
+
+#parentPhoneGroup[hidden] {
+    display: none;
+}
+
+/* Update Button */
+
 #updateBtn {
+    width: 100%;
     min-height: 46px;
     padding: 12px 20px;
     background: var(--primary);
@@ -154,58 +172,25 @@ body {
     cursor: not-allowed;
 }
 
-#message {
+#message,
+#myAdminMessage {
     margin-top: 14px;
     font-size: 14px;
     line-height: 1.5;
     overflow-wrap: anywhere;
 }
 
-.settings-container>a {
-    display: inline-block;
-    margin-top: 24px;
-    color: var(--primary);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.settings-container>a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-    body {
-        padding: 24px 14px;
-    }
-
-    .settings-container h1 {
-        font-size: 25px;
-    }
-
-    #accountForm {
-        padding: 22px 18px;
-    }
-}
-
-/* ===== My Admin Account Section ===== */
+/* My Admin Account Section */
 
 .admin-self-settings {
     width: 100%;
-    max-width: 750px;
-    margin: 30px auto;
+    max-width: 760px;
+    margin: 24px 0;
     padding: 28px;
-    background: #ffffff;
+    background: #fff;
     border: 1px solid #e5eaf2;
     border-radius: 16px;
     box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
-    box-sizing: border-box;
-}
-
-.admin-self-settings hr {
-    border: 0;
-    border-top: 1px solid #e5eaf2;
-    margin: 0 0 25px;
 }
 
 .admin-self-settings h2 {
@@ -239,7 +224,6 @@ body {
     width: 100%;
     min-height: 46px;
     padding: 12px 14px;
-    box-sizing: border-box;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     background: #fff;
@@ -288,17 +272,28 @@ body {
     cursor: not-allowed;
 }
 
-#myAdminMessage {
-    margin-top: 14px;
-    font-size: 14px;
-    line-height: 1.5;
+/* Responsive */
+
+@media (max-width: 1000px) {
+    .settings-container {
+        padding: 28px 20px;
+    }
 }
 
-/* ===== Mobile Responsive ===== */
+@media (max-width: 700px) {
+    .settings-container {
+        padding: 22px 15px;
+    }
 
-@media (max-width: 600px) {
+    .settings-container h1 {
+        font-size: 25px;
+    }
+
+    #accountForm {
+        padding: 22px 18px;
+    }
+
     .admin-self-settings {
-        margin: 20px auto;
         padding: 20px 16px;
         border-radius: 12px;
     }
@@ -310,95 +305,5 @@ body {
     .admin-self-settings input,
     .admin-self-settings button {
         min-height: 44px;
-    }
-}
-
-/* Keep both account sections aligned */
-.settings-container {
-    width: min(100% - 32px, 760px);
-    margin: 40px auto;
-}
-
-.settings-container>form,
-.settings-container>.admin-self-settings {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0 0 24px;
-    padding: 28px;
-    background: #fff;
-    border: 1px solid #e5eaf2;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-}
-
-/* Admin section matches the existing form */
-.admin-self-settings h2 {
-    margin: 0 0 8px;
-    color: #172554;
-    font-size: 25px;
-}
-
-.admin-self-settings>p {
-    margin: 0 0 22px;
-    color: #64748b;
-    line-height: 1.6;
-}
-
-.admin-self-settings form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.admin-self-settings label {
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #334155;
-}
-
-.admin-self-settings input {
-    width: 100%;
-    min-height: 46px;
-    box-sizing: border-box;
-    padding: 12px 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font: inherit;
-}
-
-.admin-self-settings input:focus {
-    outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
-}
-
-.admin-self-settings button {
-    width: 100%;
-    min-height: 46px;
-    margin-top: 12px;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: #2563eb;
-    color: #fff;
-    font: inherit;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.admin-self-settings button:hover {
-    background: #1d4ed8;
-}
-
-@media (max-width: 600px) {
-    .settings-container {
-        width: calc(100% - 24px);
-        margin: 20px auto;
-    }
-
-    .settings-container>form,
-    .settings-container>.admin-self-settings {
-        padding: 20px 16px;
     }
 }

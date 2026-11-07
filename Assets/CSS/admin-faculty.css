@@ -64,7 +64,7 @@ body {
 }
 
 .main-content {
-    margin-left: 250px;
+    margin-left: 0;
     padding: 30px;
 }
 
@@ -178,8 +178,8 @@ tbody tr:hover {
     }
 
     .main-content {
-        margin-left: 210px;
-        padding: 20px;
+        margin-left: 0;
+        padding: 24px 20px;
     }
 
     .topbar {
@@ -294,4 +294,18 @@ tbody tr:hover {
 .delete-faculty-button:focus-visible {
     outline: 2px solid #991b1b;
     outline-offset: 3px;
+}
+
+.admin-sidebar #logoutButton {
+    margin-top: 30px;
+    padding: 12px;
+    border: 1px solid #475569;
+    border-radius: 9px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.admin-sidebar #logoutButton:hover {
+    background: #1e293b;
 }

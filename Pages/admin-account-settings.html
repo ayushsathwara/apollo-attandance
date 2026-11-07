@@ -4,84 +4,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Account Settings | Apollo</title>
+
+    <!-- Shared Admin Sidebar -->
+    <link rel="stylesheet" href="../Assets/CSS/admin-dashboard.css">
+
+    <!-- Account Settings CSS -->
     <link rel="stylesheet" href="../Assets/CSS/admin-account-settings.css">
 </head>
 
 <body>
 
-    <div class="settings-container">
-        <h1>Account Settings</h1>
-        <p>Change the email or password of a student, parent, or faculty member.</p>
+    <div class="admin-layout">
 
-        <form id="accountForm">
-            <label for="accountType">Account Type</label>
-            <select id="accountType" required>
-                <option value="">Select account type</option>
-                <option value="student">Student</option>
-                <option value="parent">Parent</option>
-                <option value="faculty">Faculty</option>
-            </select>
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
 
+            <div class="admin-brand">
+                <div class="admin-brand-logo">A</div>
 
-            <label for="accountSearch">Search Account</label>
-            <input type="text" id="accountSearch" placeholder="Search by name or email">
-
-            <div id="accountResults"></div>
-
-            <label for="accountId">Account ID</label>
-            <input type="number" id="accountId" min="1" placeholder="Select an account from search" required>
-
-            <label for="email">New Email</label>
-            <input type="email" id="email" placeholder="Enter new email address" required>
-
-            <div id="parentPhoneGroup" hidden>
-                <label for="phone">Parent Contact Number</label>
-                <input type="tel" id="phone" placeholder="Enter parent contact number" maxlength="20"
-                    autocomplete="tel">
+                <div>
+                    <h2>Apollo</h2>
+                    <small>Admin Panel</small>
+                </div>
             </div>
 
-            <label for="password">New Password</label>
-            <input type="password" id="password" placeholder="Leave blank to keep current password" minlength="8"
-                autocomplete="new-password">
+            <nav class="admin-nav">
 
-            <button type="submit" id="updateBtn">Update Account</button>
+                <a href="admin-dashboard.html">Dashboard</a>
 
-            <p id="message" role="status"></p>
-        </form>
+                <a href="admin-students.html">Student Management</a>
 
-        <section class="admin-self-settings">
-            <h2>My Admin Account</h2>
-            <p>Change your own admin email or password.</p>
+                <a href="admin-faculty.html">Faculty Management</a>
 
-            <form id="myAdminForm">
-                <label for="adminCurrentPassword">Current Password</label>
-                <input type="password" id="adminCurrentPassword" autocomplete="current-password" required>
+                <a href="admin-account-settings.html" class="active sidebar-link">
+                    <span>Account Settings</span>
+                </a>
 
-                <label for="adminNewEmail">New Email</label>
-                <input type="email" id="adminNewEmail" placeholder="Enter new admin email" required>
+                <a href="admin-support.html">Support Requests</a>
 
-                <label for="adminNewPassword">New Password (optional)</label>
-                <input type="password" id="adminNewPassword" minlength="8" autocomplete="new-password"
-                    placeholder="Leave blank to keep current password">
+                <a href="admin-feedback.html">Student Feedback</a>
 
-                <label for="adminConfirmPassword">Confirm New Password</label>
-                <input type="password" id="adminConfirmPassword" minlength="8" autocomplete="new-password"
-                    placeholder="Repeat new password">
+                <a href="manage-notices.html">Manage Notices</a>
 
-                <button type="submit" id="myAdminUpdateBtn">
-                    Update My Account
-                </button>
+                <a href="admin-results.html">Results Management</a>
 
-                <p id="myAdminMessage" role="status"></p>
-            </form>
-        </section>
+            </nav>
 
+            <button class="admin-logout" id="logoutButton">
+                Logout
+            </button>
 
-        <a href="admin-dashboard.html">← Back to Dashboard</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+
+            <div class="settings-container">
+
+                <h1>Account Settings</h1>
+
+                <p>
+                    Change the email or password of a student, parent, or faculty member.
+                </p>
+
+                <!-- Other Account Settings -->
+                <form id="accountForm">
+
+                    <label for="accountType">Account Type</label>
+
+                    <select id="accountType" required>
+                        <option value="">Select account type</option>
+                        <option value="student">Student</option>
+                        <option value="parent">Parent</option>
+                        <option value="faculty">Faculty</option>
+                    </select>
+
+                    <label for="accountSearch">Search Account</label>
+
+                    <input type="text" id="accountSearch" placeholder="Search by name or email">
+
+                    <div id="accountResults"></div>
+
+                    <label for="accountId">Account ID</label>
+
+                    <input type="number" id="accountId" min="1" placeholder="Select an account from search" required>
+
+                    <label for="email">New Email</label>
+
+                    <input type="email" id="email" placeholder="Enter new email address" required>
+
+                    <div id="parentPhoneGroup" hidden>
+
+                        <label for="phone">Parent Contact Number</label>
+
+                        <input type="tel" id="phone" placeholder="Enter parent contact number" maxlength="20"
+                            autocomplete="tel">
+
+                    </div>
+
+                    <label for="password">New Password</label>
+
+                    <input type="password" id="password" placeholder="Leave blank to keep current password"
+                        minlength="8" autocomplete="new-password">
+
+                    <button type="submit" id="updateBtn">
+                        Update Account
+                    </button>
+
+                    <p id="message" role="status"></p>
+
+                </form>
+
+                <!-- Admin Self Settings -->
+                <section class="admin-self-settings">
+
+                    <h2>My Admin Account</h2>
+
+                    <p>Change your own admin email or password.</p>
+
+                    <form id="myAdminForm">
+
+                        <label for="adminCurrentPassword">
+                            Current Password
+                        </label>
+
+                        <input type="password" id="adminCurrentPassword" autocomplete="current-password" required>
+
+                        <label for="adminNewEmail">New Email</label>
+
+                        <input type="email" id="adminNewEmail" placeholder="Enter new admin email" required>
+
+                        <label for="adminNewPassword">
+                            New Password (optional)
+                        </label>
+
+                        <input type="password" id="adminNewPassword" minlength="8" autocomplete="new-password"
+                            placeholder="Leave blank to keep current password">
+
+                        <label for="adminConfirmPassword">
+                            Confirm New Password
+                        </label>
+
+                        <input type="password" id="adminConfirmPassword" minlength="8" autocomplete="new-password"
+                            placeholder="Repeat new password">
+
+                        <button type="submit" id="myAdminUpdateBtn">
+                            Update My Account
+                        </button>
+
+                        <p id="myAdminMessage" role="status"></p>
+
+                    </form>
+
+                </section>
+
+            </div>
+
+        </main>
+
     </div>
 
     <script src="../Assets/JS/admin-account-settings.js"></script>
+
 </body>
 
 </html>
