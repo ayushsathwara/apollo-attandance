@@ -57,8 +57,36 @@ async function loadStudentDetails() {
         document.getElementById("rollNo").textContent =
             profile.roll_no || "—";
 
-        document.querySelector(".parent-avatar").textContent =
-            (profile.parent_name || "P").charAt(0).toUpperCase();
+        const parentInitial = document.getElementById("parentInitial");
+        const parentPhoto = document.getElementById("parentPhoto");
+
+        if (parentInitial && parentPhoto) {
+            parentInitial.textContent =
+                (profile.parent_name || "P").charAt(0).toUpperCase();
+
+            function showInitial() {
+                parentPhoto.hidden = true;
+                parentInitial.style.display = "flex";
+            }
+
+            if (profile.profile_photo) {
+                const photoPath = profile.profile_photo.replace(/\\/g, "/");
+
+                const photoURL = photoPath.startsWith("http")
+                    ? photoPath
+                    : `${API_URL}/${photoPath.replace(/^\/+/, "")}`;
+
+                parentPhoto.onload = function () {
+                    parentPhoto.hidden = false;
+                    parentInitial.style.display = "none";
+                };
+
+                parentPhoto.onerror = showInitial;
+                parentPhoto.src = photoURL + "?t=" + Date.now();
+            } else {
+                showInitial();
+            }
+        }
 
     } catch (error) {
         console.error("Student details error:", error);

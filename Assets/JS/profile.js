@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", async function () {
 
     const API_URL = "http://localhost/apollo-backend/student/profile.php";
+    const PHOTO_BASE_URL = "http://localhost/apollo-backend/";
 
     // Get element safely
     function setText(id, value) {
@@ -28,9 +29,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const student = data.student;
 
-        // =========================
         // STUDENT BASIC INFORMATION
-        // =========================
 
         const name = student.name || "Student";
         const roll = student.roll_no || "—";
@@ -41,76 +40,72 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const firstLetter = name.trim().charAt(0).toUpperCase() || "S";
 
-        // =========================
         // HEADER
-        // =========================
 
         setText("headerName", name.split(" ")[0]);
         setText("miniName", name);
 
-        // =========================
         // PROFILE AVATAR
-        // =========================
 
         setText("profileInitial", firstLetter);
         setText("miniAvatar", firstLetter);
 
-        // =========================
         // PROFILE PHOTO
-        // =========================
 
         const profilePhoto = document.getElementById("profilePhoto");
         const profileInitial = document.getElementById("profileInitial");
 
+        function showInitial() {
+            if (profilePhoto) {
+                profilePhoto.hidden = true;
+            }
+
+            if (profileInitial) {
+                profileInitial.style.display = "flex";
+            }
+        }
+
         if (student.profile_photo && profilePhoto) {
 
-            const photoPath = student.profile_photo;
+            const photoPath = student.profile_photo.replace(/\\/g, "/");
 
-            // Use the stored relative upload path.
             const photoURL = photoPath.startsWith("http")
                 ? photoPath
-                : "http://localhost/apollo-backend/" + photoPath.replace(/^\/+/, "");
+                : PHOTO_BASE_URL + photoPath.replace(/^\/+/, "");
 
             profilePhoto.onload = function () {
                 profilePhoto.hidden = false;
-                profileInitial.style.display = "none";
+
+                if (profileInitial) {
+                    profileInitial.style.display = "none";
+                }
             };
 
-            profilePhoto.onerror = function () {
-                profilePhoto.hidden = true;
-                profileInitial.style.display = "flex";
-            };
+            profilePhoto.onerror = showInitial;
 
-            profilePhoto.src = photoURL;
+            profilePhoto.src = photoURL + (photoURL.includes("?") ? "&" : "?") + "t=" + Date.now();
 
-        } else if (profilePhoto) {
+        } else {
 
-            profilePhoto.hidden = true;
-            profileInitial.style.display = "flex";
+            showInitial();
 
         }
 
-        // =========================
         // PROFILE HERO
-        // =========================
 
         setText("profileName", name);
         setText("profileRoll", roll);
         setText("profileCourse", course);
         setText("profileEmail", email);
 
-        // =========================
         // PERSONAL INFORMATION
-        // =========================
 
         setText("personalName", name);
         setText("personalId", studentId);
         setText("personalRoll", roll);
         setText("personalEmail", email);
 
-        // =========================
         // ACADEMIC DETAILS
-        // =========================
 
         setText("academicCourse", course);
 
@@ -136,11 +131,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             setText("currentYear", currentYear);
 
-            // Academic year is calculated from the current calendar year.
             const today = new Date();
-            const month = today.getMonth(); // January = 0
+            const month = today.getMonth();
 
-            // Assumption: academic year starts in June.
+            // Academic year starts in June
             const startYear = month >= 5
                 ? today.getFullYear()
                 : today.getFullYear() - 1;
@@ -172,4 +166,3 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
 });
-

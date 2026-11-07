@@ -70,11 +70,41 @@ async function loadParentProfile() {
         setText("parentPhone", profile.parent_phone);
 
         // Parent avatar
-        const avatar = document.querySelector(".parent-avatar");
+        // Parent Profile Photo
+        const parentInitial = document.getElementById("parentInitial");
+        const parentPhoto = document.getElementById("parentPhoto");
 
-        if (avatar && profile.parent_name) {
-            avatar.textContent =
-                profile.parent_name.charAt(0).toUpperCase();
+        if (parentInitial && parentPhoto) {
+
+            const initial = (profile.parent_name || "P")
+                .charAt(0).toUpperCase();
+
+            parentInitial.textContent = initial;
+
+            function showInitial() {
+                parentPhoto.hidden = true;
+                parentInitial.style.display = "flex";
+            }
+
+            if (profile.profile_photo) {
+
+                const photoPath = profile.profile_photo.replace(/\\/g, "/");
+
+                const photoURL = photoPath.startsWith("http")
+                    ? photoPath
+                    : `${API_URL}/${photoPath.replace(/^\/+/, "")}`;
+
+                parentPhoto.onload = function () {
+                    parentPhoto.hidden = false;
+                    parentInitial.style.display = "none";
+                };
+
+                parentPhoto.onerror = showInitial;
+                parentPhoto.src = photoURL + "?t=" + Date.now();
+
+            } else {
+                showInitial();
+            }
         }
 
         setText("profileMessage", "Profile loaded successfully.");

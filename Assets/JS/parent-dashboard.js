@@ -53,8 +53,40 @@ async function loadParentProfile() {
         document.getElementById("semester").textContent =
             profile.semester;
 
-        document.querySelector(".parent-avatar").textContent =
-            profile.parent_name.charAt(0).toUpperCase();
+        // Parent profile photo
+        const parentInitial = document.getElementById("parentInitial");
+        const parentPhoto = document.getElementById("parentPhoto");
+
+        const initial = (profile.parent_name || "P")
+            .charAt(0).toUpperCase();
+
+        parentInitial.textContent = initial;
+
+        function showParentInitial() {
+            parentPhoto.hidden = true;
+            parentInitial.style.display = "flex";
+        }
+
+        if (profile.profile_photo) {
+
+            const photoPath = profile.profile_photo.replace(/\\/g, "/");
+
+            const photoURL = photoPath.startsWith("http")
+                ? photoPath
+                : "http://localhost/apollo-backend/" + photoPath.replace(/^\/+/, "");
+
+            parentPhoto.onload = function () {
+                parentPhoto.hidden = false;
+                parentInitial.style.display = "none";
+            };
+
+            parentPhoto.onerror = showParentInitial;
+
+            parentPhoto.src = photoURL + "?t=" + Date.now();
+
+        } else {
+            showParentInitial();
+        }
 
     } catch (error) {
         console.error("Parent profile error:", error);

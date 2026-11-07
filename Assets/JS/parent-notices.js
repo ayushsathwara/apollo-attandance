@@ -6,6 +6,66 @@
 const API_URL = "http://localhost/apollo-backend";
 const LOGIN_URL = "http://localhost/apollo-attandance/index.html";
 
+// =====================================
+// LOAD PARENT PROFILE PHOTO
+// =====================================
+
+async function loadParentPhoto() {
+
+    const parentInitial = document.getElementById("parentInitial");
+    const parentPhoto = document.getElementById("parentPhoto");
+
+    if (!parentInitial || !parentPhoto) return;
+
+    try {
+        const response = await fetch(`${API_URL}/parent/profile.php`, {
+            method: "GET",
+            credentials: "include"
+        });
+
+        const data = await response.json();
+
+        if (data.status !== "success" || !data.profile) {
+            throw new Error("Parent profile not available");
+        }
+
+        const profile = data.profile;
+
+        parentInitial.textContent =
+            (profile.parent_name || "P").charAt(0).toUpperCase();
+
+        function showInitial() {
+            parentPhoto.hidden = true;
+            parentInitial.style.display = "flex";
+        }
+
+        if (profile.profile_photo) {
+
+            const photoPath = profile.profile_photo.replace(/\\/g, "/");
+
+            const photoURL = photoPath.startsWith("http")
+                ? photoPath
+                : `${API_URL}/${photoPath.replace(/^\/+/, "")}`;
+
+            parentPhoto.onload = function () {
+                parentPhoto.hidden = false;
+                parentInitial.style.display = "none";
+            };
+
+            parentPhoto.onerror = showInitial;
+            parentPhoto.src = photoURL + "?t=" + Date.now();
+
+        } else {
+            showInitial();
+        }
+
+    } catch (error) {
+        console.error("Parent photo error:", error);
+        parentPhoto.hidden = true;
+        parentInitial.style.display = "flex";
+    }
+}
+
 
 // Format date
 function formatNoticeDate(dateValue) {
@@ -201,5 +261,6 @@ if (logoutBtn) {
 
 // Load notices
 document.addEventListener("DOMContentLoaded", function () {
+    loadParentPhoto();
     loadParentNotices();
 });

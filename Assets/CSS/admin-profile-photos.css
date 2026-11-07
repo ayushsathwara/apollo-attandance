@@ -1,0 +1,287 @@
+/* =====================================
+   PROFILE PHOTO MANAGEMENT
+===================================== */
+
+.photo-management-container {
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.photo-panel {
+    background: #ffffff;
+    padding: 28px;
+    margin-bottom: 25px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
+}
+
+.photo-panel h2 {
+    color: #0f172a;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.photo-panel>p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* Search Form */
+
+.photo-search-form {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr auto;
+    gap: 18px;
+    align-items: end;
+}
+
+.photo-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 20px;
+}
+
+.photo-form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.photo-form-group input,
+.photo-form-group select {
+    width: 100%;
+    min-height: 46px;
+    padding: 11px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1e293b;
+    font-size: 14px;
+    outline: none;
+}
+
+.photo-form-group input:focus,
+.photo-form-group select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.photo-form-group small {
+    color: #64748b;
+    font-size: 12px;
+}
+
+/* Buttons */
+
+.photo-search-form button,
+#savePhotoButton,
+#removePhotoButton {
+    min-height: 44px;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.photo-search-form button,
+#savePhotoButton {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.photo-search-form button:hover,
+#savePhotoButton:hover {
+    background: #1d4ed8;
+}
+
+#removePhotoButton {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+#removePhotoButton:hover {
+    background: #fecaca;
+}
+
+/* Search Results */
+
+#accountResults {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.account-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    background: #f8fafc;
+}
+
+.account-result-info strong {
+    display: block;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.account-result-info span {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.select-account-button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 7px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.select-account-button:hover {
+    background: #bfdbfe;
+}
+
+/* Selected Account */
+
+.selected-account {
+    padding: 16px;
+    margin: 20px 0;
+    background: #f1f5f9;
+    border-radius: 9px;
+}
+
+.selected-account h3 {
+    color: #0f172a;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.selected-account p {
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* Photo Preview */
+
+.photo-preview-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.photo-preview-wrapper {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border: 4px solid #e2e8f0;
+    border-radius: 50%;
+    background: #f1f5f9;
+}
+
+.photo-preview-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#photoStatus {
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* Photo Actions */
+
+.photo-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* Messages */
+
+#searchMessage,
+#photoMessage {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+}
+
+#photoEditor[hidden] {
+    display: none;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+    .photo-management-container {
+        margin: 20px auto;
+    }
+
+    .photo-search-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .photo-search-form button {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 700px) {
+    .photo-panel {
+        padding: 20px;
+    }
+
+    .photo-search-form {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .photo-search-form button {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .account-result {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .photo-actions {
+        flex-direction: column;
+    }
+
+    .photo-actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .photo-panel {
+        padding: 15px;
+    }
+
+    .photo-panel h2 {
+        font-size: 19px;
+    }
+
+    .photo-preview-wrapper {
+        width: 125px;
+        height: 125px;
+    }
+}

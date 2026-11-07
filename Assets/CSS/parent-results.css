@@ -235,3 +235,39 @@
         padding: 18px;
     }
 }
+
+/* Results Page Profile Photo Fix */
+.topbar .parent-avatar {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.topbar .parent-avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.topbar .parent-avatar img[hidden] {
+    display: none;
+}
+
+.topbar .parent-avatar span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}

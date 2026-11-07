@@ -21,14 +21,10 @@ async function loadFacultyProfile() {
 
         console.log("Faculty Data:", data);
 
-
         if (data.status !== "success") {
-
             alert(data.message || "Unable to load faculty profile.");
-
             return;
         }
-
 
         const faculty = data.faculty;
 
@@ -37,40 +33,56 @@ async function loadFacultyProfile() {
         const email = faculty.email || "—";
         const department = faculty.department || "—";
 
-
         // Header name
-        document.getElementById("facultyName").textContent =
-            name;
-
+        document.getElementById("facultyName").textContent = name;
 
         // Welcome name
-        document.getElementById("welcomeName").textContent =
-            name;
-
+        document.getElementById("welcomeName").textContent = name;
 
         // Faculty initial
-        document.getElementById("facultyInitial").textContent =
-            name.charAt(0).toUpperCase();
+        const initial = name.charAt(0).toUpperCase();
 
+        const initialElement = document.getElementById("facultyInitial");
+        const photoElement = document.getElementById("facultyPhoto");
+
+        initialElement.textContent = initial;
+
+        // Profile photo
+        function showInitial() {
+            photoElement.hidden = true;
+            initialElement.style.display = "flex";
+        }
+
+        if (faculty.profile_photo) {
+
+            const photoPath = faculty.profile_photo.replace(/\\/g, "/");
+
+            const photoURL = photoPath.startsWith("http")
+                ? photoPath
+                : "http://localhost/apollo-backend/" + photoPath.replace(/^\/+/, "");
+
+            photoElement.onload = function () {
+                photoElement.hidden = false;
+                initialElement.style.display = "none";
+            };
+
+            photoElement.onerror = showInitial;
+
+            photoElement.src = photoURL + "?t=" + Date.now();
+
+        } else {
+            showInitial();
+        }
 
         // Information cards
-        document.getElementById("infoName").textContent =
-            name;
-
-        document.getElementById("infoEmployeeId").textContent =
-            employeeId;
-
-        document.getElementById("infoEmail").textContent =
-            email;
-
-        document.getElementById("infoDepartment").textContent =
-            department;
-
+        document.getElementById("infoName").textContent = name;
+        document.getElementById("infoEmployeeId").textContent = employeeId;
+        document.getElementById("infoEmail").textContent = email;
+        document.getElementById("infoDepartment").textContent = department;
 
     } catch (error) {
 
         console.error("Faculty Profile Error:", error);
-
         alert("Unable to connect to server.");
 
     }
