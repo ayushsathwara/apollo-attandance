@@ -1,3 +1,4 @@
+
 const loginForm = document.getElementById("loginForm");
 const emailInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
@@ -40,10 +41,10 @@ roleCards.forEach(function (card) {
     });
 });
 
-// Reset OTP step if email changes
+// Reset OTP if email changes
 emailInput.addEventListener("input", resetOtp);
 
-// Reset OTP step if course changes
+// Reset OTP if course changes
 courseInput.addEventListener("change", resetOtp);
 
 function resetOtp() {
@@ -89,8 +90,10 @@ loginForm.addEventListener("submit", async function (event) {
     mainBtn.disabled = true;
 
     try {
+
         // FIRST CLICK: Send OTP
         if (!otpRequested) {
+
             mainBtn.textContent = "SENDING OTP...";
             loginStatus.textContent = "Sending code to your email...";
 
@@ -103,7 +106,8 @@ loginForm.addEventListener("submit", async function (event) {
                 body: new URLSearchParams({
                     email: email,
                     password: password,
-                    role: selectedRole
+                    role: selectedRole,
+                    course: course
                 })
             });
 
@@ -121,6 +125,7 @@ loginForm.addEventListener("submit", async function (event) {
             otpInput.required = true;
 
             mainBtn.innerHTML = "<span>→</span> LOGIN";
+
             loginStatus.textContent =
                 "OTP sent. Enter the code from your email, then click LOGIN.";
 
@@ -149,7 +154,8 @@ loginForm.addEventListener("submit", async function (event) {
             body: new URLSearchParams({
                 email: email,
                 role: selectedRole,
-                otp: otp
+                otp: otp,
+                course: course
             })
         });
 
@@ -161,7 +167,7 @@ loginForm.addEventListener("submit", async function (event) {
             return;
         }
 
-        // OTP verified. Now check the password.
+        // OTP verified. Now perform final login.
         mainBtn.textContent = "LOGGING IN...";
         loginStatus.textContent = "Email verified. Logging in...";
 
@@ -182,17 +188,21 @@ loginForm.addEventListener("submit", async function (event) {
         const result = await loginResponse.text();
 
         if (result.trim() === "Login successful!") {
+
             if (selectedRole === "student") {
+
                 localStorage.setItem("studentCourse", course);
 
                 window.location.href =
                     "http://localhost/apollo-attandance/Pages/dashboard.html";
 
             } else if (selectedRole === "faculty") {
+
                 window.location.href =
                     "http://localhost/apollo-attandance/Pages/faculty-dashboard.html";
 
             } else if (selectedRole === "parent") {
+
                 window.location.href =
                     "http://localhost/apollo-attandance/Pages/parent-dashboard.html";
             }
@@ -202,20 +212,23 @@ loginForm.addEventListener("submit", async function (event) {
 
         loginStatus.textContent = result;
 
-        // Password was incorrect. OTP was already consumed;
-        // request a fresh OTP before trying again.
+        // OTP was consumed. Request a fresh OTP before retrying.
         otpRequested = false;
         otpInput.value = "";
         otpInput.required = false;
         otpGroup.hidden = true;
+
         mainBtn.innerHTML = "<span>→</span> SEND OTP";
 
     } catch (error) {
+
         console.error(error);
+
         loginStatus.textContent =
             "Unable to connect. Check XAMPP and the browser console.";
 
     } finally {
+
         busy = false;
         mainBtn.disabled = false;
     }
