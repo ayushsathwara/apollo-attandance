@@ -1071,6 +1071,8 @@ async function loadDashboardProfile() {
     const courseElement =
         document.getElementById("dashboardCourse");
 
+    const courseNameElement = document.getElementById("courseName");
+
     const avatar =
         document.getElementById("dashboardAvatar");
 
@@ -1117,6 +1119,12 @@ async function loadDashboardProfile() {
             courseElement.textContent =
                 `${student.course || "BCA"} Sem ${student.semester || ""}`;
         }
+
+        if (courseNameElement) {
+            courseNameElement.textContent = student.course || "Course";
+        }
+
+        console.log("COURSE UPDATED:", courseElement.textContent);
 
         // Show first letter initially
         if (initial) {

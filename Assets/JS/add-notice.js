@@ -27,6 +27,7 @@ noticeForm.addEventListener("submit", async function (event) {
     const message = document.getElementById("noticeMessage").value.trim();
     const targetRole = document.getElementById("targetRole").value;
     const category = document.getElementById("noticeCategory").value;
+    const course = document.getElementById("noticeCourse").value;
 
     // Validate form
     if (!title || !message) {
@@ -49,7 +50,8 @@ noticeForm.addEventListener("submit", async function (event) {
                 title,
                 message,
                 target_role: targetRole,
-                category: category
+                category: category,
+                course: course
             })
         });
 
