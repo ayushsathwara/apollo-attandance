@@ -1,0 +1,293 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f7fc;
+    color: #1e293b;
+}
+
+/* Header */
+
+.faculty-header {
+    background: #102a56;
+    color: #ffffff;
+    padding: 22px 5%;
+}
+
+.faculty-header h2 {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.faculty-header p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #d5e2f5;
+}
+
+/* Main Container */
+
+.manage-notices-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* Heading */
+
+.manage-notices-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.manage-notices-heading h1 {
+    font-size: 28px;
+    color: #102a56;
+    margin-bottom: 7px;
+}
+
+.manage-notices-heading p {
+    font-size: 15px;
+    color: #64748b;
+}
+
+/* Add Notice Button */
+
+.add-notice-btn {
+    display: inline-block;
+    background: #2563eb;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    white-space: nowrap;
+}
+
+.add-notice-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Notice Card */
+
+.notice-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
+    transition: 0.3s ease;
+}
+
+.notice-card:hover {
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.09);
+    transform: translateY(-2px);
+}
+
+/* Notice Header */
+
+.notice-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.notice-card-header h3 {
+    font-size: 19px;
+    color: #102a56;
+    overflow-wrap: anywhere;
+}
+
+/* Category */
+
+.notice-category {
+    background: #eaf1ff;
+    color: #2563eb;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+/* Notice Message */
+
+.notice-card>p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+/* Notice Details */
+
+.notice-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 25px;
+    padding: 14px 0;
+    border-top: 1px solid #edf0f5;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.notice-details span {
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* Action Buttons */
+
+.notice-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.notice-actions button {
+    border: none;
+    padding: 9px 20px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.notice-actions button:first-child {
+    background: #eaf1ff;
+    color: #2563eb;
+}
+
+.notice-actions button:first-child:hover {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.notice-actions button:last-child {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.notice-actions button:last-child:hover {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+/* Loading / Empty Message */
+
+#noticesContainer>p {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    color: #64748b;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+/* Responsive 1200px */
+
+@media (max-width: 1200px) {
+    .manage-notices-container {
+        width: 92%;
+    }
+}
+
+/* Responsive 992px */
+
+@media (max-width: 992px) {
+    .manage-notices-container {
+        margin: 30px auto;
+    }
+
+    .manage-notices-heading h1 {
+        font-size: 25px;
+    }
+}
+
+/* Responsive 768px */
+
+@media (max-width: 768px) {
+    .manage-notices-container {
+        width: 94%;
+    }
+
+    .manage-notices-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .notice-card {
+        padding: 19px;
+    }
+
+    .notice-card-header h3 {
+        font-size: 17px;
+    }
+}
+
+/* Responsive 576px */
+
+@media (max-width: 576px) {
+    .faculty-header {
+        padding: 18px 5%;
+    }
+
+    .faculty-header h2 {
+        font-size: 20px;
+    }
+
+    .manage-notices-heading h1 {
+        font-size: 23px;
+    }
+
+    .notice-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .notice-details {
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .notice-actions button {
+        flex: 1;
+        padding: 10px;
+    }
+}
+
+/* Responsive 375px */
+
+@media (max-width: 375px) {
+    .manage-notices-container {
+        width: 92%;
+    }
+
+    .notice-card {
+        padding: 15px;
+    }
+
+    .add-notice-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .notice-actions {
+        gap: 8px;
+    }
+}
