@@ -194,17 +194,17 @@ loginForm.addEventListener("submit", async function (event) {
                 localStorage.setItem("studentCourse", course);
 
                 window.location.href =
-                    "http://localhost/apollo-attandance/Pages/dashboard.html";
+                    "http://localhost/apollo-attandance/Pages/Student/dashboard.html";
 
             } else if (selectedRole === "faculty") {
 
                 window.location.href =
-                    "http://localhost/apollo-attandance/Pages/faculty-dashboard.html";
+                    "http://localhost/apollo-attandance/Pages/Faculty/faculty-dashboard.html";
 
             } else if (selectedRole === "parent") {
 
                 window.location.href =
-                    "http://localhost/apollo-attandance/Pages/parent-dashboard.html";
+                    "http://localhost/apollo-attandance/Pages/Parents/parent-dashboard.html";
             }
 
             return;

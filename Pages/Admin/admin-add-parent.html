@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Parent | Apollo Admin</title>
+
+    <link rel="stylesheet" href="../../Assets/CSS/admin-dashboard.css">
+    <link rel="stylesheet" href="../../Assets/CSS/admin-add-student.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <aside class="admin-sidebar">
+
+            <div class="admin-brand">
+                <div class="admin-brand-logo">A</div>
+                <div>
+                    <h2>Apollo</h2>
+                    <small>Admin Panel</small>
+                </div>
+            </div>
+
+            <nav class="admin-nav">
+                <a href="admin-dashboard.html">Dashboard</a>
+                <a href="admin-students.html">Student Management</a>
+                <a href="admin-faculty.html">Faculty Management</a>
+                <a href="admin-account-settings.html">Account Settings</a>
+                <a href="admin-support.html">Support Requests</a>
+                <a href="admin-feedback.html">Student Feedback</a>
+                <a href="manage-notices.html">Manage Notices</a>
+                <a href="admin-results.html">Results Management</a>
+            </nav>
+
+            <button class="admin-logout" id="logoutButton">
+                Logout
+            </button>
+
+        </aside>
+
+        <main class="admin-main">
+
+            <header class="admin-topbar">
+                <div>
+                    <h1>Add Parent Account</h1>
+                    <p>Create a parent account and link it to a student.</p>
+                </div>
+
+                <div class="admin-user">
+                    <div class="admin-avatar">A</div>
+                    <div>
+                        <strong id="adminName">Loading...</strong>
+                        <p id="adminEmail"></p>
+                    </div>
+                </div>
+            </header>
+
+            <section class="student-table-section add-student-section">
+
+                <form id="addParentForm">
+
+                    <div class="form-group">
+                        <label for="studentId">Select Student</label>
+
+                        <select id="studentId" name="student_id" required>
+                            <option value="">Loading students...</option>
+                        </select>
+
+                        <small id="studentInfo">
+                            Select the student whose parent account you want to create.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parentName">Parent Full Name</label>
+                        <input type="text" id="parentName" name="name" placeholder="Enter parent's full name"
+                            maxlength="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parentEmail">Parent Email Address</label>
+                        <input type="email" id="parentEmail" name="email" placeholder="Enter parent's email"
+                            maxlength="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parentPhone">Mobile Number</label>
+                        <input type="tel" id="parentPhone" name="phone" placeholder="Enter parent's mobile number"
+                            maxlength="20">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parentPassword">Initial Password</label>
+                        <input type="password" id="parentPassword" name="password" placeholder="At least 8 characters"
+                            minlength="8" autocomplete="new-password" required>
+                    </div>
+
+                    <p id="formMessage" role="status"></p>
+
+                    <div class="form-actions">
+
+                        <button type="submit" class="admin-button" id="submitButton">
+                            Create Parent Account
+                        </button>
+
+                        <a href="admin-students.html" class="back-link">
+                            Cancel
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="../../Assets/JS/admin-add-parent.js"></script>
+
+</body>
+
+</html>
