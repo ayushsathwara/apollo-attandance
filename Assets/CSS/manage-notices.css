@@ -181,3 +181,40 @@ body {
         text-align: center;
     }
 }
+
+.notice-heading-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    background: #e8eef8;
+    color: #173b70;
+    border: 1px solid #d1dced;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #173b70;
+    color: #ffffff;
+}
+
+@media (max-width: 576px) {
+    .notice-heading-actions {
+        width: 100%;
+    }
+
+    .notice-heading-actions a {
+        flex: 1;
+        text-align: center;
+    }
+}
